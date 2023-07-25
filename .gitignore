@@ -1,0 +1,138 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+
+# Web related
+lib/generated_plugin_registrant.dart
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+#---------------------------
+# WordPress general
+#---------------------------
+/wordpress/index.php
+
+#---------------------------
+# WordPress themes
+#---------------------------
+/wordpress/themes/*
+!/wordpress/themes/custom-theme
+
+#---------------------------
+# WordPress plugins
+#---------------------------
+/wordpress/plugins/*
+!/wordpress/plugins/custom-plugin
+
+#---------------------------
+# WP MU plugins: these are
+# managed by the platform.
+#---------------------------
+/wordpress/mu-plugins/
+
+#---------------------------
+# WP uploads directory
+#---------------------------
+/wordpress/uploads/
+
+#---------------------------
+# WP upgrade files
+#---------------------------
+/wordpress/upgrade/
+
+#---------------------------
+# OS-specific files
+#---------------------------
+.DS_Store
+.Trashes
+Thumbs.db
+
+#---------------------------
+# Composer
+#---------------------------
+/vendor
+.env
+.env.*
+!.env.example
+
+#---------------------------
+# Smart Plugin Manager
+#---------------------------
+/.logs/
+/wordpress/autoupdater_maintenance_mode_enabled.tmp
+
+#---------------------------
+# large/disallowed file types
+# a CDN should be used for these
+#---------------------------
+*.hqx
+*.bin
+*.exe
+*.dll
+*.deb
+*.dmg
+*.iso
+*.img
+*.msi
+*.msp
+*.msm
+*.mid
+*.midi
+*.kar
+*.mp3
+*.ogg
+*.m4a
+*.ra
+*.3gpp
+*.3gp
+*.mp4
+*.mpeg
+*.mpg
+*.mov
+*.webm
+*.flv
+*.m4v
+*.mng
+*.asx
+*.asf
+*.wmv
+*.avi
+*.log

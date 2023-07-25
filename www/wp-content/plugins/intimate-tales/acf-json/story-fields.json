@@ -1,0 +1,83 @@
+{
+    "key": "group_story_fields",
+    "title": "Intimate Tale Settings",
+    "fields": [
+        {
+            "key": "field_story_mood",
+            "label": "Story Mood",
+            "name": "story_mood",
+            "type": "select",
+            "choices": {
+                "happy": "Happy",
+                "sad": "Sad",
+                "exciting": "Exciting",
+                "romantic": "Romantic"
+            }
+        },
+        {
+            "key": "field_story_type",
+            "label": "Story Type",
+            "name": "story_type",
+            "type": "select",
+            "choices": {
+                "fantasy": "Fantasy",
+                "sci-fi": "Sci-Fi",
+                "mystery": "Mystery",
+                "romance": "Romance"
+            }
+        },
+        {
+            "key": "field_story_characters",
+            "label": "Story Characters",
+            "name": "story_characters",
+            "type": "text"
+        },
+        {
+            "key": "field_story_duration",
+            "label": "Story Duration",
+            "name": "story_duration",
+            "type": "number",
+            "append": "minutes"
+        },
+        {
+            "key": "field_story_difficulty",
+            "label": "Story Difficulty",
+            "name": "story_difficulty",
+            "type": "select",
+            "choices": {
+                "easy": "Easy",
+                "medium": "Medium",
+                "hard": "Hard"
+            }
+        },
+        {
+          "key": "field_interactive_elements",
+          "label": "Interactive Elements",
+          "name": "interactive_elements",
+          "type": "textarea"
+        },
+        {
+          "key": "field_decision_options",
+          "label": "Decision Options",
+          "name": "decision_options",
+          "type": "textarea"
+        },
+        {
+            "key": "field_story_rating",
+            "label": "Story Rating",
+            "name": "story_rating",
+            "type": "range",
+            "min": 0,
+            "max": 5
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "intimate-tale"
+            }
+        ]
+    ]
+}

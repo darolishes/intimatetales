@@ -1,0 +1,171 @@
+{
+    "key": "group_64b838aca1091",
+    "title": "App Options",
+    "fields": [
+        {
+            "key": "field_64b838acd5e04",
+            "label": "General Settings",
+            "name": "general_settings",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_app_name",
+            "label": "App Name",
+            "name": "app_name",
+            "type": "text",
+            "required": true
+        },
+        {
+            "key": "field_app_description",
+            "label": "App Description",
+            "name": "app_description",
+            "type": "textarea"
+        },
+        {
+            "key": "field_app_version",
+            "label": "App Version",
+            "name": "app_version",
+            "type": "text"
+        },
+        {
+            "key": "field_author_name",
+            "label": "Author Name",
+            "name": "author_name",
+            "type": "text"
+        },
+        {
+            "key": "field_author_website",
+            "label": "Author Website",
+            "name": "author_website",
+            "type": "url"
+        },
+        {
+            "key": "field_plugin_uri",
+            "label": "Plugin URI",
+            "name": "plugin_uri",
+            "type": "url"
+        },
+        {
+            "key": "field_license",
+            "label": "License",
+            "name": "license",
+            "type": "text"
+        },
+        {
+            "key": "field_payment_settings",
+            "label": "Payment Settings",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_enable_paypal",
+            "label": "Enable PayPal Integration",
+            "name": "enable_paypal",
+            "type": "true_false"
+        },
+        {
+            "key": "field_enable_credit_card",
+            "label": "Enable Credit Card Payment",
+            "name": "enable_credit_card",
+            "type": "true_false"
+        },
+        {
+            "key": "field_paypal_api_key",
+            "label": "PayPal API Key",
+            "name": "paypal_api_key",
+            "type": "text"
+        },
+        {
+            "key": "field_credit_card_gateway_key",
+            "label": "Credit Card Gateway API Key",
+            "name": "credit_card_gateway_key",
+            "type": "text"
+        },
+        {
+            "key": "field_design_settings",
+            "label": "Design Settings",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_accent_color",
+            "label": "Accent Color",
+            "name": "accent_color",
+            "type": "color_picker"
+        },
+        {
+            "key": "field_button_background_color",
+            "label": "Button Background Color",
+            "name": "button_background_color",
+            "type": "color_picker"
+        },
+        {
+            "key": "field_element_background_color",
+            "label": "Element Background Color",
+            "name": "element_background_color",
+            "type": "color_picker"
+        },
+        {
+            "key": "field_dialog_background_color",
+            "label": "Dialog Background Color",
+            "name": "dialog_background_color",
+            "type": "color_picker"
+        },
+        {
+            "key": "field_privacy_settings",
+            "label": "Privacy Settings",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_enable_data_collection",
+            "label": "Enable Data Collection Consent",
+            "name": "enable_data_collection",
+            "type": "true_false"
+        },
+        {
+            "key": "field_privacy_policy_url",
+            "label": "Privacy Policy URL",
+            "name": "privacy_policy_url",
+            "type": "url"
+        },
+        {
+            "key": "field_advanced_settings",
+            "label": "Advanced Settings",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_enable_debug_mode",
+            "label": "Enable Debug Mode",
+            "name": "enable_debug_mode",
+            "type": "true_false"
+        },
+        {
+            "key": "field_external_api_key",
+            "label": "API Key for External Services",
+            "name": "external_api_key",
+            "type": "text"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "app-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1689794792
+}
