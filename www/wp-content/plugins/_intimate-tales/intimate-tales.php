@@ -23,7 +23,7 @@ spl_autoload_register(function ($classname) {
     $namespace = 'IntimateTales\\';
     if (strpos($classname, $namespace) === 0) {
         $class = str_replace($namespace, '', $classname);
-        $file = INTIMATE_TALES_PLUGIN_DIR . 'classes/' . str_replace('\\', '/', $class) . '.php';
+        $file = INTIMATE_TALES_PLUGIN_DIR . 'includes/' . str_replace('\\', '/', $class) . '.php';
 
         if (file_exists($file)) {
             require_once $file;
