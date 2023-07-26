@@ -1,10 +1,28 @@
 <?php
-namespace IntimateTales\Classes;
+namespace IntimateTales;
 
 class ContentRegistration {
     const POST_TYPE_NAME = 'story';
     const TAXONOMY_CATEGORY = 'story_category';
     const TAXONOMY_TAG = 'story_tag';
+
+    /**
+     * ContentRegistration constructor.
+     */
+    public function __construct()
+    {
+        add_action('init', [__CLASS__, 'register_hooks']);
+    }
+
+    /**
+     * Register the hooks for the plugin.
+     * @return void
+     */
+    public static function register_hooks() {
+        self::register_story_post_type();
+        self::register_story_category_taxonomy();
+        self::register_story_tag_taxonomy();
+    }
 
     /**
      * Register the custom post type 'story'.
@@ -42,25 +60,15 @@ class ContentRegistration {
             'has_archive'        => true,
             'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'revisions', 'custom-fields'),
             'taxonomies'         => array(self::TAXONOMY_CATEGORY, self::TAXONOMY_TAG),
-            'rewrite'            => array('slug' => 'story'),
         );
 
         register_post_type(self::POST_TYPE_NAME, $args);
     }
 
     /**
-     * Register the custom taxonomies for the 'story' post type.
-     */
-    public static function register_story_taxonomies() {
-        self::register_story_category_taxonomy();
-        self::register_story_tag_taxonomy();
-        // Add other taxonomies here if needed.
-    }
-
-    /**
      * Register the custom taxonomy 'story_category'.
      */
-    private static function register_story_category_taxonomy() {
+    public static function register_story_category_taxonomy() {
         $labels = array(
             'name'                       => _x('Categories', 'taxonomy general name', 'intimate-tales'),
             'singular_name'              => _x('Category', 'taxonomy singular name', 'intimate-tales'),
@@ -91,7 +99,7 @@ class ContentRegistration {
     /**
      * Register the custom taxonomy 'story_tag'.
      */
-    private static function register_story_tag_taxonomy() {
+    public static function register_story_tag_taxonomy() {
         $labels = array(
             'name'                       => _x('Tags', 'taxonomy general name', 'intimate-tales'),
             'singular_name'              => _x('Tag', 'taxonomy singular name', 'intimate-tales'),
