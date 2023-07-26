@@ -1,0 +1,82 @@
+{
+  "key": "group_user_preferences",
+  "title": "User Preferences",
+  "fields": [
+    {
+      "key": "preferred_genres",
+      "label": "Preferred Genres",
+      "name": "preferred_genres",
+      "type": "checkbox",
+      "choices": {
+        "romance": "Romance",
+        "action": "Action",
+        "mystery": "Mystery",
+        "fantasy": "Fantasy",
+        "historical": "Historical",
+        "humor": "Humor",
+        "drama": "Drama",
+        "horror": "Horror",
+        "erotica": "Erotica",
+        "other_genres": "Other Genres"
+      },
+      "ui": true,
+      "multiple": true
+    },
+    {
+      "key": "story_themes",
+      "label": "Story Themes",
+      "name": "story_themes",
+      "type": "checkbox",
+      "choices": {
+        "love_and_romance": "Love and Romance",
+        "friendship": "Friendship",
+        "betrayal": "Betrayal",
+        "coming_of_age": "Coming of Age",
+        "self_discovery": "Self Discovery",
+        "overcoming_obstacles": "Overcoming Obstacles",
+        "revenge": "Revenge",
+        "good_vs_evil": "Good vs. Evil",
+        "moral_dilemmas": "Moral Dilemmas",
+        "other_themes": "Other Themes"
+      },
+      "ui": true,
+      "multiple": true
+    },
+    {
+      "key": "preferred_formats",
+      "label": "Preferred Formats",
+      "name": "preferred_formats",
+      "type": "checkbox",
+      "choices": {
+        "short_stories": "Short Stories",
+        "novels": "Novels",
+        "novellas": "Novellas",
+        "poetry": "Poetry",
+        "graphic_novels": "Graphic Novels",
+        "audiobooks": "Audiobooks",
+        "other_formats": "Other Formats"
+      },
+      "ui": true,
+      "multiple": true
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "user_form",
+        "operator": "==",
+        "value": "all"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1691072160
+}

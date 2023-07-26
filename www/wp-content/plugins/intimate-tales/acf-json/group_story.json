@@ -1,0 +1,81 @@
+{
+  "key": "group_story",
+  "title": "Story",
+  "fields": [
+    {
+      "key": "video_url",
+      "label": "Video URL",
+      "name": "video_url",
+      "type": "url"
+    },
+    {
+      "key": "gallery_images",
+      "label": "Gallery Images",
+      "name": "gallery_images",
+      "type": "gallery"
+    },
+    {
+      "key": "views",
+      "label": "Views",
+      "name": "views",
+      "type": "number",
+      "default_value": 0
+    },
+    {
+      "key": "likes",
+      "label": "Likes",
+      "name": "likes",
+      "type": "number",
+      "default_value": 0
+    },
+    {
+      "key": "dislikes",
+      "label": "Dislikes",
+      "name": "dislikes",
+      "type": "number",
+      "default_value": 0
+    },
+    {
+      "key": "favorites",
+      "label": "Favorites",
+      "name": "favorites",
+      "type": "number",
+      "default_value": 0
+    },
+    {
+      "key": "comments",
+      "label": "Comments",
+      "name": "comments",
+      "type": "textarea"
+    },
+    {
+      "key": "related_stories",
+      "label": "Related Stories",
+      "name": "related_stories",
+      "type": "relationship",
+      "post_type": "story",
+      "filters": [
+        "search",
+        "taxonomy"
+      ],
+      "return_format": "object"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "story"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": ""
+}

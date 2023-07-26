@@ -4,6 +4,17 @@ namespace IntimateTales;
 defined('ABSPATH') || exit;
 
 use IntimateTales\ContentRegistration;
+use IntimateTales\ACFIntegration;
+use IntimateTales\UserPreferences;
+use IntimateTales\StoryMatching;
+use IntimateTales\CustomStoryCreator;
+use IntimateTales\AuthorRecommendation;
+use IntimateTales\StoryCustomization;
+use IntimateTales\UserDashboard;
+use IntimateTales\NotificationManager;
+use IntimateTales\GiftsAndPromotions;
+use IntimateTales\FrontendScriptsStyles;
+use IntimateTales\BackgroundProcesses;
 
 /**
  * Class Plugin
@@ -26,6 +37,7 @@ class Plugin
      */
     private function __construct()
     {
+        // Initialisierung aller Klassen
         $this->initialize_authentication();
         $this->initialize_monetization();
         $this->initialize_encryption();
@@ -34,7 +46,12 @@ class Plugin
         $this->initialize_social_sharing();
         $this->initialize_offline();
         $this->initialize_caching();
+
+        // Hinzufügen der ACF-Felder und -Gruppen
+        $acf_integration = new ACFIntegration();
+        $acf_integration->add_acf_fields();
     }
+
 
     /**
      * Initialize the plugin.
@@ -65,13 +82,9 @@ class Plugin
      */
     private function register_hooks(): void
     {
-        
-
         add_action('plugins_loaded', [$this, 'load_textdomain']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts_and_styles']);
-        add_action('acf/init', [$this, 'add_acf_fields'], 10);
     }
-
     /**
      * Load the plugin text domain for translations.
      * @return void
@@ -82,60 +95,6 @@ class Plugin
     }
 
     /**
-     * Add the ACF fields.
-     * @return void
-     */
-    public function add_acf_fields()
-    {
-
-        if (!class_exists('ACF')) {
-            return;
-        }
-
-        if (function_exists('acf_add_options_page')) {
-            acf_add_options_page(
-                [
-                    'page_title' => 'App Options',
-                    'menu_title' => 'App Options',
-                    'menu_slug' => 'app-options',
-                    'capability' => 'manage_options',
-                    'position' => 30,
-                    'parent_slug' => '',
-                    'icon_url' => 'dashicons-admin-generic',
-                    'redirect' => false,
-                ]
-            );
-        }
-
-        $json_folder = INTIMATE_TALES_PLUGIN_DIR . 'acf-json';
-
-        if (!is_dir($json_folder)) {
-            return;
-        }
-
-        $json_files = glob($json_folder . '/*.json');
-
-        if (empty($json_files)) {
-            return;
-        }
-
-        foreach ($json_files as $json_file) {
-            $json = json_decode(file_get_contents($json_file), true);
-
-            if (empty($json)) {
-                continue;
-            }
-
-            if (isset($json['key']) && isset($json['title'])) {
-                acf_add_local_field_group($json);
-            } elseif (isset($json['title'])) {
-                acf_add_options_page($json);
-            }
-        }
-    }
-
-
-    /**
      * Initialize the authentication functionalities.
      * 
      * @return void
@@ -144,9 +103,9 @@ class Plugin
     {
         // TODO: Implement authentication logic.
 
-        add_action('wp_login', [$this, 'on_user_login'], 10, 2);
-        add_action('wp_logout', [$this, 'on_user_logout']);
-        add_action('user_register', [$this, 'on_user_register']);
+        #add_action('wp_login', [$this, 'on_user_login'], 10, 2);
+        #add_action('wp_logout', [$this, 'on_user_logout']);
+        #add_action('user_register', [$this, 'on_user_register']);
     }
 
     /**

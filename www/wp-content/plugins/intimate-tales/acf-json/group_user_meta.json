@@ -1,0 +1,183 @@
+{
+  "key": "group_user_meta",
+  "title": "User Meta",
+  "fields": [
+    {
+      "key": "intimacy_level",
+      "label": "Preferred Intimacy Levels",
+      "name": "intimacy_level",
+      "type": "select",
+      "choices": {
+        "romantic": "Romantic",
+        "playful": "Playful",
+        "passionate": "Passionate",
+        "adventurous": "Adventurous",
+        "intense": "Intense",
+        "controlled": "Controlled"
+      },
+      "multiple": true,
+      "ui": true
+    },
+    {
+      "key": "desired_scenarios",
+      "label": "Fantasies and Dreams",
+      "name": "desired_scenarios",
+      "type": "textarea",
+      "rows": 4,
+      "new_lines": "br"
+    },
+    {
+      "key": "trust_level",
+      "label": "Trust Level",
+      "name": "trust_level",
+      "type": "select",
+      "choices": {
+        "fully_trustworthy": "Fully Trustworthy",
+        "takes_time_to_trust": "Takes Time to Trust",
+        "very_cautious": "Very Cautious",
+        "trustworthy_with_boundaries": "Trustworthy with Boundaries",
+        "build_mutual_trust": "Build Mutual Trust"
+      },
+      "multiple": false,
+      "ui": true
+    },
+    {
+      "key": "limits_taboos",
+      "label": "Limits and Taboos",
+      "name": "limits_taboos",
+      "type": "textarea",
+      "rows": 4,
+      "new_lines": "br"
+    },
+    {
+      "key": "availability",
+      "label": "Availability",
+      "name": "availability",
+      "type": "select",
+      "choices": {
+        "available_daily": "Available Daily",
+        "only_weekends": "Only on Weekends",
+        "only_evenings": "Only Evenings",
+        "flexible_timings": "Flexible Timings"
+      },
+      "multiple": false,
+      "ui": true
+    },
+    {
+      "key": "travel_readiness",
+      "label": "Travel Readiness",
+      "name": "travel_readiness",
+      "type": "select",
+      "choices": {
+        "willing_to_travel": "Willing to Travel",
+        "prefer_local_meetings": "Prefer Local Meetings",
+        "only_virtual_meetings": "Only Virtual Meetings"
+      },
+      "multiple": false,
+      "ui": true
+    },
+    {
+      "key": "role_play_experience",
+      "label": "Role Play Experience",
+      "name": "role_play_experience",
+      "type": "select",
+      "choices": {
+        "beginner": "Beginner",
+        "intermediate": "Intermediate",
+        "experienced": "Experienced",
+        "interested_but_no_experience": "Interested but No Experience"
+      },
+      "multiple": false,
+      "ui": true
+    },
+    {
+      "key": "fetishes",
+      "label": "Fetishes",
+      "name": "fetishes",
+      "type": "checkbox",
+      "choices": {
+        "bdsm": "BDSM",
+        "voyeurism": "Voyeurism",
+        "role_play": "Role Play",
+        "uniforms": "Uniforms",
+        "foot_fetish": "Foot Fetish",
+        "dominance_submission": "Dominance and Submission",
+        "leather_latex_attire": "Leather and Latex Attire",
+        "age_play": "Age Play",
+        "body_worship": "Body Worship",
+        "bondage": "Bondage",
+        "other_fetishes": "Other Fetishes"
+      },
+      "ui": true,
+      "multiple": true
+    },
+    {
+      "key": "likes",
+      "label": "Likes",
+      "name": "likes",
+      "type": "checkbox",
+      "choices": {
+        "romantic_scenarios": "Romantic Scenarios",
+        "adventurous_scenarios": "Adventurous Scenarios",
+        "fantasy_role_playing": "Fantasy Role Playing",
+        "sci-fi_role_playing": "Sci-Fi Role Playing",
+        "historical_role_playing": "Historical Role Playing",
+        "creative_scenarios": "Creative Scenarios",
+        "mystery_role_playing": "Mystery Role Playing",
+        "humorous_scenarios": "Humorous Scenarios",
+        "experimental_scenarios": "Experimental Scenarios",
+        "other_likes": "Other Likes"
+      },
+      "ui": true,
+      "multiple": true
+    },
+    {
+      "key": "dislikes",
+      "label": "Dislikes",
+      "name": "dislikes",
+      "type": "checkbox",
+      "choices": {
+        "violent_scenarios": "Violent Scenarios",
+        "extreme_pain": "Extreme Pain",
+        "unsafe_scenarios": "Unsafe Scenarios",
+        "taboos": "Taboos",
+        "unplanned_situations": "Unplanned Situations",
+        "drama_and_conflict": "Drama and Conflict",
+        "everyday_role_playing": "Everyday Role Playing",
+        "boring_scenarios": "Boring Scenarios",
+        "predictable_actions": "Predictable Actions",
+        "other_dislikes": "Other Dislikes"
+      },
+      "ui": true,
+      "multiple": true
+    },
+    {
+      "key": "banned_ids",
+      "label": "Blocked IDs",
+      "name": "banned_ids",
+      "type": "user",
+      "role": "subscriber",
+      "multiple": true,
+      "return_format": "id"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "user_form",
+        "operator": "==",
+        "value": "all"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1691072160
+}

@@ -1,0 +1,53 @@
+{
+    "key": "group_user_meta_stats",
+    "title": "Benutzerstatistiken",
+    "fields": [
+      {
+        "key": "played_roleplays",
+        "label": "Gespielte Rollenspiele",
+        "name": "played_roleplays",
+        "type": "textarea",
+        "rows": 4,
+        "new_lines": "br"
+      },
+      {
+        "key": "total_points",
+        "label": "Gesamtpunktzahl",
+        "name": "total_points",
+        "type": "number"
+      },
+      {
+        "key": "total_duration",
+        "label": "Gesamtdauer (in Minuten)",
+        "name": "total_duration",
+        "type": "number"
+      },
+      {
+        "key": "average_rating",
+        "label": "Durchschnittliche Bewertung",
+        "name": "average_rating",
+        "type": "number",
+        "step": "0.1"
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "user_form",
+          "operator": "==",
+          "value": "all"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1691072160
+  }
+  

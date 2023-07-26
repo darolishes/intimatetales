@@ -136,3 +136,6 @@ Thumbs.db
 *.wmv
 *.avi
 *.log
+www/wp-config.php
+www/wp-config.php
+wp-config.php

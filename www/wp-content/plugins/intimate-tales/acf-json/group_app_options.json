@@ -1,0 +1,64 @@
+{
+  "key": "group_app_options",
+  "title": "App Options",
+  "fields": [
+    {
+      "key": "language",
+      "label": "Language",
+      "name": "language",
+      "type": "select",
+      "choices": {
+        "en": "English",
+        "de": "German",
+        "fr": "French",
+        "es": "Spanish",
+        "it": "Italian",
+        "ja": "Japanese",
+        "ko": "Korean",
+        "zh-cn": "Chinese (Simplified)",
+        "zh-tw": "Chinese (Traditional)"
+      },
+      "default_value": "en",
+      "ui": true
+    },
+    {
+      "key": "dark_mode",
+      "label": "Dark Mode",
+      "name": "dark_mode",
+      "type": "true_false",
+      "message": "Enable Dark Mode",
+      "ui": true
+    },
+    {
+      "key": "notification_settings",
+      "label": "Notification Settings",
+      "name": "notification_settings",
+      "type": "checkbox",
+      "choices": {
+        "story_updates": "Story Updates",
+        "comments": "Comments",
+        "likes": "Likes",
+        "messages": "Messages"
+      },
+      "ui": true,
+      "multiple": true
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "app_options"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": ""
+}
