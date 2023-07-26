@@ -47,9 +47,8 @@ class Plugin
         $this->initialize_offline();
         $this->initialize_caching();
 
-        // Hinzufügen der ACF-Felder und -Gruppen
+        $content = new ContentRegistration();
         $acf_integration = new ACFIntegration();
-        $acf_integration->add_acf_fields();
     }
 
 

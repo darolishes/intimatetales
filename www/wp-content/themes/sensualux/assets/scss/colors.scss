@@ -1,0 +1,7 @@
+@use 'config' as *;
+// --- 👆 update this path if you're importing CodyFrame as npm module
+// e.g., '../../../node_modules/codyframe/main/scss/config'
+
+.bg {
+    background-color: var(--color-bg);
+}

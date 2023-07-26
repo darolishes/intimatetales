@@ -3,19 +3,6 @@
   "title": "Story Category",
   "fields": [
     {
-      "key": "story_category_name",
-      "label": "Name",
-      "name": "story_category_name",
-      "type": "text",
-      "required": true
-    },
-    {
-      "key": "story_category_description",
-      "label": "Description",
-      "name": "story_category_description",
-      "type": "textarea"
-    },
-    {
       "key": "category_image",
       "label": "Category Image",
       "name": "category_image",

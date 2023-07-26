@@ -1,6 +1,5 @@
 <?php
 namespace IntimateTales;
-
 class ContentRegistration {
     const POST_TYPE_NAME = 'story';
     const TAXONOMY_CATEGORY = 'story_category';

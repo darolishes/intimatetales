@@ -1,0 +1,66 @@
+Date : 2023-07-26 22:16:38
+Directory : /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales
+Total : 33 files,  1527 codes, 661 comments, 292 blanks, all 2480 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| PHP      |         26 |        935 |        661 |        285 |      1,881 |
+| JSON     |          7 |        592 |          0 |          7 |        599 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                            | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                               |         33 |      1,527 |        661 |        292 |      2,480 |
+| . (Files)                                                                                                       |          1 |         24 |         18 |         11 |         53 |
+| acf-json                                                                                                        |          7 |        592 |          0 |          7 |        599 |
+| classes                                                                                                         |         13 |        753 |        487 |        225 |      1,465 |
+| includes                                                                                                        |          2 |         63 |         54 |         24 |        141 |
+| payment_gateways                                                                                                |          2 |         16 |        102 |         13 |        131 |
+| payment_gateways/PayPal                                                                                         |          1 |          8 |         46 |          7 |         61 |
+| payment_gateways/Stripe                                                                                         |          1 |          8 |         56 |          6 |         70 |
+| templates                                                                                                       |          8 |         79 |          0 |         12 |         91 |
++-----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                        | language | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/acf-json/group_app_options.json           | JSON     |         64 |          0 |          1 |         65 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/acf-json/group_story.json                 | JSON     |         81 |          0 |          1 |         82 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/acf-json/group_story_category.json        | JSON     |         59 |          0 |          1 |         60 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/acf-json/group_user_meta.json             | JSON     |        183 |          0 |          1 |        184 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/acf-json/group_user_preferences.json      | JSON     |         82 |          0 |          1 |         83 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/acf-json/group_user_stats.json            | JSON     |         52 |          0 |          1 |         53 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/acf-json/group_user_subscription.json     | JSON     |         71 |          0 |          1 |         72 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/classes/ACFIntegration.php                | PHP      |         54 |         21 |         14 |         89 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/classes/Authentication.php                | PHP      |         39 |         10 |         11 |         60 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/classes/ContentRegistration.php           | PHP      |         99 |         16 |         13 |        128 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/classes/Couple.php                        | PHP      |         58 |         32 |         21 |        111 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/classes/Encryption.php                    | PHP      |         16 |         25 |         13 |         54 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/classes/MatchUser.php                     | PHP      |         50 |         54 |         20 |        124 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/classes/Monetization.php                  | PHP      |         30 |         21 |          5 |         56 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/classes/NLPModel.php                      | PHP      |         28 |         22 |          7 |         57 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/classes/Plugin.php                        | PHP      |        132 |        131 |         52 |        315 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/classes/Story.php                         | PHP      |         38 |         21 |          9 |         68 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/classes/User.php                          | PHP      |        105 |         34 |         24 |        163 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/classes/View.php                          | PHP      |         32 |          7 |         10 |         49 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/classes/ViewModel.php                     | PHP      |         72 |         93 |         26 |        191 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/includes/class-action-handler.php         | PHP      |         35 |         35 |         15 |         85 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/includes/class-shortcodes.php             | PHP      |         28 |         19 |          9 |         56 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/intimate-tales.php                        | PHP      |         24 |         18 |         11 |         53 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/payment_gateways/PayPal/PayPalHandler.php | PHP      |          8 |         46 |          7 |         61 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/payment_gateways/Stripe/StripeHandler.php | PHP      |          8 |         56 |          6 |         70 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/templates/consent-form.php                | PHP      |          9 |          0 |          1 |         10 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/templates/invitation-form.php             | PHP      |          5 |          0 |          1 |          6 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/templates/invitation-view.php             | PHP      |         17 |          0 |          1 |         18 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/templates/loading-page.php                | PHP      |          5 |          0 |          2 |          7 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/templates/onboarding-form.php             | PHP      |         16 |          0 |          3 |         19 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/templates/outcome-page.php                | PHP      |          6 |          0 |          2 |          8 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/templates/story-content.php               | PHP      |          9 |          0 |          1 |         10 |
+| /Users/daro/Sites/intimatetales/www/wp-content/plugins/intimate-tales/templates/story-page.php                  | PHP      |         12 |          0 |          1 |         13 |
+| Total                                                                                                           |          |      1,527 |        661 |        292 |      2,480 |
++-----------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
