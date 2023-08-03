@@ -1,67 +1,57 @@
 <?php
 namespace IntimateTales;
 
-use IntimateTales\PostTypeRegistration;
-
 class TaxonomyRegistration {
-    const TAXONOMY_CATEGORY = 'story_category';
-    const TAXONOMY_TAG = 'story_tag';
+    const TAX_GENRE = 'genre';
+    const TAX_THEME = 'theme';
+    const TAX_MOOD = 'mood';
 
     /**
      * Register the custom taxonomies.
      */
     public function register_taxonomies() {
         $taxonomies = array(
-            $this->getCategoryTaxonomy(),
-            $this->getTagTaxonomy()
+            array(
+                'name' => self::TAX_GENRE,
+                'post_type' => array(PostTypeRegistration::STORY),
+                'labels' => array(
+                    'name' => _x('Genres', 'taxonomy general name', 'intimate-tales'),
+                    'singular_name' => _x('Genre', 'taxonomy singular name', 'intimate-tales'),
+                )
+            ),
+            array(
+                'name' => self::TAX_THEME,
+                'post_type' => array(PostTypeRegistration::STORY),
+                'labels' => array(
+                    'name' => _x('Themes', 'taxonomy general name', 'intimate-tales'),
+                    'singular_name' => _x('Theme', 'taxonomy singular name', 'intimate-tales'),
+                )
+            ),
+            array(
+                'name' => self::TAX_MOOD,
+                'post_type' => array(PostTypeRegistration::STORY),
+                'labels' => array(
+                    'name' => _x('Moods', 'taxonomy general name', 'intimate-tales'),
+                    'singular_name' => _x('Mood', 'taxonomy singular name', 'intimate-tales'),
+                )
+            ),
         );
 
         foreach ($taxonomies as $taxonomy) {
-            if (!taxonomy_exists($taxonomy['name'])) {
-                register_taxonomy($taxonomy['name'], $taxonomy['post_type'], $taxonomy['args']);
+            $taxonomy_name = $taxonomy['name'];
+
+            if (!taxonomy_exists($taxonomy_name)) {
+                $default_args = array(
+                    'hierarchical' => true,
+                    'public' => true,
+                    'show_ui' => true,
+                    // Add other default arguments specific to this taxonomy
+                );
+
+                $args = wp_parse_args($taxonomy, $default_args);
+
+                register_taxonomy($taxonomy_name, $taxonomy['post_type'], $args);
             }
         }
-    }
-
-    /**
-     * Get the definition for the category taxonomy.
-     */
-    private function getCategoryTaxonomy() {
-        return array(
-            'name' => self::TAXONOMY_CATEGORY,
-            'labels' => array(
-                'name' => _x('Categories', 'taxonomy general name', 'intimate-tales'),
-                'singular_name' => _x('Category', 'taxonomy singular name', 'intimate-tales'),
-                // ... Weitere Label-Einstellungen ...
-            ),
-            'post_type' => array(PostTypeRegistration::POST_TYPE_NAME_STORY),
-            'args' => array(
-                'hierarchical' => true,
-                'public' => true,
-                'show_ui' => true,
-                // ... Weitere Taxonomy-Optionen ...
-            ),
-        );
-    }
-
-    /**
-     * Get the definition for the tag taxonomy.
-     */
-    private function getTagTaxonomy() {
-        return array(
-            'name' => self::TAXONOMY_TAG,
-            'labels' => array(
-                'name' => _x('Tags', 'taxonomy general name', 'intimate-tales'),
-                'singular_name' => _x('Tag', 'taxonomy singular name', 'intimate-tales'),
-                // ... Weitere Label-Einstellungen ...
-            ),
-            'post_type' => array(PostTypeRegistration::POST_TYPE_NAME_STORY),
-            'args' => array(
-                'hierarchical' => false,
-                'public' => true,
-                'show_ui' => true,
-                // ... Weitere Taxonomy-Optionen ...
-            ),
-        );
     }
 }

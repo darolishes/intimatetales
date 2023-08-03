@@ -1,5 +1,4 @@
 <?php
-
 namespace IntimateTales;
 
 // Exit if accessed directly.
@@ -7,19 +6,21 @@ defined('ABSPATH') || exit;
 
 /**
  * Class Couple
- * Represents a couple of the Intimate Tales plugin.
+ * Represents a couple in the Intimate Tales plugin.
  */
-class Couple {
+class Couple
+{
     // ACF field keys for storing couple ID
-    const COUPLE_ID = 'couple_id';
+    public const COUPLE_ID = 'couple_id';
 
-    private $couple_id; // The ID of the couple.
-    private $user1_id; // The ID of the first user in the couple.
-    private $user2_id; // The ID of the second user in the couple.
-    private $creation_date; // The creation date of the couple.
+    private ?string $couple_id = null; // The ID of the couple.
+    private int $user1_id = 0; // The ID of the first user in the couple.
+    private int $user2_id = 0; // The ID of the second user in the couple.
+    private ?string $creation_date = null; // The creation date of the couple.
 
     // Constructor
-    public function __construct($couple_id = null, $user1_id = null, $user2_id = null, $creation_date = null) {
+    public function __construct(?string $couple_id = null, int $user1_id = 0, int $user2_id = 0, ?string $creation_date = null)
+    {
         if (!is_null($user1_id) && !is_numeric($user1_id)) {
             throw new \InvalidArgumentException("User1 ID must be a number.");
         }
@@ -32,122 +33,70 @@ class Couple {
         $this->creation_date = $creation_date;
     }
 
-    // Create a new couple and save it to the database.
-    public static function create(int $user1_id, int $user2_id): Couple {
-        // Check that the user IDs are valid
-        if (!get_userdata($user1_id) || !get_userdata($user2_id)) {
+    public static function create(int $user1_id, int $user2_id): self
+    {
+        if (!self::validateUserId($user1_id) || !self::validateUserId($user2_id)) {
             throw new \Exception("Invalid user ID(s).");
         }
-        // Generate a new UUID for the couple.
+
         $couple_id = wp_generate_uuid4();
-
-        // Create the new Couple object.
-        $couple = new self();
-        $couple->couple_id = $couple_id;
-        $couple->user1_id = $user1_id;
-        $couple->user2_id = $user2_id;
-
-        // Add the current date as the creation date of the couple
-        $couple->creation_date = date('Y-m-d H:i:s');
-
-        // Save the couple to the database.
+        $couple = new self($couple_id, $user1_id, $user2_id, date('Y-m-d H:i:s'));
         $couple->save();
 
         return $couple;
     }
 
-    public function set_couple_id($couple_id) {
-        $this->couple_id = $couple_id;
-    }
-
-    public function set_user1_id($user1_id) {
-        $this->user1_id = $user1_id;
-    }
-
-    public function set_user2_id($user2_id) {
-        $this->user2_id = $user2_id;
-    }
-
-    public function set_creation_date($creation_date) {
-        $this->creation_date = $creation_date;
-    }
-
-    public function get_creation_date(): ?string {
-        return $this->creation_date;
-    }
-
-    /**
-     * Get the Couple object associated with a user.
-     *
-     * @param int $user_id The ID of the user.
-     * @return Couple|null The Couple object, or null if the user is not in a couple.
-     */
-    public static function get_by_user_id(int $user_id): ?Couple {
-        // Get the couple ID from the user's ACF field.
+    public static function getCoupleIdByUserId(int $user_id): ?string
+    {
         $couple_id = get_field(self::COUPLE_ID, 'user_' . $user_id);
 
         if (!$couple_id) {
             return null;
         }
 
-        // Create a new Couple object.
         $couple = new self();
         $couple->couple_id = $couple_id;
         $couple->user1_id = $user_id;
-
-        // Get the creation date of the couple
         $couple->creation_date = get_user_meta($user_id, 'couple_creation_date', true);
 
-        // Get the other user in the couple.
-        $couple->user2_id = get_users(array(
-            'meta_key' => self::COUPLE_ID,
-            'meta_value' => $couple_id,
-            'exclude' => array($user_id)
-        ))[0]->ID;
+        $couple->user2_id = self::getOtherUserId($couple_id, $user_id);
 
         return $couple;
     }
 
-    /**
-     * Gets the couple ID.
-     *
-     * @return string|null The couple ID, or null if it doesn't exist.
-     */
-    public function get_couple_id(): ?string {
+    public function getCoupleId(): ?string
+    {
         return $this->couple_id;
     }
 
-    // Getter methods
-    public function get_user1_id(): ?int {
+    public function getUser1Id(): int
+    {
         return $this->user1_id;
     }
 
-    public function get_user2_id(): ?int {
+    public function getUser2Id(): int
+    {
         return $this->user2_id;
     }
 
-    // Save the couple to the database.
-    public function save(): void {
-        global $wpdb;
+    public function getCreationDate(): ?string
+    {
+        return $this->creation_date;
+    }
 
-        // Data sanitization
+    public function save(): void
+    {
+        global $wpdb;
         $couple_id = sanitize_text_field($this->couple_id);
-        $user1_id = intval($this->user1_id);
-        $user2_id = intval($this->user2_id);
 
         try {
             $wpdb->query('START TRANSACTION');
 
-            // Save the couple ID to the users' ACF fields.
-            if (!update_field(self::COUPLE_ID, $couple_id, 'user_' . $user1_id) ||
-                !update_field(self::COUPLE_ID, $couple_id, 'user_' . $user2_id)) {
-                throw new \Exception('Failed to update couple ID');
-            }
-
-            // Save the creation date of the couple to the users' meta fields
-            if (!update_user_meta($this->user1_id, 'couple_creation_date', $this->creation_date) ||
-                !update_user_meta($this->user2_id, 'couple_creation_date', $this->creation_date)) {
-                throw new \Exception('Failed to update creation date');
+            foreach ([$this->user1_id, $this->user2_id] as $user_id) {
+                if (!update_field(self::COUPLE_ID, $couple_id, 'user_' . $user_id) ||
+                    !update_user_meta($user_id, 'couple_creation_date', $this->creation_date)) {
+                    throw new \Exception('Failed to update couple data');
+                }
             }
 
             $wpdb->query('COMMIT');
@@ -157,14 +106,105 @@ class Couple {
         }
     }
 
-    // Remove the association between the users in the couple.
-    public function disconnect(): void {
-        // Remove the couple ID from the users' ACF fields.
-        delete_field(self::COUPLE_ID, 'user_' . $this->user1_id);
-        delete_field(self::COUPLE_ID, 'user_' . $this->user2_id);
+    public function disconnect(): void
+    {
+        foreach ([$this->user1_id, $this->user2_id] as $user_id) {
+            delete_field(self::COUPLE_ID, 'user_' . $user_id);
+            delete_user_meta($user_id, 'couple_creation_date');
+        }
+    }
 
-        // Remove the creation date from the users' meta fields
-        delete_user_meta($this->user1_id, 'couple_creation_date');
-        delete_user_meta($this->user2_id, 'couple_creation_date');
+    private static function validateUserId(int $user_id): bool
+    {
+        return (bool) get_userdata($user_id);
+    }
+
+    private static function getOtherUserId(string $couple_id, int $user_id): int
+    {
+        $users = get_users([
+            'meta_key' => self::COUPLE_ID,
+            'meta_value' => $couple_id,
+            'exclude' => [$user_id],
+            'number' => 1
+        ]);
+
+        return $users[0]->ID ?? 0;
+    }
+
+    /**
+     * Get the invitations received by the user.
+     *
+     * @param int $user_id The ID of the user to get invitations for.
+     * @return array The array of user IDs who sent invitations to this user.
+     */
+    public static function getInvitationsToUser(int $user_id): array
+    {
+        $invitations = [];
+        $user_ids = get_users([
+            'meta_key' => self::COUPLE_ID,
+            'meta_value' => 'user_' . $user_id,
+            'fields' => 'ID'
+        ]);
+
+        if (!empty($user_ids)) {
+            foreach ($user_ids as $id) {
+                $invitations[] = intval(str_replace('user_', '', $id));
+            }
+        }
+
+        return $invitations;
+    }
+
+    /**
+     * Send an invitation to create a couple.
+     *
+     * @param int $user_id The ID of the user sending the invitation.
+     * @param int $partner_id The ID of the user receiving the invitation.
+     */
+    public static function sendInvitation(int $user_id, int $partner_id): void
+    {
+        // Add the user's ID to the partner's invitation list
+        $partner_invitations = self::getInvitationsToUser($partner_id);
+        $partner_invitations[] = $user_id;
+        $partner_invitations = array_unique($partner_invitations);
+
+        update_user_meta($partner_id, 'couple_invitations', $partner_invitations);
+    }
+
+    /**
+     * Accept an invitation to create a couple.
+     *
+     * @param int $user_id The ID of the user accepting the invitation.
+     * @param int $partner_id The ID of the user who sent the invitation.
+     */
+    public static function acceptInvitation(int $user_id, int $partner_id): void
+    {
+        // Create a new couple
+        $couple = self::create($user_id, $partner_id);
+
+        // Remove the user's ID from the partner's invitation list
+        $partner_invitations = self::getInvitationsToUser($user_id);
+        if (($key = array_search($partner_id, $partner_invitations)) !== false) {
+            unset($partner_invitations[$key]);
+        }
+
+        update_user_meta($user_id, 'couple_invitations', $partner_invitations);
+    }
+
+    /**
+     * Decline an invitation to create a couple.
+     *
+     * @param int $user_id The ID of the user declining the invitation.
+     * @param int $partner_id The ID of the user who sent the invitation.
+     */
+    public static function declineInvitation(int $user_id, int $partner_id): void
+    {
+        // Remove the user's ID from the partner's invitation list
+        $partner_invitations = self::getInvitationsToUser($user_id);
+        if (($key = array_search($partner_id, $partner_invitations)) !== false) {
+            unset($partner_invitations[$key]);
+        }
+
+        update_user_meta($user_id, 'couple_invitations', $partner_invitations);
     }
 }

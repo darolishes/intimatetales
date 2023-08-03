@@ -1,29 +1,30 @@
 <?php
-
 namespace IntimateTales;
 
 defined('ABSPATH') || exit;
 
 class ACFIntegration
 {
-    private array $choicesSettings = [];
-    private bool $acfFieldsAdded = false;
-
     public function __construct()
+    {
+        $this->checkACFPlugin();
+
+        // Add filters to load and save ACF JSON
+        add_filter('acf/settings/load_json', [$this, 'load_acf_json']);
+        add_filter('acf/settings/save_json', [$this, 'save_acf_json']);
+
+        // Add options page
+        $this->add_options_page();
+        
+        // Add ACF fields and groups
+        add_action('init', [$this, 'add_acf_fields']);
+    }
+
+    private function checkACFPlugin(): void
     {
         if (!class_exists('acf')) {
             throw new \Exception('ACF plugin is not active.');
         }
-
-        // Add options page
-        $this->add_options_page();
-
-        // Add filters to load and save ACF JSON
-        add_filter('acf/settings/load_json', fn($paths) => array_merge($paths, [INTIMATE_TALES_PLUGIN_DIR . 'acf-json']));
-        add_filter('acf/settings/save_json', fn($path) => INTIMATE_TALES_PLUGIN_DIR . 'acf-json');
-
-        // Add ACF fields and groups when needed
-        add_action('acf/init', [$this, 'add_acf_fields_on_demand']);
     }
 
     public function add_options_page(): void
@@ -41,27 +42,29 @@ class ACFIntegration
         ]);
     }
 
-    public function add_acf_fields_on_demand(): void
+    public function load_acf_json($paths)
     {
-        // Only add ACF fields and groups once
-        if (!$this->acfFieldsAdded) {
-            $this->acfFieldsAdded = true;
-            $this->add_acf_fields();
-        }
+        $paths[] = INTIMATE_TALES_PLUGIN_DIR . 'acf-json';
+        return $paths;
+    }
+
+    public function save_acf_json($path)
+    {
+        $path = INTIMATE_TALES_PLUGIN_DIR . 'acf-json';
+        return $path;
     }
 
     public function add_acf_fields(): void
     {
-        $json_file = INTIMATE_TALES_PLUGIN_DIR . 'acf-json/group_app_options.json';
-        if (file_exists($json_file)) {
-            $json_data = file_get_contents($json_file);
-            $acf_groups_data = json_decode($json_data, true);
+        // Load the ACF group data from a JSON file
+        $acf_groups_data = $this->load_json_from_textfield();
 
-            foreach ($acf_groups_data as $group_key => $group_data) {
-                if (is_array($group_data)) {
-                    $this->add_acf_group($group_key, $group_data);
-                }
-            }
+        if ($acf_groups_data === null) {
+            return;
+        }
+
+        foreach ($acf_groups_data as $group_key => $group_data) {
+            $this->add_acf_group($group_key, $group_data);
         }
     }
 
@@ -71,20 +74,19 @@ class ACFIntegration
             return;
         }
 
-        $group_data['key'] = $group_key;
-        $group_data['location'] = [[['param' => 'options_page', 'operator' => '==', 'value' => 'intimate_tales_options']]];
-
         acf_add_local_field_group($group_data);
     }
 
-    public function add_choices_setting(string $key, array $choices): void
+    public function load_json_from_textfield(): ?array
     {
-        $this->choicesSettings[$key] = $choices;
+        $json_data = get_field('json_editor', 'option');
 
-        // Update the default values of the repeater fields in the ACF options page
-        $options_page = get_page_by_path('intimate_tales_options', OBJECT, 'acf-field-group');
-        if ($options_page) {
-            update_field($key, $choices, $options_page->ID);
+        if ($json_data === null) {
+            return null;
         }
+
+        $array_data = json_decode($json_data, true);
+        return is_array($array_data) ? $array_data : null;
     }
+
 }
