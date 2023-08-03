@@ -5,6 +5,8 @@ class TaxonomyRegistration {
     const TAX_GENRE = 'genre';
     const TAX_THEME = 'theme';
     const TAX_MOOD = 'mood';
+    const TAX_SCENE = 'scene';
+    const TAX_FORMAT = 'format';
 
     /**
      * Register the custom taxonomies.
@@ -33,6 +35,24 @@ class TaxonomyRegistration {
                 'labels' => array(
                     'name' => _x('Moods', 'taxonomy general name', 'intimate-tales'),
                     'singular_name' => _x('Mood', 'taxonomy singular name', 'intimate-tales'),
+                )
+            ),
+            // Neue Taxonomie für Szenen
+            array(
+                'name' => self::TAX_SCENE,
+                'post_type' => array(PostTypeRegistration::STORY),
+                'labels' => array(
+                    'name' => _x('Scenes', 'taxonomy general name', 'intimate-tales'),
+                    'singular_name' => _x('Scene', 'taxonomy singular name', 'intimate-tales'),
+                )
+            ),
+            // Neue Taxonomie für Formate
+            array(
+                'name' => self::TAX_FORMAT,
+                'post_type' => array(PostTypeRegistration::STORY),
+                'labels' => array(
+                    'name' => _x('Formats', 'taxonomy general name', 'intimate-tales'),
+                    'singular_name' => _x('Format', 'taxonomy singular name', 'intimate-tales'),
                 )
             ),
         );

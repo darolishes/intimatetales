@@ -34,8 +34,8 @@ class ACFIntegration
         }
 
         acf_add_options_page([
-            'page_title' => 'IntimateTales Options',
-            'menu_title' => 'IntimateTales',
+            'page_title' => __('IntimateTales Options', 'intimate-tales'),
+            'menu_title' => __('IntimateTales', 'intimate-tales'),
             'menu_slug' => 'intimate_tales_options',
             'capability' => 'edit_posts',
             'redirect' => false,

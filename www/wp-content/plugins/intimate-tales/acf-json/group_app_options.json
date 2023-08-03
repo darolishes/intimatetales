@@ -1,0 +1,70 @@
+{
+    "key": "group_app_options",
+    "title": "App Options",
+    "fields": [
+      {
+        "key": "field_choices_settings",
+        "label": "Choices Settings",
+        "name": "choices_settings",
+        "type": "group",
+        "sub_fields": [
+          {
+            "key": "field_intimacy_level_choices",
+            "label": "Intimacy Level Choices",
+            "name": "intimacy_level_choices",
+            "type": "textarea",
+            "default_value": "romantic : Romantic\nplayful : Playful\npassionate : Passionate\nadventurous : Adventurous\nintense : Intense\ncontrolled : Controlled\ndominant : Dominant\nsubmissive : Submissive\nexotic : Exotic\nmysterious : Mysterious"
+          },
+          {
+            "key": "field_preferred_genres_choices",
+            "label": "Preferred Genres Choices",
+            "name": "preferred_genres_choices",
+            "type": "textarea",
+            "default_value": "romance : Romance\naction : Action\nmystery : Mystery\nfantasy : Fantasy\nhistorical : Historical\nhumor : Humor\ndrama : Drama\nhorror : Horror\nerotica : Erotica\nother_genres : Other Genres\nthriller : Thriller\nscience_fiction : Science Fiction\nparanormal : Paranormal"
+          },
+          {
+            "key": "field_preferred_roles_choices",
+            "label": "Preferred Roles Choices",
+            "name": "preferred_roles_choices",
+            "type": "textarea",
+            "default_value": "dominant : Dominant\nsubmissive : Submissive\nswitch : Switch\nexplorer : Explorer\nvoyeur : Voyeur"
+          },
+          {
+            "key": "field_preferred_settings_choices",
+            "label": "Preferred Settings Choices",
+            "name": "preferred_settings_choices",
+            "type": "textarea",
+            "default_value": "contemporary : Contemporary\nhistorical : Historical\nfantasy : Fantasy\nscience_fiction : Science Fiction\npost_apocalyptic : Post-Apocalyptic\nsteampunk : Steampunk"
+          },
+          {
+            "key": "field_preferred_scenes_choices",
+            "label": "Preferred Scenes Choices",
+            "name": "preferred_scenes_choices",
+            "type": "textarea",
+            "default_value": "bedroom : Bedroom\noutdoors : Outdoors\npublic : Public\nexotic_locations : Exotic Locations\nspaceship : Spaceship\nhistorical_sites : Historical Sites"
+          }
+        ],
+        "layout": "block"
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "options_page",
+          "operator": "==",
+          "value": "intimate_tales_options"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "modified": 1691063905
+  }
+  
