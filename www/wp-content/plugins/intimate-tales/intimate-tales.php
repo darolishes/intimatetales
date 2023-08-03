@@ -1,52 +1,47 @@
 <?php
-/**
- * Plugin Name: Intimate Tales
- * Plugin URI: https://intimate-tales.de/
- * Description: A WordPress plugin for managing intimate roleplay stories.
- * Version: 1.0.0
- * Author: Dawid Rogaczewski
- * Author URI: https://intimate-tales.de/
- * Text Domain: intimate-tales
- */
-
 namespace IntimateTales;
 
-// Exit if accessed directly.
-defined('ABSPATH') || exit;
+/**
+ * Plugin Name: IntimateTales
+ * Plugin URI: https://www.intimatetales.com
+ * Description: A WordPress plugin for the IntimateTales platform.
+ * Version: 1.0.0
+ * Author: Dawid Rogaczewski
+ * Author URI: https://www.yourwebsite.com
+ * License: GPL v2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: intimate-tales
+ * Domain Path: /languages
+ */
 
-define('INTIMATE_TALES_PLUGIN_DIR', plugin_dir_path(__FILE__));
-define('INTIMATE_TALES_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('INTIMATE_TALES_PLUGIN_VERSION', '1.0.0');
-
-// Load Composer autoload if available.
-if (file_exists(__DIR__ . '/vendor/autoload.php')) {
-    require_once __DIR__ . '/vendor/autoload.php';
+// If this file is called directly, abort.
+if (!defined('WPINC')) {
+    die;
 }
 
-/**
- * Plugin class loader.
- */
+define('INTIMATE_TALES_PLUGIN_FILE', __FILE__);
+define('INTIMATE_TALES_PLUGIN_DIR', __DIR__ . DIRECTORY_SEPARATOR);
+
+
+// Register autoloader for classes
 spl_autoload_register(function ($class) {
-    $namespace = 'IntimateTales\\';
+    $prefix = 'IntimateTales\\';
+    $base_dir = __DIR__ . '/classes/';
 
-    // Only autoload classes from this plugin.
-    if (strpos($class, $namespace) === 0) {
-        $relative_class = substr($class, strlen($namespace));
-        $file = INTIMATE_TALES_PLUGIN_DIR . 'classes/' . str_replace('\\', '/', $relative_class) . '.php';
+    $len = strlen($prefix);
+    if (strncmp($prefix, $class, $len) !== 0) {
+        return;
+    }
 
-        if (file_exists($file)) {
-            require_once $file;
-        }
+    $relative_class = substr($class, $len);
+    $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
+
+    if (file_exists($file)) {
+        require_once $file;
     }
 });
 
-/**
- * Initialize the plugin.
- */
-function init(): Plugin
-{
-    return Plugin::init();
+// Initialize the plugin if the class exists
+if (class_exists('IntimateTales\Plugin')) {
+    Plugin::getInstance(__FILE__);
 }
-
-init();
-

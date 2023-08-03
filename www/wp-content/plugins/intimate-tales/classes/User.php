@@ -1,7 +1,6 @@
 <?php
 namespace IntimateTales\Classes;
 
-use Exception;
 use WP_User;
 use IntimateTales\Couple;
 
@@ -34,7 +33,6 @@ class User
 
     private $wp_user; // An instance of WP_User
 
-
     /**
      * User constructor.
      * Private constructor to prevent direct instantiation.
@@ -44,7 +42,7 @@ class User
     }
 
     // Public method to get a single instance of the class
-    public static function get_instance()
+    public static function get_instance(): self
     {
         if (self::$instance === null) {
             self::$instance = new self();
@@ -73,7 +71,7 @@ class User
      * @param int $user_id The ID of the WP_User.
      * @return User|null The User instance, or null if the user does not exist.
      */
-    public static function get_user_by_id(int $user_id): ?User
+    public static function get_user_by_id(int $user_id): ?self
     {
         $wp_user = get_user_by('ID', $user_id);
 
@@ -97,7 +95,10 @@ class User
         $this->intimacy_level = absint(get_field(self::INTIMACY_LEVEL, 'user_' . $user_id));
         $this->desired_scenarios = sanitize_text_field(get_field(self::DESIRED_SCENARIOS, 'user_' . $user_id));
         $this->role_playing_themes = sanitize_text_field(get_field(self::ROLE_PLAYING_THEMES, 'user_' . $user_id));
-        $this->couple_id = Couple::get_by_user_id($user_id)->get_couple_id();
+        
+        // Check if the user is part of a couple before getting the couple id
+        $couple = Couple::get_by_user_id($user_id);
+        $this->couple_id = $couple ? $couple->get_couple_id() : null;
     }
 
     /**
@@ -113,49 +114,56 @@ class User
     }
 
     // Check if the user is part of a couple.
-    public function is_couple()
+    public function is_couple(): bool
     {
         // Check if the user has a couple ID associated.
         return !empty(get_field(Couple::COUPLE_ID, 'user_' . $this->wp_user->ID));
     }
 
     // Get the pending invitations for the user.
-    public function get_invitations()
+    public function get_invitations(): array
     {
         // Retrieve the invitations from user meta.
         return get_field(self::INVITATION_FROM, 'user_' . $this->wp_user->ID);
     }
 
-    public function set_intimacy_level(int $intimacy_level): User
+    public function set_intimacy_level(int $intimacy_level): self
     {
         if (!in_array($intimacy_level, [self::INTIMACY_LOW, self::INTIMACY_MEDIUM, self::INTIMACY_HIGH])) {
-            throw new Exception('Invalid intimacy level');
+            throw new \Exception('Invalid intimacy level');
         }
         $this->intimacy_level = $intimacy_level;
         return $this;
     }
 
-    public function send_invitation(User $partner)
+    public function send_invitation(User $partner): void
     {
         if ($this->is_couple() || $partner->is_couple()) {
-            throw new Exception('One of the users is already part of a couple');
+            throw new \Exception('One of the users is already part of a couple');
         }
+        
+        // Check if the partner already has a pending invitation
+        $pending_invitations = $partner->get_invitations();
+        if (in_array($this->wp_user->ID, $pending_invitations)) {
+            throw new \Exception('The user has already sent an invitation to this partner');
+        }
+
         update_field(self::INVITATION_FROM, $this->wp_user->ID, 'user_' . $partner->get_user_id());
     }
 
-    public function accept_invitation(User $partner)
+    public function accept_invitation(User $partner): void
     {
         if ($this->is_couple() || $partner->is_couple()) {
-            throw new Exception('One of the users is already part of a couple');
+            throw new \Exception('One of the users is already part of a couple');
         }
         $couple = Couple::create($this->wp_user->ID, $partner->get_user_id());
         delete_user_meta($this->wp_user->ID, self::INVITATION_FROM);
     }
 
-    public function decline_invitation(User $partner)
+    public function decline_invitation(User $partner): void
     {
         if ($this->is_couple()) {
-            throw new Exception('User is part of a couple');
+            throw new \Exception('User is part of a couple');
         }
         // Remove the invitation from the user meta of the current user using ACF delete_field function.
         delete_user_meta($this->wp_user->ID, self::INVITATION_FROM, $partner->get_user_id());

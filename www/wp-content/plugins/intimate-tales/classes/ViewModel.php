@@ -12,29 +12,14 @@ class ViewModel {
     }
 
     private function __construct() {
-        // Initialize the ViewModel class here
-        // Add hooks for handling user actions
         add_action('intimate_tales_handle_onboarding', [$this, 'handle_onboarding_page']);
         add_action('intimate_tales_handle_story', [$this, 'handle_story_page']);
         add_action('intimate_tales_handle_loading', [$this, 'handle_loading_page']);
         add_action('intimate_tales_handle_outcome', [$this, 'handle_outcome_page']);
     }
 
-    /**
-     * Handles the onboarding page for user registration and preferences.
-     *
-     * If the onboarding is already completed for the user, it redirects the user to the story page
-     * or any other page based on your implementation.
-     *
-     * @return void
-     * @throws Exception If failed to redirect the user.
-     */
     public function handle_onboarding_page() {
-        // Implement the logic to handle the onboarding page
-        // Check if the onboarding is already completed for the user
         if ($this->is_onboarding_completed()) {
-            // Redirect the user to the story page or another page
-            // Modify the redirection logic based on your implementation
             $redirected = wp_redirect(home_url('/story-page'));
             if (false === $redirected) {
                 throw new Exception('Failed to redirect the user.');
@@ -42,53 +27,24 @@ class ViewModel {
             exit;
         }
 
-        // Render the onboarding form
         do_action('intimate_tales_render_onboarding');
     }
 
-    /**
-     * Handles the story page for generating and displaying the narrative stories.
-     *
-     * It generates the narrative story, saves it to the user's session or database,
-     * and renders the story page with the generated story.
-     *
-     * @return void
-     */
     public function handle_story_page() {
-        // Generate the narrative story
         $generated_story = $this->generate_narrative_story();
-
-        // Save the generated story to the user's session or database
-        // Implement the save_generated_story() method as needed
         $this->save_generated_story($generated_story);
-
-        // Render the story page with the generated story
         do_action('intimate_tales_render_story', $generated_story);
     }
 
-    /**
-     * Handles the loading page while waiting for both users to make decisions.
-     *
-     * @return void
-     */
     public function handle_loading_page() {
-        // Render the loading page
         do_action('intimate_tales_render_loading');
-        exit; // Exit after rendering the loading page
+        exit;
     }
 
-    /**
-     * Handles the outcome page and reveals the combined outcome of the story.
-     *
-     * @return void
-     */
     public function handle_outcome_page() {
-        // Get the combined outcome from the user's decisions
         $combined_outcome = $this->get_combined_outcome();
-
-        // Render the outcome page with the combined outcome
         do_action('intimate_tales_render_outcome', $combined_outcome);
-        exit; // Exit after rendering the outcome page
+        exit;
     }
 
     /**
