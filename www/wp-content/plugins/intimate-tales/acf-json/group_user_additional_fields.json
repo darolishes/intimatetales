@@ -1,0 +1,76 @@
+{
+    "key": "group_user_additional_fields",
+    "title": "User Additional Fields",
+    "fields": [
+      {
+        "key": "field_activity_track",
+        "label": "Activity Track",
+        "name": "activity_track",
+        "type": "repeater",
+        "sub_fields": [
+          {
+            "key": "field_activity_type",
+            "label": "Activity Type",
+            "name": "activity_type",
+            "type": "text"
+          },
+          {
+            "key": "field_activity_count",
+            "label": "Activity Count",
+            "name": "activity_count",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "key": "field_user_preferences",
+        "label": "User Preferences",
+        "name": "user_preferences",
+        "type": "repeater",
+        "sub_fields": [
+          {
+            "key": "field_preference_key",
+            "label": "Preference Key",
+            "name": "preference_key",
+            "type": "text"
+          },
+          {
+            "key": "field_preference_value",
+            "label": "Preference Value",
+            "name": "preference_value",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "key": "field_user_notifications",
+        "label": "User Notifications",
+        "name": "user_notifications",
+        "type": "repeater",
+        "sub_fields": [
+          {
+            "key": "field_notification_type",
+            "label": "Notification Type",
+            "name": "notification_type",
+            "type": "text"
+          },
+          {
+            "key": "field_notification_status",
+            "label": "Notification Status",
+            "name": "notification_status",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "user_form",
+          "operator": "==",
+          "value": "all"
+        }
+      ]
+    ]
+  }
+  

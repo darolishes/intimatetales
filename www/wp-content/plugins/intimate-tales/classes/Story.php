@@ -1,7 +1,9 @@
 <?php
-namespace IntimateTales\Classes;
 
-class Story {
+namespace IntimateTales;
+
+class Story
+{
     private $story_text;
     private $decision_points;
 
@@ -11,7 +13,8 @@ class Story {
      * @param string $story_text The text of the story.
      * @param array $decision_points The interactive decision points within the story.
      */
-    public function __construct($story_text, $decision_points) {
+    public function __construct($story_text, $decision_points)
+    {
         if (!is_string($story_text) || empty($story_text)) {
             trigger_error('Invalid story text provided.', E_USER_ERROR);
             return;
@@ -31,7 +34,8 @@ class Story {
      *
      * @return string The HTML content of the rendered story.
      */
-    public function render() {
+    public function render()
+    {
         ob_start();
         include INTIMATE_TALES_PLUGIN_DIR . 'templates/story-content.php';
         $story_content = ob_get_clean();
@@ -44,7 +48,8 @@ class Story {
      * @param string $decision The user's decision.
      * @return string The outcome text based on the user's decision.
      */
-    public function handle_decision($decision) {
+    public function handle_decision($decision)
+    {
         // Implement the logic to handle the user's decision in the story.
         // ...
 

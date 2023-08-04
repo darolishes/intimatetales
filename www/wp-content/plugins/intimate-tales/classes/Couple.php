@@ -5,6 +5,7 @@ namespace IntimateTales;
 defined('ABSPATH') || exit;
 
 use IntimateTales\User;
+use IntimateTales\Story;
 
 class InvalidUserIdException extends \Exception
 {
@@ -233,5 +234,23 @@ class Couple
         }
 
         update_user_meta($user_id, self::COUPLE_INVITATIONS, $partner_invitations);
+    }
+
+    // New methods
+
+    public function notify(string $notificationType): void
+    {
+        // Implement your own logic to manage notifications
+        // $notificationType could be 'new_story', 'new_comment', 'new_message', etc.
+    }
+
+    public function sendMessage(User $user, string $message): void
+    {
+        // Implement your own logic to send a message
+    }
+
+    public function shareStory(Story $story): void
+    {
+        // Implement your own logic to share a story
     }
 }
