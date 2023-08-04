@@ -1,8 +1,9 @@
 <?php
 
-namespace IntimateTales\User\Actions;
+namespace IntimateTales\User\Profile;
 
 use WP_Error;
+use InvalidArgumentException;
 
 class UserProfile
 {
@@ -15,6 +16,9 @@ class UserProfile
      */
     public function updateProfile(int $user_id, array $userdata)
     {
+        if ($user_id <= 0 || empty($userdata)) {
+            throw new InvalidArgumentException('Invalid user ID or user data');
+        }
         $result = wp_update_user($userdata);
 
         if (is_wp_error($result)) {
@@ -35,6 +39,10 @@ class UserProfile
      */
     public function changePassword(int $user_id, string $old_password, string $new_password)
     {
+        if ($user_id <= 0 || empty($old_password) || empty($new_password)) {
+            throw new InvalidArgumentException('Invalid user ID or password');
+        }
+
         $user = get_user_by('id', $user_id);
 
         if ($user && wp_check_password($old_password, $user->data->user_pass, $user_id)) {
@@ -51,5 +59,21 @@ class UserProfile
         } else {
             return new \WP_Error('incorrect_password', __('The old password is incorrect.', 'intimate-tales'));
         }
+    }
+
+    public function setPreference(int $userId, string $key, $value)
+    {
+        // Implement the logic to set the preference...
+    }
+
+    public function getPreference(int $userId, string $key)
+    {
+        // Implement the logic to get the preference...
+    }
+
+    public function save()
+    {
+        // Implement the logic to save the current state of the object in the database.
+        // Throw an exception if the save operation fails.
     }
 }

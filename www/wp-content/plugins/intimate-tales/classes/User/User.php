@@ -29,4 +29,11 @@ class User
     {
         return $this->relationships;
     }
+
+    public function saveAdditionalInformation()
+    {
+        $this->actions->save();
+        $this->profile->save();
+        $this->relationships->save();
+    }
 }

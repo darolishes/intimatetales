@@ -104,18 +104,6 @@ class User
     }
 
     /**
-     * Get the intimacy level of the user.
-     *
-     * @return int The intimacy level of the user. If the intimacy level is not set, returns 0.
-     */
-    public function getIntimacyLevel(): int
-    {
-        // Get the intimacy level of the user
-        // If the property does not exist, return 0 as the default value
-        return $this->wp_user->intimacy_level ?? 0;
-    }
-
-    /**
      * Get the preferred genres of the user.
      *
      * @return array
@@ -167,21 +155,7 @@ class User
         return get_field('couple_id', 'user_' . $this->wp_user->ID) !== false;
     }
 
-    /**
-     * Sets the intimacy level for the user.
-     *
-     * @param int $level The intimacy level to set.
-     * @throws InvalidArgumentException If the provided level is invalid.
-     * @return void
-     */
-    public function setIntimacyLevel(int $level): void
-    {
-        if ($level < self::INTIMACY_LOW || $level > self::INTIMACY_HIGH) {
-            throw new InvalidArgumentException('Invalid intimacy level');
-        }
-        $this->intimacy_level = $level;
-        update_field(self::INTIMACY_LEVEL, $level, 'user_' . $this->getUserId());
-    }
+
 
     /**
      * Set the preferred genres for the user.
@@ -300,89 +274,5 @@ class User
         ];
 
         update_field($acfFields, 'user_' . $userId);
-    }
-
-    /**
-     * Track an activity of a specific type.
-     *
-     * @param string $activityType The type of activity to track.
-     * @return void
-     */
-    public function trackActivity(string $activityType): void
-    {
-        // Implement your own logic to track user activities
-        // $activityType could be 'read_story', 'commented', 'liked', etc.
-    }
-
-    /**
-     * Set the preference value for the given preference key.
-     *
-     * @param string $preferenceKey
-     * @param mixed $value
-     * @return void
-     */
-    public function setPreference(string $preferenceKey, $value): void
-    {
-        // Implement your own logic to set user preferences
-        // $preferenceKey could be 'language', 'genre', 'mood', etc.
-        // $value is the value for the preference
-    }
-
-    /**
-     * Get the value of the preference with the given key.
-     *
-     * @param string $preferenceKey
-     * @return mixed
-     */
-    public function getPreference(string $preferenceKey)
-    {
-        // Implement your own logic to get user preferences
-        // $preferenceKey could be 'language', 'genre', 'mood', etc.
-    }
-
-    /**
-     * Notifies the user with the specified notification type.
-     *
-     * @param string $notificationType The type of notification to send.
-     * @return void
-     */
-    public function notify(string $notificationType): void
-    {
-        // Implement your own logic to manage notifications
-        // $notificationType could be 'new_story', 'new_comment', 'new_message', etc.
-    }
-
-    /**
-     * Adds a user as a friend to the current user.
-     *
-     * @param User $user The user to be added as a friend.
-     * @return void
-     */
-    public function addFriend(User $user): void
-    {
-        // Implement your own logic to add a friend
-    }
-
-    /**
-     * Sends a message to a user.
-     *
-     * @param User $user The user to send the message to.
-     * @param string $message The message to send.
-     * @return void
-     */
-    public function sendMessage(User $user, string $message): void
-    {
-        // Implement your own logic to send a message
-    }
-
-    /**
-     * Shares a story with others.
-     *
-     * @param Story $story The story to be shared.
-     * @return void
-     */
-    public function shareStory(Story $story): void
-    {
-        // Implement your own logic to share a story
     }
 }

@@ -2,89 +2,77 @@
 
 namespace IntimateTales\User\Actions;
 
-use WP_User;
-use WP_Error;
+use InvalidArgumentException;
 
-/**
- * Class UserActions
- *
- * This class provides methods for user actions such as login and logout.
- */
 class UserActions
 {
-    /**
-     * Logs in a user with the given username and password.
-     *
-     * @param string $username
-     * @param string $password
-     * @return WP_Error|bool Returns true if the login is successful, WP_Error otherwise.
-     */
-    public function login(string $username, string $password)
+    public function updateIntimacyLevel(int $userId, int $newLevel): bool
     {
-        $creds = array(
-            'user_login'    => $username,
-            'user_password' => $password,
-            'remember'      => true
-        );
-
-        $user = wp_signon($creds, false);
-
-        if (is_wp_error($user)) {
-            // Return the error
-            return new WP_Error('login_error', $user->get_error_message());
+        if ($userId <= 0 || $newLevel <= 0) {
+            throw new InvalidArgumentException('Invalid user ID or intimacy level');
         }
 
-        // The login is successful
-        return true;
-    }
-
-    /**
-     * Register a new user with the given username, email, and password.
-     *
-     * @param string $username
-     * @param string $email
-     * @param string $password
-     * @return bool Returns true if the user is successfully registered, false otherwise.
-     */
-    public function register(string $username, string $email, string $password)
-    {
-        $user_id = wp_create_user($username, $password, $email);
-
-        if (is_wp_error($user_id)) {
-            return new \WP_Error('registration_error', $user_id->get_error_message());
-        }
+        // Implement the logic to update the user's intimacy level...
+        // This will depend on how you're storing user data in your database.
 
         return true;
     }
 
-    /**
-     * Logs out the current user, redirects to the home URL, and exits the script.
-     *
-     * @return void
-     */
-    public function logout(): void
+    public function updatePreferredGenres(int $userId, array $newGenres): bool
     {
-        wp_logout();
-        wp_redirect(home_url());
-        exit;
-    }
-
-    /**
-     * Sends a password reset link to the user's email address.
-     *
-     * @param string $user_login The user's login name (username or email).
-     * @return WP_Error|bool Returns true if the email was sent successfully, WP_Error otherwise.
-     */
-    public function forgotPassword(string $user_login)
-    {
-        $result = retrieve_password($user_login);
-
-        if (is_wp_error($result)) {
-            // Return the error
-            return new WP_Error('password_reset_error', $result->get_error_message());
+        if ($userId <= 0 || empty($newGenres)) {
+            throw new InvalidArgumentException('Invalid user ID or genres');
         }
 
-        // The email was sent successfully
+        // Implement the logic to update the user's preferred genres...
+        // This will depend on how you're storing user data in your database.
+
+        return true;
+    }
+
+    public function updatePreferredScenes(int $userId, array $newScenes): bool
+    {
+        if ($userId <= 0 || empty($newScenes)) {
+            throw new InvalidArgumentException('Invalid user ID or scenes');
+        }
+
+        // Implement the logic to update the user's preferred scenes...
+        // This will depend on how you're storing user data in your database.
+
+        return true;
+    }
+
+    public function updatePreferredFormats(int $userId, array $newFormats): bool
+    {
+        if ($userId <= 0 || empty($newFormats)) {
+            throw new InvalidArgumentException('Invalid user ID or formats');
+        }
+
+        // Implement the logic to update the user's preferred formats...
+        // This will depend on how you're storing user data in your database.
+
+        return true;
+    }
+
+    public function inviteUserToCouple(int $invitingUserId, int $invitedUserId): bool
+    {
+        if ($invitingUserId <= 0 || $invitedUserId <= 0) {
+            throw new InvalidArgumentException('Invalid user IDs');
+        }
+
+        // Implement the logic to invite a user to form a couple...
+        // This could involve creating a record in a 'couples' table in your database,
+        // sending a notification to the invited user, etc.
+
+        return true;
+    }
+
+    public function save()
+    {
+        // Implement the logic to save the current state of the object in the database.
+        // This might involve updating a record in a 'users' table in your database,
+        // or some other form of persistence.
+
         return true;
     }
 }
