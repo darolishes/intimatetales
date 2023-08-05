@@ -6,6 +6,14 @@ use InvalidArgumentException;
 
 class UserActions
 {
+    /**
+     * Update the intimacy level of a user.
+     *
+     * @param int $userId The ID of the user.
+     * @param int $newLevel The new intimacy level.
+     * @throws InvalidArgumentException If the user ID or intimacy level is invalid.
+     * @return bool Returns true if the intimacy level was successfully updated.
+     */
     public function updateIntimacyLevel(int $userId, int $newLevel): bool
     {
         if ($userId <= 0 || $newLevel <= 0) {
@@ -69,10 +77,6 @@ class UserActions
 
     public function save()
     {
-        // Implement the logic to save the current state of the object in the database.
-        // This might involve updating a record in a 'users' table in your database,
-        // or some other form of persistence.
-
-        return true;
+        
     }
 }
