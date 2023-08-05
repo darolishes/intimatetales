@@ -1,0 +1,121 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_main-footer-v3
+Title: Main Footer v3
+Descr: Footer navigation template
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+.footer-v3 {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-v3__logo {
+  a, svg, img {
+    width: 40px; // logo width
+    height: 40px; // logo height
+    display: block;
+  }
+}
+
+.footer-v3__nav {
+  margin: var(--space-lg) 0;
+}
+
+.footer-v3__nav-item {
+  margin-bottom: var(--space-sm);
+}
+
+.footer-v3__link {
+  color: var(--color-contrast-high);
+  font-size: var(--text-md);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+.footer-v3__socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xxxs);
+
+  a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: alpha(var(--color-contrast-higher), 0.09);
+    color: var(--color-contrast-low); // icon color
+
+    &:hover {
+      color: var(--color-contrast-higher);
+    }
+
+    .icon {
+      --size: 16px;
+      display: block;
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .footer-v3__container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .footer-v3__nav {
+    margin: 0;
+  }
+
+  .footer-v3__nav-list {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-v3__nav-item  {
+    padding: 0 var(--space-sm);
+    margin: 0;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      height: 0.8em;
+      width: 1px;
+      right: 0;
+      top: calc(50% - 0.4em);
+      background-color: var(--color-border-alpha);
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  .footer-v3__link {
+    font-size: 0.875rem;
+  }
+}

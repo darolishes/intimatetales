@@ -1,0 +1,67 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_3d-card
+Title: 3D Card
+Descr: Card element floating in a 3D space
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+.td-card {}
+
+.td-card-link {
+  color: var(--color-contrast-higher);
+  text-decoration: none;
+
+  /* filling effect */
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to right, var(--color-contrast-higher) 50%, alpha(var(--color-contrast-higher), 0.2) 50%);
+  background-size: 200% 2px;
+  background-position: 100% calc(100% - 0.05em);
+
+  transition: background-position .3s var(--ease-in-out);
+
+  &:hover {
+    background-position: 0% calc(100% - 0.05em);
+  }
+}
+
+.td-card--video {
+  position: relative;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    transform: none;
+  }
+
+  &::before {
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    background-color: alpha(var(--color-contrast-higher), 0.9);
+    border-radius: 50%;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    transition: transform 0.3s var(--ease-out-back);
+  }
+
+  &::after {
+    z-index: 2;
+    width: 24px;
+    height: 24px;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='%23ffffff'%3E%3Cpath fill='%23ffffff' d='M20.555,11.168l-15-10c-0.307-0.204-0.702-0.224-1.026-0.05C4.203,1.292,4,1.631,4,2v20 c0,0.369,0.203,0.708,0.528,0.882C4.676,22.961,4.838,23,5,23c0.194,0,0.388-0.057,0.555-0.168l15-10C20.833,12.646,21,12.334,21,12 S20.833,11.354,20.555,11.168z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+    mask-size: 24px;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    background-color: var(--color-bg); // icon color
+    top: calc(50% - 12px);
+    left: calc(50% - 12px);
+  }
+
+  &:hover::before {
+    transform: scale(1.2);
+  }
+}
