@@ -16,67 +16,70 @@ class UserActions
      */
     public function updateIntimacyLevel(int $userId, int $newLevel): bool
     {
-        if ($userId <= 0 || $newLevel <= 0) {
-            throw new InvalidArgumentException('Invalid user ID or intimacy level');
+        $this->validateUserId($userId);
+        if ($newLevel <= 0) {
+            throw new InvalidArgumentException('Invalid intimacy level');
         }
 
-        // Implement the logic to update the user's intimacy level...
-        // This will depend on how you're storing user data in your database.
+        // TODO: Implement the logic to update the user's intimacy level in the database.
+        
 
         return true;
     }
 
     public function updatePreferredGenres(int $userId, array $newGenres): bool
     {
-        if ($userId <= 0 || empty($newGenres)) {
-            throw new InvalidArgumentException('Invalid user ID or genres');
+        $this->validateUserId($userId);
+        if (empty($newGenres)) {
+            throw new InvalidArgumentException('Genres list cannot be empty');
         }
 
-        // Implement the logic to update the user's preferred genres...
-        // This will depend on how you're storing user data in your database.
+        
+
+        // TODO: Implement the logic to update the user's preferred genres in the database.
+        
 
         return true;
     }
 
     public function updatePreferredScenes(int $userId, array $newScenes): bool
     {
-        if ($userId <= 0 || empty($newScenes)) {
-            throw new InvalidArgumentException('Invalid user ID or scenes');
+        $this->validateUserId($userId);
+        if (empty($newScenes)) {
+            throw new InvalidArgumentException('Scenes list cannot be empty');
         }
 
-        // Implement the logic to update the user's preferred scenes...
-        // This will depend on how you're storing user data in your database.
+        // TODO: Implement the logic to update the user's preferred scenes in the database.
 
         return true;
     }
 
     public function updatePreferredFormats(int $userId, array $newFormats): bool
     {
-        if ($userId <= 0 || empty($newFormats)) {
-            throw new InvalidArgumentException('Invalid user ID or formats');
+        $this->validateUserId($userId);
+        if (empty($newFormats)) {
+            throw new InvalidArgumentException('Formats list cannot be empty');
         }
 
-        // Implement the logic to update the user's preferred formats...
-        // This will depend on how you're storing user data in your database.
+        // TODO: Implement the logic to update the user's preferred formats in the database.
 
         return true;
     }
 
     public function inviteUserToCouple(int $invitingUserId, int $invitedUserId): bool
     {
-        if ($invitingUserId <= 0 || $invitedUserId <= 0) {
-            throw new InvalidArgumentException('Invalid user IDs');
-        }
+        $this->validateUserId($invitingUserId);
+        $this->validateUserId($invitedUserId);
 
-        // Implement the logic to invite a user to form a couple...
-        // This could involve creating a record in a 'couples' table in your database,
-        // sending a notification to the invited user, etc.
+        // TODO: Implement the logic to invite a user to form a couple in the database.
 
         return true;
     }
 
-    public function save()
+    private function validateUserId(int $userId)
     {
-        
+        if ($userId <= 0) {
+            throw new InvalidArgumentException('Invalid user ID');
+        }
     }
 }

@@ -2,41 +2,53 @@
 
 namespace IntimateTales\User\Profile;
 
+use WP_User;
+
 class UserPreferences
 {
-    public function setPreference(string $key, $value): void
+    private $wp_user;
+
+    public function __construct(WP_User $user) 
     {
-        update_user_meta($this->wp_user->ID, $key, $value);
+        $this->wp_user = $user; 
     }
 
-    public function getPreference(string $key)
+    public function set(string $key, $value): void 
     {
+        $this->validateKey($key);
+        update_user_meta($this->wp_user->ID, $key, $value); 
+    }
+
+    public function get(string $key): mixed 
+    {
+        $this->validateKey($key);
         return get_user_meta($this->wp_user->ID, $key, true);
     }
 
-    public function getPreferences(int $userId): array
+    public function getAll(): array 
     {
-        // Implement logic to get user preferences
-        // Example implementation:
-        // return array(
-        //     'preference1' => 'value1',
-        //     'preference2' => 'value2',
-        //     'preference3' => 'value3',
-        // );
+        return get_user_meta($this->wp_user->ID);
     }
 
-    public function setPreferences(int $userId, array $newPreferences): bool
+    public function add(array $preferences): void 
     {
-        // Implement logic to set user preferences
-        // Example implementation:
-        // return true; // if preferences are successfully set
-        // return false; // if setting preferences fails
+        foreach ($preferences as $key => $value) {
+            $this->validatePreference($key, $value);
+            add_user_meta($this->wp_user->ID, $key, $value);
+        }  
     }
-
-    public function save()
+    
+    public function update(array $preferences): void
     {
-        // Implement the logic to save the current state of the object in the database.
-        // Throw an exception if the save operation fails.
+        foreach ($preferences as $key => $value) {
+            $this->validatePreference($key, $value);
+            update_user_meta($this->wp_user->ID, $key, $value);
+        }
+    }
+    
+    public function delete(string $key): void
+    {
+        $this->validateKey($key); 
+        delete_user_meta($this->wp_user->ID, $key);
     }
 }
-// Compare this snippet from www/wp-content/plugins/intimate-tales/classes/User/Relationships/UserRelationships.php:
