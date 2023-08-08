@@ -1,0 +1,16 @@
+Bitte analysiere den Code im './IntimateTales'-Ordner des 'IntimateTales' WordPress-Plugins, identifiziere alle Fehler und schlage Verbesserungen vor.
+
+- Wenn es spezifische Fehlermeldungen gibt, die während der Ausführung des Plugins auftreten, oder bekannte Probleme mit der Funktionalität des Plugins, sollten diese identifiziert und behoben werden.
+- Mögliche Bereiche für Verbesserungen könnten die Leistung (z.B. die Geschwindigkeit der Ausführung oder die Effizienz der Ressourcennutzung), die Funktionalität (z.B. die Korrektur von Fehlern oder die Hinzufügung neuer Funktionen), oder die Code-Struktur (z.B. die Verbesserung der Lesbarkeit und Wartbarkeit des Codes) sein.
+- Im Allgemeinen sollten Sie die WordPress-Codex-Standards und die PHP-FIG-Standards (wie PSR-1, PSR-2 und PSR-4) befolgen. Sie sollten auch sicherstellen, dass Ihr Code gut organisiert, leicht verständlich und gut dokumentiert ist.
+  Welche spezifischen Fehler oder bekannten Probleme sollten identifiziert und behoben werden? Wenn es spezifische Fehlermeldungen gibt, die während der Ausführung des Plugins auftreten, oder bekannte Probleme mit der Funktionalität des Plugins, sollten diese identifiziert und behoben werden.
+
+Welche Aspekte der Leistung sollten verbessert werden? Dies könnte die Ausführungsgeschwindigkeit, die Effizienz der Ressourcennutzung, die Skalierbarkeit des Plugins oder die Kompatibilität mit verschiedenen Hosting-Umgebungen umfassen.
+
+Welche Verbesserungen der Funktionalität sollten in Betracht gezogen werden? Dies könnte die Behebung von Fehlern, die Hinzufügung neuer Funktionen oder die Verbesserung der Benutzererfahrung umfassen.
+
+Welche spezifischen Verbesserungen der Code-Struktur sollten vorgenommen werden? Dies könnte die Lesbarkeit des Codes, die Wartbarkeit des Codes, die Einhaltung von Best Practices für die Code-Organisation oder die Verbesserung der Dokumentation umfassen.
+
+Gibt es spezifische WordPress-Codex-Standards oder PHP-FIG-Standards, die befolgt werden sollten? Im Allgemeinen sollten Sie die WordPress-Codex-Standards und die PHP-FIG-Standards (wie PSR-1, PSR-2 und PSR-4) befolgen.
+
+Welches Maß an Organisation, Lesbarkeit und Dokumentation wird für den Code erwartet? Guter Code sollte gut organisiert, leicht verständlich und gut dokumentiert sein. Dies erleichtert die Wartung und Weiterentwicklung des Codes und hilft anderen Entwicklern, den Code zu verstehen.
