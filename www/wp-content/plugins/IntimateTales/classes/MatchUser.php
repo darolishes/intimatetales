@@ -42,29 +42,46 @@ class MatchUser {
         $suitable_partner_id = null;
         $suitable_partner_score = 0;
 
-        $users = get_users();
+        // Define WP_User_Query arguments to get users based on certain criteria
+        $args = array(
+            'exclude' => array($this->user->getID()),
+            'meta_query' => array(
+                'relation' => 'AND',
+                array(
+                    'key' => 'intimacy_level',
+                    'value' => $this->user->getIntimacyLevel(),
+                    'compare' => '='
+                ),
+                array(
+                    'key' => 'desired_scenarios',
+                    'value' => $this->user->getDesiredScenarios(),
+                    'compare' => 'LIKE'
+                )
+            )
+        );
+
+        $user_query = new \WP_User_Query($args);
+
         $userIntimacyLevel = $this->user->getIntimacyLevel();
         $userDesiredScenariosArray = explode(',', $this->user->getDesiredScenarios());
 
-        foreach ($users as $user) {
-            if ($user->ID === $this->user->getID()) {
-                continue;
-            }
+        if (!empty($user_query->get_results())) {
+            foreach ($user_query->get_results() as $user) {
+                $partner_intimacy_level = absint(get_user_meta($user->ID, 'intimacy_level', true));
+                $partner_desired_scenarios_array = explode(',', sanitize_text_field(get_user_meta($user->ID, 'desired_scenarios', true)));
 
-            $partner_intimacy_level = absint(get_user_meta($user->ID, 'intimacy_level', true));
-            $partner_desired_scenarios_array = explode(',', sanitize_text_field(get_user_meta($user->ID, 'desired_scenarios', true)));
+                $compatibility_score = 0;
+                if ($partner_intimacy_level === $userIntimacyLevel) {
+                    $compatibility_score += 1;
+                }
 
-            $compatibility_score = 0;
-            if ($partner_intimacy_level === $userIntimacyLevel) {
-                $compatibility_score += 1;
-            }
+                $common_scenarios = array_intersect($partner_desired_scenarios_array, $userDesiredScenariosArray);
+                $compatibility_score += count($common_scenarios);
 
-            $common_scenarios = array_intersect($partner_desired_scenarios_array, $userDesiredScenariosArray);
-            $compatibility_score += count($common_scenarios);
-
-            if ($compatibility_score > $suitable_partner_score) {
-                $suitable_partner_id = $user->ID;
-                $suitable_partner_score = $compatibility_score;
+                if ($compatibility_score > $suitable_partner_score) {
+                    $suitable_partner_id = $user->ID;
+                    $suitable_partner_score = $compatibility_score;
+                }
             }
         }
 
