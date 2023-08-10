@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27c456d47942c2aa3ceadb6dcf59d857",
+    "content-hash": "33ea533bb73705674ab51e088c99dc8e",
     "packages": [
         {
             "name": "composer/installers",
@@ -156,8 +156,8 @@
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "./src/plugin",
-                "reference": "b41ce63ad121d509991c493029eda13b0a73ee4f"
+                "url": "./src/intimate-tales",
+                "reference": "ae7df417a6c4edae0ef317a70fb9b3dc554a5e50"
             },
             "require": {
                 "composer/installers": "^2.2"
@@ -165,7 +165,7 @@
             "type": "wordpress-plugin",
             "autoload": {
                 "psr-4": {
-                    "Daro\\IntimateTales\\": "src/"
+                    "IntimateTales\\": "app/"
                 }
             },
             "license": [
