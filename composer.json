@@ -49,7 +49,7 @@
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.1.0",
     "wpackagist-theme/twentytwentythree": "^1.2",
-    "daro/intimate-tales": "dev-main",
+    "daro/intimate-tales": "dev-master",
     "roots/sage": "^10.6"
   },
   "require-dev": {

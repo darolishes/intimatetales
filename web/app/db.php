@@ -1,0 +1,1 @@
+/Users/daro/Sites/IntimateTales_app/web/app/plugins/query-monitor/wp-content/db.php

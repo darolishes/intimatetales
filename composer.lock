@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1042f93dabd395c71c9a053dcf510a3e",
+    "content-hash": "27c456d47942c2aa3ceadb6dcf59d857",
     "packages": [
         {
             "name": "composer/installers",
@@ -153,7 +153,7 @@
         },
         {
             "name": "daro/intimate-tales",
-            "version": "dev-main",
+            "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "./src/plugin",
