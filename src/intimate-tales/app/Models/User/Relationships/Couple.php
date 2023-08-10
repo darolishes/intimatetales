@@ -2,20 +2,19 @@
 
 namespace IT\Models\User;
 
-use IT\Models\User\Relationships;
-
 class Couple
 {
-    const CREATION_DATE_KEY = 'couple_creation_date';
+
+    public const CREATION_DATE_KEY = 'couple_creation_date';
 
     private $relationshipPost;
 
     private $partner1;
     private $partner2;
 
-    public function __construct(int $user1Id, int $user2Id)
+    public function __construct( int $user1Id, int $user2Id )
     {
-        $this->create($user1Id, $user2Id);
+        $this->create( $user1Id, $user2Id );
     }
 
     public function getPartner1(): CouplePartner
@@ -28,15 +27,15 @@ class Couple
         return $this->partner2;
     }
 
-    private function create(int $user1Id, int $user2Id): void
+    private function create( int $user1Id, int $user2Id ): void
     {
         // Create Relationship post
-        #$this->relationshipPost = new RelationshipPost($user1Id, $user2Id);
-        #$this->relationshipPost->save();
+        //$this->relationshipPost = new RelationshipPost($user1Id, $user2Id);
+        //$this->relationshipPost->save();
 
         // Create Couple Partners
-        $this->partner1 = new CouplePartner($user1Id, $this->relationshipPost->getId());
-        $this->partner2 = new CouplePartner($user2Id, $this->relationshipPost->getId());
+        $this->partner1 = new CouplePartner( $user1Id, $this->relationshipPost->getId() );
+        $this->partner2 = new CouplePartner( $user2Id, $this->relationshipPost->getId() );
 
         $this->partner1->save();
         $this->partner2->save();
@@ -49,6 +48,6 @@ class Couple
 
     public function dissolve(): void
     {
-        wp_delete_post($this->relationshipPost->ID, true);
+        wp_delete_post( $this->relationshipPost->ID, true );
     }
 }

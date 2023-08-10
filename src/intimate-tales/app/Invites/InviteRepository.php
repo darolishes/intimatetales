@@ -8,29 +8,24 @@ namespace IntimateTales\Invites;
 interface InviteRepository
 {
 
-  /**
-   * Create a new invite. 
-   * 
-   * @param int $recipientId
-   * @return void
-   */
-  public function createInvite(int $recipientId);
+    /**
+         * Create a new invite.
+         *
+         * @return void
+         */
+    public function createInvite( int $recipientId );
 
-  /**
-   * Get invite URL.
-   * 
-   * @param int $recipientId
-   * @param int $senderId
-   * @return string
-   */
-  public function getInviteUrl(int $recipientId, int $senderId);
+    /**
+     * Get invite URL.
+     *
+     * @return string
+     */
+    public function getInviteUrl( int $recipientId, int $senderId );
 
-  /**
-   * Get invites.
-   * 
-   * @param int $limit
-   * @param int $offset
-   * @return Invite[]
-   */
-  public function getInvites(int $limit, int $offset);
+    /**
+     * Get invites.
+     *
+     * @return Invite[]
+     */
+    public function getInvites( int $limit, int $offset );
 }

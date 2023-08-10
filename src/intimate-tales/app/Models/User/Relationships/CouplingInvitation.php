@@ -2,45 +2,50 @@
 
 namespace IntimateTales\Couple;
 
-class Invitation 
+class Invitation
 {
-    const INVITATION_KEY = 'couple_invitation';
-    
+
+    public const INVITATION_KEY = 'couple_invitation';
+
     public function __construct(
-        private int $inviterId, 
-        private int $inviteeId     
+        private int $inviterId,
+        private int $inviteeId
     ) {
-        $this->validate();    
+        $this->validate();
     }
-    
-    public function send(): void {
-       add_user_meta(
-           $this->inviteeId, 
-           self::INVITATION_KEY,
-           $this->inviterId
-       );
+
+    public function send(): void
+    {
+        add_user_meta(
+            $this->inviteeId,
+            self::INVITATION_KEY,
+            $this->inviterId
+        );
     }
-    
-    public function accept(): Couple {
-       $this->remove();
-       
-       return new Couple(
-           $this->inviterId, 
-           $this->inviteeId
-       );       
+
+    public function accept(): Couple
+    {
+        $this->remove();
+
+        return new Couple(
+            $this->inviterId,
+            $this->inviteeId
+        );
     }
-        
-    private function validate() {
-        if ($this->inviterId === $this->inviteeId) {
-            throw new Exception('Cannot invite yourself.');      
-        }    
+
+    private function validate()
+    {
+        if ( $this->inviterId === $this->inviteeId ) {
+            throw new Exception( 'Cannot invite yourself.' );
+        }
     }
-        
-    private function remove() {
-       delete_user_meta(
-           $this->inviteeId,
-           self::INVITATION_KEY, 
-           $this->inviterId
-       );
+
+    private function remove()
+    {
+        delete_user_meta(
+            $this->inviteeId,
+            self::INVITATION_KEY,
+            $this->inviterId
+        );
     }
 }

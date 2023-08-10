@@ -1,17 +1,16 @@
 <?php
 
-namespace IT\Traits;
-
 trait DatabaseTableCreator
 {
+
     protected $databaseService;
 
-    public function __construct(\IT\Services\DatabaseService $databaseService)
+    public function __construct( IT\Services\DatabaseService $databaseService )
     {
         $this->databaseService = $databaseService;
     }
 
-    public function createTableIfNotExists($tableName, $sql)
+    public function createTableIfNotExists( $tableName, $sql )
     {
         require_once ABSPATH . 'wp-admin/includes/upgrade.php';
         $charsetCollate = $this->databaseService->getCharsetCollate();
@@ -20,6 +19,6 @@ trait DatabaseTableCreator
             {$sql}
         ) {$charsetCollate};";
 
-        dbDelta($query);
+        dbDelta( $query );
     }
 }

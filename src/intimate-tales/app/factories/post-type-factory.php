@@ -7,12 +7,13 @@ use IT\Models\PostType;
 
 class PostTypeFactory
 {
-    public function make(string $name, Config $config)
+
+    public function make( string $name, Config $config )
     {
-        return new $name($config->getArgs());
+        return new $name( $config->getArgs() );
     }
 
-    public function register(PostType $postType)
+    public function register( PostType $postType )
     {
         $postType->register();
     }

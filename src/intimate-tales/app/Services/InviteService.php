@@ -2,95 +2,97 @@
 
 namespace IT\Models;
 
-use IT\Traits\InviteCommonMethods;
 use IT\Services\Email\EmailNotifier;
+use IT\Traits\InviteCommonMethods;
+use wpdb;
 
 class InviteService
 {
-  use InviteCommonMethods;
 
-  const STATUS_ACCEPTED = 'accepted';
-  const STATUS_REJECTED = 'rejected';
-  const STATUS_PENDING = 'pending';
+    use InviteCommonMethods;
 
-  private $wpdb;
-  private $emailNotifier;
+    public const STATUS_ACCEPTED = 'accepted';
+    public const STATUS_REJECTED = 'rejected';
+    public const STATUS_PENDING  = 'pending';
 
-  public function __construct(\wpdb $wpdb, EmailNotifier $emailNotifier)
-  {
-    $this->wpdb = $wpdb;
-    $this->emailNotifier = $emailNotifier;
-  }
+    private $wpdb;
+    private $emailNotifier;
 
-  public function registerInviteService()
-  {
-    // Register hooks for invite service
-    add_action('init', [$this, 'handleInviteRedirect']);
-  }
-
-  public function handleInviteRedirect()
-  {
-    if (isset($_GET['invite_token'])) {
-      $inviteToken = sanitize_text_field($_GET['invite_token']);
-      $invite = $this->getInviteByToken($inviteToken);
-      if ($invite) {
-        $this->handleInvite($invite);
-      }
+    public function __construct( wpdb $wpdb, EmailNotifier $emailNotifier )
+    {
+        $this->wpdb          = $wpdb;
+        $this->emailNotifier = $emailNotifier;
     }
-  }
 
-  public function handleInvite($invite)
-  {
-    if ($invite->status == self::STATUS_PENDING) {
-      $this->acceptInvite($invite);
-    } else if ($invite->status == self::STATUS_REJECTED) {
-      $this->rejectInvite($invite);
+    public function registerInviteService()
+    {
+        // Register hooks for invite service
+        add_action( 'init', [$this, 'handleInviteRedirect'] );
     }
-  }
 
-  public function acceptInvite($invite)
-  {
-    $invite->status = self::STATUS_ACCEPTED;
-    $this->updateInviteStatus($invite->id, self::STATUS_ACCEPTED);
-    $this->emailNotifier->sendInviteAcceptedEmail($invite);
-  }
+    public function handleInviteRedirect()
+    {
+        if ( isset( $_GET['invite_token'] ) ) {
+            $inviteToken = sanitize_text_field( $_GET['invite_token'] );
+            $invite      = $this->getInviteByToken( $inviteToken );
 
-  public function redirect($invite)
-  {
-    // Redirect logic or actions based on the invite
-    // For example: redirect to a specific page or perform some actions
-    if (
-      $invite->status == self::STATUS_ACCEPTED ||
-      $invite->status == self::STATUS_REJECTED ||
-      $invite->status == self::STATUS_PENDING
-    ) {
-      $this->redirectToPage($invite);
+            if ( $invite ) {
+                $this->handleInvite( $invite );
+            }
+        }
     }
-  }
 
-  public function notifyAllPendingInvites()
-  {
-    $inviteTableName = $this->wpdb->prefix . 'invite';
-    $query = $this->wpdb->prepare("SELECT * FROM {$inviteTableName} WHERE status IS NULL");
-    $invites = $this->wpdb->get_results($query, ARRAY_A);
-
-    foreach ($invites as $invite) {
-      $this->emailNotifier->sendInviteNotification($invite['recipient_id'], $invite['url']);
-      $this->updateInviteStatus($invite['id'], 'notified');
+    public function handleInvite( $invite )
+    {
+        if ( $invite->status == self::STATUS_PENDING ) {
+            $this->acceptInvite( $invite );
+        } elseif ( $invite->status == self::STATUS_REJECTED ) {
+            $this->rejectInvite( $invite );
+        }
     }
-  }
 
-  private function updateInviteStatus($inviteId, $status)
-  {
-    $inviteTableName = $this->wpdb->prefix . 'invite';
-    $this->wpdb->update(
-      $inviteTableName,
-      ['status' => $status],
-      ['id' => $inviteId],
-      ['%s'],
-      ['%d']
-    );
-  }
+    public function acceptInvite( $invite )
+    {
+        $invite->status = self::STATUS_ACCEPTED;
+        $this->updateInviteStatus( $invite->id, self::STATUS_ACCEPTED );
+        $this->emailNotifier->sendInviteAcceptedEmail( $invite );
+    }
 
-  // ... rest of the methods
+    public function redirect( $invite )
+    {
+        // Redirect logic or actions based on the invite
+        // For example: redirect to a specific page or perform some actions
+        if ( $invite->status == self::STATUS_ACCEPTED ||
+        $invite->status == self::STATUS_REJECTED ||
+        $invite->status == self::STATUS_PENDING
+        ) {
+            $this->redirectToPage( $invite );
+        }
+    }
+
+    public function notifyAllPendingInvites()
+    {
+        $inviteTableName = $this->wpdb->prefix . 'invite';
+        $query           = $this->wpdb->prepare( "SELECT * FROM {$inviteTableName} WHERE status IS NULL" );
+        $invites         = $this->wpdb->get_results( $query, ARRAY_A );
+
+        foreach ( $invites as $invite ) {
+            $this->emailNotifier->sendInviteNotification( $invite['recipient_id'], $invite['url'] );
+            $this->updateInviteStatus( $invite['id'], 'notified' );
+        }
+    }
+
+    private function updateInviteStatus( $inviteId, $status )
+    {
+        $inviteTableName = $this->wpdb->prefix . 'invite';
+        $this->wpdb->update(
+            $inviteTableName,
+            ['status' => $status],
+            ['id'     => $inviteId],
+            ['%s'],
+            ['%d']
+        );
+    }
+
+    // ... rest of the methods
 }

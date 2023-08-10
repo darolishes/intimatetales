@@ -7,7 +7,7 @@ class CouplePartner
 
     private $userId;
 
-    public function __construct(int $userId)
+    public function __construct( int $userId )
     {
         $this->userId = $userId;
     }
@@ -17,7 +17,7 @@ class CouplePartner
         return $this->userId;
     }
 
-    public function isPartner(int $userId): bool
+    public function isPartner( int $userId ): bool
     {
         return $this->userId === $userId;
     }

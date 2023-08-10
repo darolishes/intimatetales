@@ -4,15 +4,16 @@ namespace IT\Models\PostTypes;
 
 class PostType
 {
+
     private $config;
 
-    public function __construct($config)
+    public function __construct( $config )
     {
         $this->config = $config;
     }
 
     public function registerPostType()
     {
-        register_post_type($this->config['name'], $this->config);
+        register_post_type( $this->config['name'], $this->config );
     }
 }

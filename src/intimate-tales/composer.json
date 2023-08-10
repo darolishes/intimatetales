@@ -3,7 +3,9 @@
     "description": "A WordPress plugin for interactive romantic narratives with AI-driven character interactions, user management, and payment gateway integration.",
     "type": "wordpress-plugin",
     "require": {
-        "composer/installers": "^2.2"
+        "php": ">=8.2",
+        "composer/installers": "^2.2",
+        "friendsofphp/php-cs-fixer": "^3.22"
     },
     "license": "MIT",
     "autoload": {
@@ -16,5 +18,10 @@
             "name": "Dawid Rogaczewski",
             "email": "mail@daro.de"
         }
-    ]
+    ],
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
 }

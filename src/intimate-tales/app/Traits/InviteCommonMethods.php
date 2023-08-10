@@ -4,9 +4,10 @@ namespace IT\Traits;
 
 trait InviteCommonMethods
 {
+
     private function generateUrl()
     {
-        return home_url('/' . $this->token);
+        return home_url( '/' . $this->token );
     }
 
     public function getToken(): string
@@ -29,19 +30,19 @@ trait InviteCommonMethods
         return $this->email;
     }
 
-    protected function insertData($tableName, $data)
+    protected function insertData( $tableName, $data )
     {
         $defaultData = $this->getDefaultData();
-        $data = array_merge($defaultData, $data);
+        $data        = array_merge( $defaultData, $data );
 
-        $this->databaseService->insert($tableName, $data);
+        $this->databaseService->insert( $tableName, $data );
     }
 
     protected function getDefaultData()
     {
         return [
-            'created_at' => current_time('mysql'),
-            'updated_at' => current_time('mysql'),
+            'created_at' => current_time( 'mysql' ),
+            'updated_at' => current_time( 'mysql' ),
         ];
     }
 }
