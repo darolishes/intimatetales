@@ -2,15 +2,16 @@
     "name": "daro/intimate-tales",
     "description": "A WordPress plugin for interactive romantic narratives with AI-driven character interactions, user management, and payment gateway integration.",
     "type": "wordpress-plugin",
+    "keywords": ["wordpress", "plugin"],
     "require": {
-        "php": ">=8.2",
+        "php": ">=8.0",
         "composer/installers": "^2.2",
-        "friendsofphp/php-cs-fixer": "^3.22"
+        "twig/twig": "^3.7"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "IntimateTales\\": "app/"
+            "IntimateTales\\": "includes/"
         }
     },
     "authors": [
@@ -18,10 +19,5 @@
             "name": "Dawid Rogaczewski",
             "email": "mail@daro.de"
         }
-    ],
-    "config": {
-        "allow-plugins": {
-            "composer/installers": true
-        }
-    }
+    ]
 }
