@@ -13,57 +13,81 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Check if the main "Intimate Tales" plugin is active
-if (!class_exists('IntimateTales')) {
-    add_action('admin_notices', function () {
-        echo '<div class="notice notice-error is-dismissible"><p>"Intimate Tales - Rollenspiel Modul" benötigt das Haupt-Plugin "Intimate Tales" um korrekt zu funktionieren.</p></div>';
-    });
-    return;
-}
-// Instantiate the Rollenspiel class and other necessary classes
-$rollenspiel = new IntimateTales\Roleplay\Roleplay(get_current_user_id(), get_the_ID());
+namespace IntimateTales;
 
-// Hook into the the_content filter to modify the story content based on user decisions and interactions
-add_filter('the_content', function ($content) {
-    global $post;
+class Main_Plugin {
 
-    // Check if the content is of type 'story'
-    if ($post->post_type !== 'story') {
-        return $content;
+    private static $instance;
+
+    private $template_loader;
+    private $story_manager;
+    private $character_manager;
+    private $user_progress_manager;
+    private $interaction_manager;
+    private $feedback_manager;
+    private $api_integration_manager;
+    private $character_attributes_manager;
+    private $game_settings_manager;
+    private $achievements_manager;
+
+    private function __construct() {
+        // Initialisierung der Manager-Klassen und anderer Funktionen
+        $this->init_managers();
     }
 
-    // Load decisions and interactions for the user
-    // This is a placeholder and can be replaced with actual logic
-    $decisions = $rollenspiel->load_game();
+    public static function get_instance() {
+        if (!isset(self::$instance)) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
 
-    // Modify the content based on decisions
-    // This is a placeholder and can be replaced with actual logic
-    $modified_content = $content . "<div class='rollenspiel-decisions'>" . implode(', ', $decisions) . "</div>";
+    private function init_managers() {
+        $this->template_loader = new Template_Loader();
+        $this->story_manager = new Story_Manager();
+        $this->character_manager = new Character_Manager();
+        $this->user_progress_manager = new User_Progress_Manager();
+        $this->interaction_manager = new Interaction_Manager();
+        $this->feedback_manager = new Feedback_Manager();
+        $this->api_integration_manager = new API_Integration_Manager('https://api.example.com');
+        $this->character_attributes_manager = new Character_Attributes_Manager();
+        $this->game_settings_manager = new Game_Settings_Manager();
+        $this->achievements_manager = new Achievements_Manager();
+    }
 
-    return $modified_content;
-});
+    public function init() {
+        add_action('init', array($this, 'register_custom_post_types'));
+        add_action('init', array($this, 'register_custom_taxonomies'));
+        add_action('admin_menu', array($this, 'add_admin_menu'));
+        add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
+        add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
 
-// AJAX endpoint to save user decisions
-add_action('wp_ajax_save_decision', function () {
-    // Get the decision data from the AJAX request
-    $decision_data = isset($_POST['decision']) ? $_POST['decision'] : null;
+        // Weitere Aktionen und Hooks hinzufügen
 
-    // Placeholder logic to save the decision
-    // This can be replaced with actual logic to save the decision in the database
-    $result = $rollenspiel->save_decision($decision_data);
+        add_shortcode('intimate_tales', array($this, 'intimate_tales_shortcode'));
+    }
 
-    // Return a JSON response
-    echo json_encode(array('success' => true, 'data' => $result));
-    exit;
-});
+    public function register_custom_post_types() {
+        // Registrierung benutzerdefinierter Post-Typen
+    }
 
-// AJAX endpoint to load user decisions (this can be expanded further)
-add_action('wp_ajax_load_decision', function () {
-    // Placeholder logic to load the decision
-    // This can be replaced with actual logic to load the decision from the database
-    $decisions = $rollenspiel->load_game();
+    public function register_custom_taxonomies() {
+        // Registrierung benutzerdefinierter Taxonomien
+    }
 
-    // Return a JSON response
-    echo json_encode(array('success' => true, 'data' => $decisions));
-    exit;
-});
+    public function add_admin_menu() {
+        // Hinzufügen von Menüpunkten zum Administrationspanel
+    }
+
+    public function enqueue_scripts() {
+        // Einbinden von CSS und JavaScript für das Frontend
+    }
+
+    public function enqueue_admin_scripts() {
+        // Einbinden von CSS und JavaScript für das Administrationspanel
+    }
+
+    public function intimate_tales_shortcode($atts) {
+        // Verarbeitung des Shortcodes und Anzeige des Frontend-Inhalts
+    }
+}

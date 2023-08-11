@@ -73,6 +73,10 @@ class Admin {
 			$paths = [$plugin_dir . '/field-groups'];
 		}
 
+		if ($post['title'] === 'Post Type Story') {
+			$paths = [$plugin_dir . '/post-types'];
+		}
+
 		return $paths;
 	}
 

@@ -74,6 +74,35 @@ final class IntimateTales {
      * Initialize plugin.
      */
     public function init_plugin() {
+        // enqueue styles and localization to frondend
+        add_action('wp_enqueue_styles', [$this, 'enqueue_styles']);
+        add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
+    }
+
+    /**
+     * Enqueue styles.
+     */
+    public function enqueue_styles() {
+        wp_enqueue_style('intimate-tales-style', plugins_url('assets/css/style.css', __FILE__), [], $this->version);
+    }
+
+    /**
+     * Enqueue scripts.
+     */
+    public function enqueue_scripts() {
+        wp_enqueue_script('intimate-tales-script', plugins_url('assets/js/script.js', __FILE__), [], $this->version, true);
+        wp_localize_script('intimate-tales-script', 'intimate_tales_script', [
+            'ajax_url' => admin_url('admin-ajax.php'),
+        ]);
+    }
+
+    /**
+     * Return plugin's version.
+     *
+     * @return string
+     */
+    public function get_version() {
+        return $this->version;
     }
 }
 
