@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "162744df7f66053e5a51e030a44242dd",
+    "content-hash": "02887e15ad376f4775d878c158edee98",
     "packages": [
         {
             "name": "composer/installers",
@@ -158,6 +158,43 @@
                 "type": "path",
                 "url": "./src/intimate-tales",
                 "reference": "9aa1b9f61216dbfe4afbbf2ad452bf2462fd3141"
+            },
+            "require": {
+                "composer/installers": "^2.2",
+                "php": ">=8.0",
+                "twig/twig": "^3.7"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "IntimateTales\\": "includes/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dawid Rogaczewski",
+                    "email": "mail@daro.de"
+                }
+            ],
+            "description": "A WordPress plugin for interactive romantic narratives with AI-driven character interactions, user management, and payment gateway integration.",
+            "keywords": [
+                "plugin",
+                "wordpress"
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "daro/intimate-tales-roleplay",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./src/intimate-tales-roleplay",
+                "reference": "19fb07e82969a43c2ca07980369c834df3f8bd35"
             },
             "require": {
                 "composer/installers": "^2.2",

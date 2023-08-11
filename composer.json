@@ -36,6 +36,10 @@
     {
       "type": "path",
       "url": "./src/intimate-tales"
+    },
+    {
+      "type": "path",
+      "url": "./src/intimate-tales-roleplay"
     }
   ],
   "require": {
@@ -49,6 +53,7 @@
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.1.0",
     "daro/intimate-tales": "dev-master",
+    "daro/intimate-tales-roleplay": "dev-master",
     "roots/sage": "^10.6"
   },
   "require-dev": {

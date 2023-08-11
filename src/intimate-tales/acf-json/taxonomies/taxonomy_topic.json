@@ -1,0 +1,36 @@
+{
+    "key": "taxonomy_topic",
+    "title": "Topics",
+    "taxonomy": "topic",
+    "labels": {
+        "name": "Topics",
+        "singular_name": "Topic",
+        "menu_name": "Topics",
+        "all_items": "All Topics",
+        "edit_item": "Edit Topic",
+        "view_item": "View Topic",
+        "update_item": "Update Topic Name",
+        "add_new_item": "Add New Topic",
+        "new_item_name": "New Topic Name",
+        "search_items": "Search Topics",
+        "popular_items": "Popular Topics",
+        "add_or_remove_items": "Add or remove topics",
+        "choose_from_most_used": "Choose from the most used topics",
+        "not_found": "No topics found"
+    },
+    "object_type": [
+        "story"
+    ],
+    "public": true,
+    "hierarchical": false,
+    "show_ui": true,
+    "show_in_nav_menus": true,
+    "show_tagcloud": true,
+    "show_in_quick_edit": true,
+    "show_admin_column": true,
+    "show_in_rest": true,
+    "query_var": true,
+    "rewrite": {
+        "slug": "topics"
+    }
+}

@@ -15,7 +15,7 @@ class Functions {
 	 * @return string
 	 */
 	public static function get_plugin_dir(): string {
-		return plugin_dir_path(INTIMATE_TALES_FILE);
+		return plugin_dir_path(INTIMATE_TALES_MAIN_FILE);
 	}
 
 	/**
@@ -24,7 +24,7 @@ class Functions {
 	 * @return string
 	 */
 	public static function get_plugin_url(): string {
-		return plugin_dir_url(INTIMATE_TALES_FILE);
+		return plugin_dir_url(INTIMATE_TALES_MAIN_FILE);
 	}
 
 	/**
@@ -33,7 +33,7 @@ class Functions {
 	 * @return string
 	 */
 	public static function get_plugin_slug(): string {
-		return dirname(plugin_basename(INTIMATE_TALES_FILE));
+		return dirname(plugin_basename(INTIMATE_TALES_MAIN_FILE));
 	}
 
 	/**
@@ -42,16 +42,20 @@ class Functions {
 	 * @return string
 	 */
 	public static function get_plugin_file(): string {
-		return plugin_basename(INTIMATE_TALES_FILE);
+		return plugin_basename(INTIMATE_TALES_MAIN_FILE);
 	}
 
 	/**
 	 * Return the version for the plugin.
 	 *
-	 * @return float
+	 * @return string
 	 */
 	public static function get_plugin_version(): string {
-		return INTIMATE_TALES_VERSION;
+		if (!function_exists('get_plugin_data')) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+		$plugin_data = get_plugin_data(self::get_plugin_file());
+		return $plugin_data['Version'];
 	}
 
 	/**

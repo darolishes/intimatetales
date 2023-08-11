@@ -1,7 +1,27 @@
 {
-    "key": "group_user_profile",
-    "title": "User Profile",
-    "fields": [
+  "key": "user_profile_fields",
+  "title": "User Settings",
+  "active": true,
+  "page_title": "User Settings",
+  "menu_slug": "user-settings",
+  "data_storage": "options",
+  "capability": "edit_posts",
+  "advanced_configuration": 1,
+  "fields": [
+      {
+          "key": "field_registration_toggle",
+          "label": "Benutzerregistrierung",
+          "name": "enable_registration",
+          "type": "true_false",
+          "message": "Benutzerregistrierung aktivieren?"
+      },
+      {
+          "key": "field_login_toggle",
+          "label": "Benutzerlogin",
+          "name": "enable_login",
+          "type": "true_false",
+          "message": "Benutzerlogin aktivieren?"
+      },
       {
         "key": "about_you",
         "label": "About You",
@@ -150,5 +170,4 @@
         ]
       }
     ]
-  }
-  
+}
