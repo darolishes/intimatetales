@@ -1,20 +1,21 @@
+
 <?php
+/**
+ * ACF Integration for the Intimate Tales Settings Plugin.
+ */
 
-namespace IntimateTales\Admin;
+namespace IntimateTales\Settings;
 
-class Admin {
+class ACFIntegration {
 	const PLUGIN_DIR = INTIMATE_TALES_DIR_PATH;
 
 	public function __construct() {
 		$this->validate_acf();
-		#$this->add_options_page();
+		$this->add_options_page();
 		add_action('admin_init', [$this, 'admin_init']);
 		add_filter('acf/settings/load_json', [$this, 'load_paths']);
 		add_filter('acf/json/save_paths', [$this, 'save_paths'], 10, 2);
 		add_filter('acf/json/save_file_name', [$this, 'save_file_name'], 10, 3);
-	}
-
-	public function admin_init() {
 	}
 
 	private function add_options_page() {
@@ -51,15 +52,6 @@ class Admin {
 				'parent_slug'   => 'theme-settings'
 			]);
 		});
-	}
-
-	public function load_paths($paths) {
-		$paths[] = self::PLUGIN_DIR . '/acf-json/post-types';
-		$paths[] = self::PLUGIN_DIR . '/acf-json/field-groups';
-		$paths[] = self::PLUGIN_DIR . '/acf-json/taxonomies';
-		$paths[] = self::PLUGIN_DIR . '/acf-json/option-pages';
-
-		return $paths;
 	}
 
 	public function save_paths($paths, $post) {

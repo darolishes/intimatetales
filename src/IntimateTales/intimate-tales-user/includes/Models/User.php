@@ -1,10 +1,4 @@
 <?php
-
-namespace IntimateTales\Models;
-
-use IntimateTales\Template_Loader;
-use WP_User;
-
 class User {
     private $user;
 
