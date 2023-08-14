@@ -1,26 +1,33 @@
-# IntimateTales User Plugin
+
+# Intimate Tales User Plugin
+
+A WordPress plugin to manage user-related functionalities for the IntimateTales platform.
 
 ## Description
-The IntimateTales User plugin manages all user-related functionalities for the IntimateTales platform. It provides mechanisms for user registration, profile management, relationships, invitations, and other user-centric features.
 
-## Features
-- **User Management**: Register, login, and manage user profiles.
-- **Relationship Management**: Allows users to manage relationships, send invites, and connect with other users.
-- **ACF Integration**: Utilizes Advanced Custom Fields (ACF) for additional user metadata and settings.
-- **WordPress Standards**: Adheres to WordPress coding standards and best practices.
+The `Intimate Tales User` plugin provides functionalities to manage users, their profiles, and actions within the IntimateTales platform.
 
-## Directory Structure
-- **Models**: Contains data structures representing various user-related entities.
-- **Repositories**: Handles data access logic for the models, ensuring a separation of concerns.
-- **Traits**: Stores reusable code snippets that can be used across multiple classes.
-- **Admin**: Contains functionalities specific to the WordPress admin area.
-- **Utilities**: Contains helper functions and utilities used throughout the plugin.
+## Installation
 
-## Integration with other Plugins
-This plugin is designed to work seamlessly with other plugins in the IntimateTales ecosystem. Ensure consistent naming conventions and structure across all plugins for a cohesive experience.
+1. Download the plugin ZIP file.
+2. Upload the ZIP file to your WordPress site.
+3. Activate the plugin through the 'Plugins' menu in WordPress.
 
-## Development & Contribution
-Developers are encouraged to follow the WordPress coding standards and best practices. Ensure all classes and methods are well-documented.
+## Usage
+
+Once activated, the plugin integrates seamlessly with the IntimateTales platform and provides user management features.
+
+## Support
+
+For support, please contact [Dawid Rogaczewski](https://www.intimate-tales.de).
 
 ## License
-GPL-3.0 License. Refer to the LICENSE file for more information.
+
+GPLv3 or later
+
+## Models - Invites
+
+- **Invite_Generator.php**: Contains the logic to generate an invite based on a recipient ID.
+- **Invite_Repository.php**: Interface that lays out the structure for managing invites.
+- **Invite.php**: Main class representing an invite. Contains methods for generating URLs and database structure.
+- **Sql_Invite_Repository.php**: Implementation of the Invite_Repository interface for SQL databases.

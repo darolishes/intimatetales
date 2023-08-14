@@ -1,10 +1,11 @@
+
 <?php
 
 namespace IntimateTales\Repositories;
 
 use IntimateTales\Models\Relationships\Couple;
 
-class Couple_Repository {
+class CoupleRepository {
 
     public function __construct() {
         // Initialization code
@@ -12,3 +13,4 @@ class Couple_Repository {
 
     // Add methods for CRUD operations on Couple model
 }
+

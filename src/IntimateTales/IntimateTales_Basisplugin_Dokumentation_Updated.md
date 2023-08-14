@@ -1,83 +1,54 @@
 
-# IntimateTales Basisplugin Dokumentation
+# IntimateTales Basisplugin Documentation
 
-## Überblick
-Das IntimateTales Basisplugin bietet Kernfunktionen für die Generierung von Geschichten und Verzweigungen mithilfe von KI, Charakteranpassung, Echtzeit-Interaktion und weitere Features.
+## Overview
+The IntimateTales Basisplugin serves as the foundational component of the IntimateTales platform. It handles core functionalities and integrates with other modular plugins to offer a comprehensive user experience.
 
-## Hauptkomponenten und Funktionen
+## Features
+- **Core Framework**: Provides the essential structure and mechanisms for other plugins to operate.
+- **Integration Points**: Offers API endpoints and integration points for other plugins, ensuring a seamless user experience.
+- **Settings Management**: Integrates with the IntimateTales Settings Plugin to fetch configurations and preferences.
+- **ACF Integration**: Utilizes Advanced Custom Fields (ACF) for additional metadata and settings.
 
-### Plugin: `Intimate Tales - Basis Plugin`
+## Structure
+- **Models**: Represents data structures.
+- **Repositories**: Handles data access logic.
+- **Traits**: Stores reusable code snippets.
+- **Admin**: Contains functionalities specific to the WordPress admin area.
+- **Utilities**: Contains helper functions and utilities.
 
-**Header Information**:
-```
- * Plugin Name: Intimate Tales - Basis Plugin
- * Description: The foundational plugin for the IntimateTales platform.
- * Version: 1.0.0
- * Requires PHP: 8.0
- * Author: Dawid Rogaczewski
- * Author URI: https://www.intimate-tales.de
- * Text Domain: intimate-tales-basis
- * Domain Path: /languages
-```
+## Development
+Developers should adhere to WordPress coding standards. Ensure all classes and methods are well-documented.
 
-### Plugin: `Intimate Tales - Story Plugin`
+## Recent Changes
+- Codebase and directory structure were revamped for better clarity and organization.
+- Adherence to WordPress standards and best practices was ensured.
+- Documentation was updated to reflect the current state and structure.
 
-**Header Information**:
-```
- * Plugin Name: Intimate Tales - Story Plugin
- * Description: Manages story generation and handling for the IntimateTales platform.
- * Version: 1.0.0
- * Requires PHP: 8.0
- * Author: Dawid Rogaczewski
- * Author URI: https://www.intimate-tales.de
- * Text Domain: intimate-tales-story
- * Domain Path: /languages
-```
+---
 
-### Plugin: `Intimate Tales - Character Plugin`
+# IntimateTales Rollenspiel-Modul Documentation
 
-**Header Information**:
-```
- * Plugin Name: Intimate Tales - Character Plugin
- * Description: Handles character creation and modification for the IntimateTales platform.
- * Version: 1.0.0
- * Requires PHP: 8.0
- * Author: Dawid Rogaczewski
- * Author URI: https://www.intimate-tales.de
- * Text Domain: intimate-tales-character
- * Domain Path: /languages
-```
+## Overview
+The IntimateTales Rollenspiel-Modul enriches the user experience by providing role-playing features and functionalities.
 
-### Plugin: `Intimate Tales - Interaction Plugin`
+## Features
+- **Storyline Generation**: Uses AI to generate diverse and branching storylines based on user choices.
+- **Character Customization**: Allows users to define specific attributes or features of their characters.
+- **Real-time Interaction**: Facilitates collaborative gameplay through in-game chat and decision prompts.
+- **Progress Summary**: Offers a recap of the story's progress after each session.
+- **Data Synchronization**: Ensures real-time data sync between the module and the main app.
 
-**Header Information**:
-```
- * Plugin Name: Intimate Tales - Interaction Plugin
- * Description: Manages interactions and real-time features for the IntimateTales platform.
- * Version: 1.0.0
- * Requires PHP: 8.0
- * Author: Dawid Rogaczewski
- * Author URI: https://www.intimate-tales.de
- * Text Domain: intimate-tales-interaction
- * Domain Path: /languages
-```
+## Structure
+- **Story Management**: Handles the creation, branching, and progression of storylines.
+- **Character Management**: Manages character attributes, features, and interactions.
+- **Utilities**: Contains helper functions and utilities relevant to role-playing features.
 
-### Plugin: `Intimate Tales - Settings Plugin`
+## Development
+Ensure the module integrates seamlessly with the IntimateTales Basisplugin and other associated plugins.
 
-**Header Information**:
-```
- * Plugin Name: Intimate Tales - Settings Plugin
- * Description: Manages general settings for the IntimateTales platform.
- * Version: 1.0.0
- * Requires PHP: 8.0
- * Author: Dawid Rogaczewski
- * Author URI: https://www.intimate-tales.de
- * Text Domain: intimate-tales-settings
- * Domain Path: /languages
-```
+## Recent Changes
+- The module was restructured for modularity, making it easier to maintain and extend.
+- Integration points with the main Basisplugin were defined and enhanced.
+- Code quality was improved with adherence to best practices.
 
-## Sicherheit und Fehlerbehandlung
-Das Plugin stellt sicher, dass alle Daten sicher gespeichert und übertragen werden. Es gibt auch robuste Fehlerbehandlungsmechanismen, um sicherzustellen, dass das Plugin auch bei unerwarteten Problemen reibungslos funktioniert.
-
-## Feedback-Mechanismus
-Benutzer können Feedback geben, das direkt an die Entwickler gesendet wird, um das Plugin weiter zu verbessern.

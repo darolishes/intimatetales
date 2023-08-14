@@ -1,5 +1,4 @@
 
-<?php
 /**
  * Plugin Name: Intimate Tales User
  * Description: A WordPress plugin to manage user-related functionalities for the IntimateTales platform.
@@ -12,19 +11,22 @@
  */
 
 // Prevent direct access
-defined('ABSPATH') || exit;
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 // Define constants for the plugin
 define('INTIMATE_TALES_USER_DIR_PATH', plugin_dir_path(__FILE__));
 define('INTIMATE_TALES_USER_DIR_URL', plugin_dir_url(__FILE__));
 
-// Include necessary files
-
-
-// Initialization code if needed
-if (!function_exists('intimate_tales_user_init')) {
-    function intimate_tales_user_init() {
-        // TODO: Add any plugin initialization code here
+// Use autoloader for class files
+spl_autoload_register(function($class_name) {
+    if (false !== strpos($class_name, 'IntimateTales')) {
+        $classes_dir = realpath(plugin_dir_path(__FILE__)) . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR;
+        $class_file = str_replace('_', DIRECTORY_SEPARATOR, $class_name) . '.php';
+        require_once $classes_dir . $class_file;
     }
-    add_action('init', 'intimate_tales_user_init');
-}
+});
+
+// Initialize the plugin
+// TODO: Initialize the plugin by adding actions, filters and any other setup logic here.
