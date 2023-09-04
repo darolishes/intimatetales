@@ -1,0 +1,4 @@
+[submodule "intimate"]
+    path = src
+    url = git@github.com:darolishes/intimate.git
+    branch = master
