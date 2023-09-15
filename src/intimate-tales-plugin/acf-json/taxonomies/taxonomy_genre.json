@@ -1,0 +1,8 @@
+{
+	"key": "taxonomy_genre",
+	"name": "genre",
+	"label": "Genres",
+	"description": "Taxonomy for story Genres in IntimateTales.",
+	"hierarchical": true,
+	"object_type": ["story"]
+}

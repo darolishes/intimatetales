@@ -1,4 +1,5 @@
 <?php
+
 /**
  * IntimateTales Dashboard Class
  */
@@ -14,7 +15,7 @@ class IntimateTales_Dashboard {
      * Constructor.
      */
     public function __construct() {
-        $this->mainClassInstance = new IntimateTales_Main_Class();
+        $this->mainClassInstance = new IntimateTales();
 
         add_shortcode('intimate_user_dashboard', array($this, 'render_user_dashboard'));
         add_action('wp_enqueue_scripts', array($this, 'enqueue_dashboard_assets'));
@@ -95,7 +96,6 @@ class IntimateTales_Dashboard {
 
         echo '</div>';
     }
-
 }
 
 // Initialize the dashboard class.

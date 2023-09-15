@@ -1,0 +1,7 @@
+{
+	"key": "post_type_character",
+	"name": "character",
+	"label": "Characters",
+	"description": "Custom post type for characters in IntimateTales.",
+	"supports": ["title", "editor", "thumbnail"]
+}

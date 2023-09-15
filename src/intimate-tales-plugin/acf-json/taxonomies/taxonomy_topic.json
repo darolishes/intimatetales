@@ -1,0 +1,8 @@
+{
+	"key": "taxonomy_topic",
+	"name": "topic",
+	"label": "Topics",
+	"description": "Taxonomy for different themes or topics a story can explore, like love, betrayal, or friendship.",
+	"hierarchical": true,
+	"object_type": ["story"]
+}

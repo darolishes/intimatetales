@@ -1,0 +1,23 @@
+{
+	"key": "page_app_settings",
+	"title": "App Settings",
+	"parent_slug": "options-general.php",
+	"capability": "manage_options",
+	"position": 10,
+	"fields": [
+		{
+			"key": "field_app_version",
+			"label": "App Version",
+			"name": "app_version",
+			"type": "text",
+			"instructions": "Enter the app version",
+			"required": 1,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		}
+	]
+}

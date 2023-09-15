@@ -7,5 +7,7 @@
 			"path": "./src/intimate-tales-theme"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"genieai.openai.temperature": 0.5
+	}
 }
