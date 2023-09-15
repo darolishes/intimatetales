@@ -35,12 +35,12 @@
     },
     {
       "type": "path",
-      "url": "./src/intimate-tales"
+      "url": "./plugins/IntimateTales_Core"
     },
     {
       "type": "path",
-      "url": "./src/intimate-tales-roleplay"
-    }
+      "url": "./plugins/IntimateTales_ACF_Integration"
+    },
   ],
   "require": {
     "php": ">=8.0",

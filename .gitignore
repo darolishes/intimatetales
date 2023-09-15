@@ -8,6 +8,9 @@ web/app/uploads/*
 !web/app/uploads/.gitkeep
 web/app/cache/*
 
+src/v1
+src/theme
+
 # WordPress
 web/wp
 web/.htaccess

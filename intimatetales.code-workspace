@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "./src/intimate-tales-plugin"
+		},
+		{
+			"path": "./src/intimate-tales-theme"
+		}
+	],
+	"settings": {}
+}
