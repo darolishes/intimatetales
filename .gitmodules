@@ -1,4 +1,3 @@
-[submodule "intimate"]
-    path = src
-    url = git@github.com:darolishes/intimate.git
-    branch = master
+[submodule "plugins"]
+	path = plugins
+	url = git@github.com:darolishes/intimate.git
