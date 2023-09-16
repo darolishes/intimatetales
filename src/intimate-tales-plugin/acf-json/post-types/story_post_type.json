@@ -1,7 +1,0 @@
-{
-	"key": "post_type_story",
-	"name": "story",
-	"label": "Stories",
-	"description": "Custom post type for stories in IntimateTales.",
-	"supports": ["title", "editor", "thumbnail"]
-}

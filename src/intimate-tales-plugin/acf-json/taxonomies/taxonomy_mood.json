@@ -1,8 +1,0 @@
-{
-	"key": "taxonomy_mood",
-	"name": "mood",
-	"label": "Moods",
-	"description": "Taxonomy for different moods a story can convey, such as suspenseful, joyful, or melancholic.",
-	"hierarchical": true,
-	"object_type": ["story"]
-}

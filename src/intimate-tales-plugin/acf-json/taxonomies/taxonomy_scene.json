@@ -1,8 +1,0 @@
-{
-	"key": "taxonomy_scene",
-	"name": "scene",
-	"label": "Scenes",
-	"description": "Taxonomy for different types of scenes, like urban, forest, or beach.",
-	"hierarchical": true,
-	"object_type": ["story"]
-}

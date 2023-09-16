@@ -1,8 +1,0 @@
-{
-	"key": "taxonomy_format",
-	"name": "format",
-	"label": "Formats",
-	"description": "Taxonomy for story formats in IntimateTales.",
-	"hierarchical": true,
-	"object_type": ["story"]
-}
