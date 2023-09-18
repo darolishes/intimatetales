@@ -30,9 +30,9 @@ if (file_exists(__DIR__ . '/src/.env')) {
  * Set up configuration
  */
 Config::define('ACORN_BASEPATH', rtrim(plugin_dir_path(__FILE__) . 'src', '/'));
-Config::define('WP_ENV', env('APP_ENV', 'production'));
-Config::define('YOUR_PLUGIN_FILE', __FILE__);
-Config::define('YOUR_PLUGIN_URL', plugin_dir_url(__FILE__));
+Config::define('WP_ENV', env('APP_ENV', 'development'));
+Config::define('INTIMATE_TALES_FILE', __FILE__);
+Config::define('INTIMATE_TALES_URL', plugin_dir_url(__FILE__));
 Config::apply();
 
 /**

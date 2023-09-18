@@ -45,5 +45,8 @@
   "config": {
     "prefer-stable": true,
     "sort-packages": true
+  },
+  "extra": {
+      "installer-name": "intimate-tales"
   }
 }

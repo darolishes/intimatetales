@@ -32,8 +32,8 @@ class PluginServiceProvider extends ServiceProvider
 
     public function registerHooks(): void
     {
-        register_activation_hook(Config::get('YOUR_PLUGIN_FILE'), [$this, 'activationRoutine']);
-        register_uninstall_hook(Config::get('YOUR_PLUGIN_FILE'), [PluginServiceProvider::class, 'uninstallRoutine']);
+        register_activation_hook(Config::get('INTIMATE_TALES_FILE'), [$this, 'activationRoutine']);
+        register_uninstall_hook(Config::get('INTIMATE_TALES_FILE'), [PluginServiceProvider::class, 'uninstallRoutine']);
 
         add_action('init', [$this, 'pluginInitiated']);
     }
@@ -61,7 +61,7 @@ class PluginServiceProvider extends ServiceProvider
                 'Intimate Tales Settings',
                 'Intimate Tales',
                 'manage_options',
-                'your-plugin',
+                'intimate-tales',
                 [$this, 'renderAdminControlPanel']
             );
         });

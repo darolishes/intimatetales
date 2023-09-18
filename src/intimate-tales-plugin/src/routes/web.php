@@ -14,4 +14,4 @@ use IntimateTales\App\Http\Controllers\PluginController;
 |
 */
 
-Route::get('your-plugin', [PluginController::class, 'index']);
+Route::get('intimate-tales', [PluginController::class, 'index']);
