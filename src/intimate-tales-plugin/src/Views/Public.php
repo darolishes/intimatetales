@@ -1,12 +1,11 @@
 <?php
 
-namespace IntimateTales\Plugin\Views;
+namespace IntimateTales\Views;
 
 /**
  * Asset management et al. for the front end.
  */
-
-class IntimateTalesPublic
+class Public
 {
 
 	/**
@@ -50,7 +49,7 @@ class IntimateTalesPublic
 	{
 
 
-		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'plugin/css/intimate-tales-public.css', array(), $this->version, 'all');
+		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'plugin/css/public.css', array(), $this->version, 'all');
 	}
 
 	/**
@@ -60,9 +59,6 @@ class IntimateTalesPublic
 	 */
 	public function enqueue_scripts()
 	{
-
-
-
-		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'public/js/intimate-tales-public.js', array('jquery'), $this->version, false);
+		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'public/js/public.js', array('jquery'), $this->version, false);
 	}
 }

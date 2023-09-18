@@ -1,11 +1,11 @@
 <?php
 
-namespace IntimateTales\Plugin\Views;
+namespace IntimateTales\Views;
 
 /**
  * Asset management et al. for the back end.
  */
-class IntimateTalesAdmin
+class Admin
 {
 
 	/**
@@ -35,7 +35,6 @@ class IntimateTalesAdmin
 	 */
 	public function __construct($plugin_name, $version)
 	{
-
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 	}
@@ -47,8 +46,7 @@ class IntimateTalesAdmin
 	 */
 	public function enqueue_styles()
 	{
-
-		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'admin/css/intimate-tales-admin.css', array(), $this->version, 'all');
+		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'admin/css/admin.css', array(), $this->version, 'all');
 	}
 
 	/**
@@ -58,7 +56,6 @@ class IntimateTalesAdmin
 	 */
 	public function enqueue_scripts()
 	{
-
-		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'admin/js/intimate-tales-admin.js', array('jquery'), $this->version, false);
+		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'admin/js/admin.js', array('jquery'), $this->version, false);
 	}
 }

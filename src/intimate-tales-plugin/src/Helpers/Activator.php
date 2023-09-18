@@ -1,6 +1,6 @@
 <?php
 
-namespace IntimateTales\Controllers\App;
+namespace IntimateTales\Helpers;
 
 /**
  * Fired during plugin activation

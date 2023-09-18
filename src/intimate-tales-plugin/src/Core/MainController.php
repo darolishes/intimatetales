@@ -1,9 +1,9 @@
 <?php
 
-namespace IntimateTales\Controllers\App;
+namespace IntimateTales\Core;
 
-use IntimateTales\Controllers\App\Loader; // All actions and filters
-use IntimateTales\Controllers\App\I18n; // language
+use IntimateTales\Controllers\Loader; // All actions and filters
+use IntimateTales\Internalization\I18n; // language
 use IntimateTales\Views\Admin; // admin settings
 use IntimateTales\Views\Public; // views output
 
@@ -20,7 +20,7 @@ use IntimateTales\Views\Public; // views output
  * @package    IntimateTales
  * @author     DARO <DARO>
  */
-class Plugin
+class MainController
 {
 
 	/**
@@ -69,7 +69,6 @@ class Plugin
 		}
 		$this->plugin_name = 'intimate-tales';
 
-
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
@@ -94,9 +93,7 @@ class Plugin
 	 */
 	private function load_dependencies()
 	{
-
-		$this->loader = new Loader(); // get Loader instance to make hooks work.
-
+		$this->loader = new Loader();
 	}
 
 	/**
@@ -110,9 +107,7 @@ class Plugin
 	 */
 	private function set_locale()
 	{
-
 		$plugin_i18n = new I18n();
-
 		$this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
 	}
 
@@ -141,8 +136,6 @@ class Plugin
 	 */
 	private function define_public_hooks()
 	{
-
-
 		$plugin_public = new Public($this->get_plugin_name(), $this->get_version());
 
 		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');

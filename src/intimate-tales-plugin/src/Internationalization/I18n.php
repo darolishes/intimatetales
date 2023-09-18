@@ -1,6 +1,6 @@
 <?php
 
-namespace IntimateTales\Controllers\App;
+namespace IntimateTales\Controllers;
 
 /**
  * Define the internationalization functionality.

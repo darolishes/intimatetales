@@ -1,6 +1,6 @@
 <?php
 
-namespace IntimateTales\Controllers\App;
+namespace IntimateTales\Controllers;
 
 /**
  * Register all actions and filters for the plugin.
@@ -34,20 +34,27 @@ class Loader
 	protected $filters;
 
 	/**
+	 * The array of shortcodes registered with WordPress.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 */
+	protected $shortcodes;
+
+	/**
 	 * Initialize the collections used to maintain the actions and filters.
 	 *
 	 * @since    1.0.0
 	 */
 	public function __construct()
 	{
-
 		$this->actions = array();
 		$this->filters = array();
 		$this->shortcodes = array();
 	}
 
 	/**
-	 * Add a new action to the collection to be registered with WordPress.
+	 * Register an action.
 	 *
 	 * @since    1.0.0
 	 * @param    string               $hook             The name of the WordPress action that is being registered.
@@ -124,7 +131,6 @@ class Loader
 	 */
 	public function run()
 	{
-
 		foreach ($this->filters as $hook) {
 			add_filter($hook['hook'], array($hook['component'], $hook['callback']), $hook['priority'], $hook['accepted_args']);
 		}

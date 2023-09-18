@@ -38,7 +38,7 @@ define('INTIMATE_TALES_LIKES_VERSION', '1.0.0');
  */
 function activate_intimate_tales()
 {
-    IntimateTales\Controllers\App\Activator::activate();
+    IntimateTales\Helpers\Activator::activate();
 }
 
 /**
@@ -46,7 +46,7 @@ function activate_intimate_tales()
  */
 function deactivate_intimate_tales()
 {
-    IntimateTales\Controllers\App\Deactivator::deactivate();
+    IntimateTales\Helpers\Deactivator::deactivate();
 }
 
 /**
@@ -77,7 +77,7 @@ require plugin_dir_path(__FILE__) . 'vendor/autoload.php';
  */
 function run_intimate_tales()
 
-    $plugin = new IntimateTales\Controllers\App\Plugin();
+    $plugin = new IntimateTales\Core\MainController();
     $plugin->run();
 }
 run_intimate_tales();
