@@ -1,7 +1,7 @@
 @extends('layouts.admin', [
-    'title' => 'Your Plugin Settings',
+'title' => 'Intimate Tales Settings',
 ])
 
 @section('content')
-    <div class="h1 font-bold text-xl text-center">Hello, World!</div>
+<div class="h1 font-bold text-xl text-center">Hello, World!</div>
 @endsection

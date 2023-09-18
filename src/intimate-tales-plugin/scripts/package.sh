@@ -2,8 +2,8 @@
 
 SOURCE_DIR="src"
 VENDOR_DIR="vendor"
-PLUGIN_FILE="yourplugin.php"
-ZIP_FILE="yourplugin.zip"
+PLUGIN_FILE="intimate-tales.php"
+ZIP_FILE="intimate-tales.zip"
 
 # Delete existing build
 if [ -f "./build/$ZIP_FILE" ]; then

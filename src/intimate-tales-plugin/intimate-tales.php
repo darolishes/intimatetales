@@ -1,8 +1,9 @@
 <?php
+
 /**
- * Plugin Name: Your Plugin
- * Author: Your Company
- * Author URI: https://www.yourcompany.com
+ * Plugin Name: Intimate Tales
+ * Author: Intimate Tales
+ * Author URI: https://www.intimate-tales.com
  * Description: This is a description of your plugin.
  * Version: 1.0.0
  * Requires PHP: 8.1
@@ -15,12 +16,12 @@ use Roots\WPConfig\Config;
 /**
  * Require dependencies
  */
-require_once plugin_dir_path(__FILE__).'vendor/autoload.php';
+require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
 
 /**
  * Load env vars
  */
-$dotenv = Dotenv::createUnsafeImmutable(__DIR__.'/src', '.env', false);
+$dotenv = Dotenv::createUnsafeImmutable(__DIR__ . '/src', '.env', false);
 if (file_exists(__DIR__ . '/src/.env')) {
     $dotenv->load();
 }
@@ -28,7 +29,7 @@ if (file_exists(__DIR__ . '/src/.env')) {
 /**
  * Set up configuration
  */
-Config::define('ACORN_BASEPATH', rtrim(plugin_dir_path(__FILE__).'src', '/'));
+Config::define('ACORN_BASEPATH', rtrim(plugin_dir_path(__FILE__) . 'src', '/'));
 Config::define('WP_ENV', env('APP_ENV', 'production'));
 Config::define('YOUR_PLUGIN_FILE', __FILE__);
 Config::define('YOUR_PLUGIN_URL', plugin_dir_url(__FILE__));

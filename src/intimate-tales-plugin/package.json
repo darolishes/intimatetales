@@ -1,5 +1,5 @@
 {
-  "name": "yourplugin",
+  "name": "intimate-tales",
   "version": "1.0.0",
   "description": "A starter project for creating a Wordpress plugin.",
   "keywords": [
@@ -8,12 +8,12 @@
     "plugin"
   ],
   "type": "module",
-  "homepage": "https://www.deschutesdesigngroup.com",
+  "homepage": "https://www.intimate-tales.com",
   "license": "MIT",
   "author": {
-    "name": "Jon Erickson",
-    "email": "jon@deschutesdesigngroup.com",
-    "url": "https://www.deschutesdesigngroup.com"
+    "name": "Dawid Rogaczewski",
+    "email": "dawid@intimate-tales.com",
+    "url": "https://www.intimate-tales.com"
   },
   "scripts": {
     "dev": "bud development",

@@ -17,7 +17,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Your Plugin'),
+    'name' => env('APP_NAME', 'Intimate Tales'),
 
     /*
     |--------------------------------------------------------------------------
@@ -193,7 +193,7 @@ return [
         /*
          * Application Service Providers...
          */
-        WordpressPluginTemplate\App\Providers\PluginServiceProvider::class,
+        IntimateTales\App\Providers\PluginServiceProvider::class,
     ],
 
     /*

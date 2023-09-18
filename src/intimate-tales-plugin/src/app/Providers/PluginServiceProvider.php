@@ -1,6 +1,6 @@
 <?php
 
-namespace WordpressPluginTemplate\App\Providers;
+namespace IntimateTales\App\Providers;
 
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
@@ -23,7 +23,7 @@ class PluginServiceProvider extends ServiceProvider
 
     public function registerShortcode(): void
     {
-        add_shortcode('yourplugin_shortcode', function () {
+        add_shortcode('intimate-tales_shortcode', function () {
             bundle('app')->enqueueCss();
 
             return view('shortcodes.plugin');
@@ -51,18 +51,19 @@ class PluginServiceProvider extends ServiceProvider
 
     public static function uninstallRoutine(): void
     {
-        Schema::drop('yourplugin_migrations');
+        Schema::drop('intimate-tales_migrations');
     }
 
     public function buildAdminControlPanel(): void
     {
         add_action('admin_menu', function () {
             add_menu_page(
-                'Your Plugin Settings',
-                'Your Plugin',
+                'Intimate Tales Settings',
+                'Intimate Tales',
                 'manage_options',
                 'your-plugin',
-                [$this, 'renderAdminControlPanel']);
+                [$this, 'renderAdminControlPanel']
+            );
         });
     }
 

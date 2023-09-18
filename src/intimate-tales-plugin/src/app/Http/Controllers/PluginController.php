@@ -1,6 +1,6 @@
 <?php
 
-namespace WordpressPluginTemplate\App\Http\Controllers;
+namespace IntimateTales\App\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Symfony\Component\HttpFoundation\Response;

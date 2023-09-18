@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use WordpressPluginTemplate\App\Http\Controllers\PluginController;
+use IntimateTales\App\Http\Controllers\PluginController;
 
 /*
 |--------------------------------------------------------------------------

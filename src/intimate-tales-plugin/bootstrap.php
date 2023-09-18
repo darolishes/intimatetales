@@ -1,7 +1,7 @@
 <?php
 
 global $wpdb;
-$wpdb = new \wpdb( '', '', '', '' );
+$wpdb = new \wpdb('', '', '', '');
 
 \define('WP_DEBUG_DISPLAY', true);
 \define('DB_HOST', 'mysql');
@@ -9,6 +9,6 @@ $wpdb = new \wpdb( '', '', '', '' );
 \define('DB_USER', 'wordpress');
 \define('DB_PASSWORD', 'wordpress');
 \define('DB_CHARSET', 'utf8');
-\define('WP_CONTENT_DIR', __DIR__.'/wordpress/wp-content');
+\define('WP_CONTENT_DIR', __DIR__ . '/wordpress/wp-content');
 
-require_once __DIR__ . '/yourplugin.php';
+require_once __DIR__ . '/intimate-tales.php';

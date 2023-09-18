@@ -1,6 +1,6 @@
 <?php
 
-namespace WordpressPluginTemplate\App\Models;
+namespace IntimateTales\App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

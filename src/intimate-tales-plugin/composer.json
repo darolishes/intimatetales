@@ -13,14 +13,14 @@
   },
   "autoload": {
     "psr-4": {
-      "WordpressPluginTemplate\\App\\": "src/app",
-      "WordpressPluginTemplate\\Database\\Factories\\": "src/database/factories/",
-      "WordpressPluginTemplate\\Database\\Seeders\\": "src/database/seeders/"
+      "IntimateTales\\App\\": "src/app",
+      "IntimateTales\\Database\\Factories\\": "src/database/factories/",
+      "IntimateTales\\Database\\Seeders\\": "src/database/seeders/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "WordpressPluginTemplate\\Tests\\": "src/tests/"
+      "IntimateTales\\Tests\\": "src/tests/"
     }
   },
   "post-autoload-dump": [

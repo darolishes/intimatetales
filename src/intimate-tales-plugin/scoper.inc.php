@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Isolated\Symfony\Component\Finder\Finder;
 
 return [
-    'prefix' => 'WordpressPluginTemplate\Vendor',
+    'prefix' => 'IntimateTales\Vendor',
     'output-dir' => 'build',
     'finders' => [
         Finder::create()
@@ -26,7 +26,7 @@ return [
             ])
             ->in('vendor'),
         Finder::create()->append([
-            'yourplugin.php',
+            'intimate-tales.php',
             'composer.json',
         ]),
     ],
@@ -43,9 +43,9 @@ return [
     ],
     'patchers' => [],
     'exclude-namespaces' => [
-        'WordpressPluginTemplate\App',
-        'WordpressPluginTemplate\Database',
-        'WordpressPluginTemplate\Tests',
+        'IntimateTales\App',
+        'IntimateTales\Database',
+        'IntimateTales\Tests',
         'Illuminate',
         'Symfony',
     ],

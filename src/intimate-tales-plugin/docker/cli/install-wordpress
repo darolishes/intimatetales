@@ -13,4 +13,4 @@ wp core install \
 wp option update permalink_structure "/%year%/%monthnum%/%postname%/" --skip-themes --skip-plugins
 
 # Activate Plugin
-wp plugin activate yourplugin
+wp plugin activate intimate-tales

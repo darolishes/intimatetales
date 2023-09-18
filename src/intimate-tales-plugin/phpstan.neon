@@ -4,7 +4,7 @@ parameters:
     bootstrapFiles:
         - bootstrap.php
     paths:
-        - yourplugin.php
+        - intimate-tales.php
         - src/app/
     level: 6
 

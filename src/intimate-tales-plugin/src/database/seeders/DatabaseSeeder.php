@@ -1,9 +1,9 @@
 <?php
 
-namespace WordpressPluginTemplate\Database\seeders;
+namespace IntimateTales\Database\seeders;
 
 use Illuminate\Database\Seeder;
-use WordpressPluginTemplate\App\Models\PluginModel;
+use IntimateTales\App\Models\PluginModel;
 
 class DatabaseSeeder extends Seeder
 {

@@ -31,11 +31,11 @@ wp import demo-content.xml --authors=create
 rm demo-content.xml
 
 # Symlink plugin
-mkdir -p "$WORDPRESS_FOLDER/wp-content/plugins/yourplugin"
-cd $WORDPRESS_FOLDER/wp-content/plugins/yourplugin
+mkdir -p "$WORDPRESS_FOLDER/wp-content/plugins/intimate-tales"
+cd $WORDPRESS_FOLDER/wp-content/plugins/intimate-tales
 ln -s $REPO_FOLDER/src
 ln -s $REPO_FOLDER/vendor
-ln -s $REPO_FOLDER/yourplugin.php
+ln -s $REPO_FOLDER/intimate-tales.php
 
 # Xdebug
 echo xdebug.log_level=0 | sudo tee -a /usr/local/etc/php/conf.d/xdebug.ini
@@ -50,7 +50,7 @@ npm run build
 
 # Activate the plugin
 cd $WORDPRESS_FOLDER
-wp plugin activate yourplugin
+wp plugin activate intimate-tales
 
 # Setup bash
 echo export PATH=\"\$PATH:$REPO_FOLDER/vendor/bin:$REPO_FOLDER/node_modules/.bin/\" >> ~/.bashrc
