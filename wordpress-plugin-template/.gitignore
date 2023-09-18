@@ -1,0 +1,25 @@
+# IntelliJ Project Files
+.idea
+*.iml
+out
+gen
+_config.yml
+
+# Dependencies
+vendor
+node_modules
+
+# Builds
+*.zip
+
+# Other
+.env
+*.cache
+*.log
+.phive
+
+# Build
+src/public
+dist
+build
+tools

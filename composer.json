@@ -36,6 +36,10 @@
     {
       "type": "path",
       "url": "./src/intimate-tales-plugin"
+    },
+    {
+      "type": "path",
+      "url": "./src/advanced-custom-fields-pro"
     }
   ],
   "require": {
