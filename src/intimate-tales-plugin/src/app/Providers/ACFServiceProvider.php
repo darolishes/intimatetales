@@ -21,7 +21,7 @@ class ACFServiceProvider extends ServiceProvider
     {
         // Hier können Sie alle notwendigen Aktionen und Filter für ACF hinzufügen.
         // Zum Beispiel:
-        add_filter('acf/settings/load_json', [$this->app->make('acfhandler'), 'load_json']);
+        add_filter('acf/settings/load_json', [bundle('app')->make('acfhandler'), 'load_json']);
         // ... und so weiter für andere Aktionen und Filter.
     }
 }
