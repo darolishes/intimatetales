@@ -7,26 +7,15 @@ namespace IntimateTales\Views;
  */
 class PublicViews
 {
+	private $config;
+	private $plugin_name;
+	private $version;
 
-	/**
-	 * The Vars of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $plugin_vars
-	 */
-	private $plugin_vars;
-
-	/**
-	 * Initialize the class and set its properties.
-	 *
-	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of the plugin.
-	 * @param      string    $version    The version of this plugin.
-	 */
-	public function __construct($plugin_vars)
+	public function __construct($config)
 	{
-		$this->plugin_vars = $plugin_vars;
+		$this->config = $config;
+		$this->plugin_name = $this->config->get('PLUGIN_NAME');
+		$this->version = $this->config->get('VERSION');
 	}
 
 	/**
@@ -36,7 +25,8 @@ class PublicViews
 	 */
 	public function enqueue_styles()
 	{
-		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'plugin/css/public.css', array(), $this->version, 'all');
+		$css_url = $this->config->get('PLUGIN_URL') . 'resources/css/public.css';
+		wp_enqueue_style($this->plugin_name, $css_url, array(), $this->version, 'all');
 	}
 
 	/**
@@ -46,6 +36,7 @@ class PublicViews
 	 */
 	public function enqueue_scripts()
 	{
-		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'public/js/public.js', array('jquery'), $this->version, false);
+		$js_url = $this->config->get('PLUGIN_URL') . 'public/js/public.js';
+		wp_enqueue_script($this->plugin_name, $js_url, array('jquery'), $this->version, false);
 	}
 }

@@ -20,6 +20,8 @@ class Config
 	const SETTINGS_SECTION_INTEGRATIONS = 'it-settings-integrations';
 	const ENDPOINT_SEARCH               = 'search';
 	const ENDPOINT_USER_STORIES         = 'user-stories';
+	const ENDPOINT_USER_STORY           = 'user-story';
+	const ENDPOINT_STORY_ACTION         = 'story-action';
 
 	private static $initialized = false;
 	public static $PLUGIN_PATH;
@@ -28,7 +30,7 @@ class Config
 	public static $ACF;
 	public static $VIEWS;
 
-	public static function initialize()
+	private static function initialize()
 	{
 		if (self::$initialized) {
 			return;
@@ -37,10 +39,25 @@ class Config
 		self::$PLUGIN_PATH = plugin_dir_path(__DIR__ . '/../intimate-tales.php');
 		self::$PLUGIN_URL = plugin_dir_url(__DIR__ . '/../intimate-tales.php');
 		self::$PLUGIN_BASENAME = plugin_basename(__DIR__ . '/../intimate-tales.php');
+
 		self::$ACF = self::$PLUGIN_PATH . 'resources/acf-json/';
 		self::$VIEWS = self::$PLUGIN_PATH . 'resources/views/';
 
 		self::$initialized = true;
+	}
+
+	public static function get($key, $default = null)
+	{
+		if (!self::$initialized) {
+			self::initialize();
+		}
+
+		// Überprüfen Sie, ob die angeforderte Eigenschaft existiert und zurückgeben.
+		if (property_exists(__CLASS__, $key)) {
+			return self::${$key};
+		}
+
+		return $default;
 	}
 
 	public static function get_plugin_path()
@@ -68,6 +85,3 @@ class Config
 		return self::$VIEWS;
 	}
 }
-
-// Initialisieren Sie die statischen Variablen, wenn die Klasse geladen wird
-Config::initialize();

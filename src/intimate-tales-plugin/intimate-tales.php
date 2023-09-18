@@ -12,72 +12,55 @@
  * Domain Path:       /languages
  */
 
-
-// If this file is called directly, abort.
 if (!defined('WPINC')) {
     die;
 }
 
-function it_settings_link($links)
+use IntimateTales\Config;
+use IntimateTales\Helpers\Activator;
+use IntimateTales\Helpers\Deactivator;
+use IntimateTales\Core\MainController;
+use IntimateTales\Controllers\Loader;
+
+class IntimateTalesPlugin
 {
-    $url = get_admin_url() . 'admin.php';
-    $settings_link = '<a href="' . $url . '">' . __('Settings', 'intimatetales') . '</a>';
-    array_unshift($links, $settings_link);
-    return $links;
-}
-add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'it_settings_link');
+    const PLUGIN_VERSION = '1.0.0';
 
-/**
- * Plugin version. - https://semver.org
- *
- */
-define('INTIMATE_TALES_LIKES_VERSION', '1.0.0');
+    private $mainController;
 
-/**
- * Activation
- */
-function activate_intimate_tales()
-{
-    IntimateTales\Helpers\Activator::activate();
-}
+    public function __construct(MainController $mainController)
+    {
+        $this->mainController = $mainController;
+        add_filter('plugin_action_links_' . plugin_basename(__FILE__), [$this, 'it_settings_link']);
+    }
 
-/**
- * Deactivation.
- */
-function deactivate_intimate_tales()
-{
-    IntimateTales\Helpers\Deactivator::deactivate();
-}
+    public function it_settings_link($links)
+    {
+        $url = get_admin_url() . 'admin.php';
+        $settings_link = '<a href="' . $url . '">' . __('Settings', 'intimatetales') . '</a>';
+        array_unshift($links, $settings_link);
+        return $links;
+    }
 
-/**
- * Deinstallation.
- */
-function deinstall_intimate_tales()
-{
+    public function activate()
+    {
+        Activator::activate();
+    }
+
+    public function deactivate()
+    {
+        Deactivator::deactivate();
+    }
+
+    public function run()
+    {
+        $this->mainController->run();
+    }
 }
 
-/**
- * Watch the Namespace syntax. Shoutout:
- * https://developer.wordpress.org/reference/functions/register_activation_hook/#comment-2167
- */
-// register_activation_hook( __FILE__, __NAMESPACE__ . '\activate_intimate_tales' );
-// register_deactivation_hook( __FILE__, __NAMESPACE__ . '\deactivate_intimate_tales' );
-// register_uninstall_hook( __FILE__, __NAMESPACE__ . '\deinstall_intimate_tales' );
-/**
- * Instead of: register_activation_hook( __FILE__, 'activate_intimate_tales' );
- * Using the file constant did not work for me.
- */
+#require plugin_dir_path(__FILE__) . 'vendor/autoload.php';
 
-
-// include the Composer autoload file
-require plugin_dir_path(__FILE__) . 'vendor/autoload.php';
-
-/**
- * Engage.
- */
-function run_intimate_tales()
-
-    $plugin = new IntimateTales\Core\MainController();
-    $plugin->run();
-}
-run_intimate_tales();
+$intimateTalesPlugin = new IntimateTalesPlugin(new MainController(new Config(), new Loader()));
+register_activation_hook(__FILE__, [$intimateTalesPlugin, 'activate']);
+register_deactivation_hook(__FILE__, [$intimateTalesPlugin, 'deactivate']);
+$intimateTalesPlugin->run();

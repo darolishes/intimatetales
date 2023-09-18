@@ -3,8 +3,9 @@
 namespace IntimateTales\Core;
 
 use IntimateTales\Config;
-use IntimateTales\Controllers\Loader; // All actions and filters
-use IntimateTales\Internalization\I18n; // language
+use IntimateTales\Controllers\Loader;
+use IntimateTales\Handlers\ACFHandler;
+
 use IntimateTales\Views\Admin; // admin settings
 use IntimateTales\Views\PublicViews; // views output
 
@@ -23,106 +24,48 @@ use IntimateTales\Views\PublicViews; // views output
  */
 class MainController
 {
-
-	/**
-	 * The loader that's responsible for maintaining and registering all hooks that power
-	 * the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      Loader    $loader    Maintains and registers all hooks for the plugin.
-	 */
 	protected $loader;
+	protected $config;
 
-	/**
-	 * Define the core functionality of the plugin.
-	 *
-	 * Set the plugin name and the plugin version that can be used throughout the plugin.
-	 * Load the dependencies, define the locale, and set the hooks for the admin area and
-	 * the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function __construct()
+	public function __construct(Config $config, Loader $loader)
 	{
+		$this->config = $config;
+		$this->loader = $loader;
 
-		$this->loader = new Loader();
 		$this->loader->add_action('plugins_loaded', $this, 'load_textdomain');
 
-		$this->define_admin_hooks();
 		$this->define_public_hooks();
 		$this->define_acf_hooks();
 	}
 
-	private function load_textdomain()
+	public function load_textdomain()
 	{
-		$text_domain = Config::TEXTDOMAIN;
-		$plugin_path = Config::get_plugin_path();
-
-		load_plugin_textdomain($text_domain, false, $plugin_path . '/languages');
+		load_plugin_textdomain($this->config::TEXTDOMAIN, false, $this->config->get_plugin_path() . '/languages');
 	}
 
-	/**
-	 * Register all of the hooks related to the admin area functionality
-	 * of the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function define_admin_hooks()
-	{
-
-		$plugin_admin = new Admin();
-
-		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
-		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
-	}
-
-	/**
-	 * Register all of the hooks related to the public-facing functionality
-	 * of the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
 	private function define_public_hooks()
 	{
-		$plugin_public = new PublicViews();
+		$plugin_public = new PublicViews($this->config);
 
 		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
 		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
 	}
 
-	/**
-	 * Register all of the hooks related to the public-facing functionality
-	 * of the plugin.
-	 *
-	 * @since    1.0.0
-	 */
 	private function define_acf_hooks()
 	{
-		$plugin_acf = new ACF();
+		$acf_handler = new ACFHandler($this->config->get_acf_path());
 
-		$this->loader->add_action('acf/include_fields', $plugin_acf, 'include_fields');
-		$this->loader->add_action('acf/include_fields', $plugin_acf, 'include_fields_admin');
+		$this->loader->add_filter('acf/settings/load_json', $acf_handler, 'load_json');
+		$this->loader->add_filter('acf/settings/save_json', $acf_handler, 'save_json');
+		$this->loader->add_filter('acf/json/save_paths', $acf_handler, 'save_paths');
+		$this->loader->add_filter('acf/json/save_file_name', $acf_handler, 'save_file_name');
 	}
 
-	/**
-	 * Run the loader to execute all of the hooks with WordPress.
-	 *
-	 * @since    1.0.0
-	 */
 	public function run()
 	{
 		$this->loader->run();
 	}
 
-	/**
-	 * The reference to the class that orchestrates the hooks with the plugin.
-	 *
-	 * @since     1.0.0
-	 * @return    Loader    Orchestrates the hooks of the plugin.
-	 */
 	public function get_loader()
 	{
 		return $this->loader;

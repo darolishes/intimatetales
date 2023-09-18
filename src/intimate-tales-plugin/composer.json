@@ -13,13 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "IntimateTales\\Core\\": "/",
-            "IntimateTales\\Core\\Models\\": "models",
-            "IntimateTales\\Core\\Views\\": "views",
-            "IntimateTales\\Core\\Views\\Public\\": "views/public",
-            "IntimateTales\\Core\\Views\\Admin\\": "views/admin",
-            "IntimateTales\\Core\\Controllers\\": "controllers",
-            "IntimateTales\\Core\\Controllers\\App\\": "controllers/app"
+            "IntimateTales\\": "./src",
         }
     },
     "dev-require": {
