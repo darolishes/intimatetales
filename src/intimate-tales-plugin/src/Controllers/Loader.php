@@ -9,7 +9,7 @@ namespace IntimateTales\Controllers;
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters. 
  * 
- * This is the toolbox. You add your filters, actions and shortcodes in Plugin.php
+ * This is the toolbox. You add your filters, actions and shortcodes in MainController.php
  */
 
 class Loader

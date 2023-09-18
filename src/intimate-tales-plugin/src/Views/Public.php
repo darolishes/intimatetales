@@ -5,7 +5,7 @@ namespace IntimateTales\Views;
 /**
  * Asset management et al. for the front end.
  */
-class Public
+class Public 
 {
 
 	/**
@@ -47,8 +47,6 @@ class Public
 	 */
 	public function enqueue_styles()
 	{
-
-
 		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'plugin/css/public.css', array(), $this->version, 'all');
 	}
 
