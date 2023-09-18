@@ -1,6 +1,5 @@
 build
 dist
-docker
 nginx
 node_modules
 php
@@ -9,4 +8,3 @@ src/public
 src/storage
 tools
 vendor
-wordpress
