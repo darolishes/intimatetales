@@ -1,6 +1,6 @@
 <?php
 
-namespace IntimateTales\Core\Controllers\App;
+namespace IntimateTales\Controllers\App;
 
 /**
  * Register all actions and filters for the plugin.
@@ -9,10 +9,10 @@ namespace IntimateTales\Core\Controllers\App;
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters. 
  * 
- * This is the toolbox. You add your filters, actions and shortcodes in IntimateTalesPlugin.php
+ * This is the toolbox. You add your filters, actions and shortcodes in Plugin.php
  */
 
-class IntimateTalesLoader
+class Loader
 {
 
 	/**

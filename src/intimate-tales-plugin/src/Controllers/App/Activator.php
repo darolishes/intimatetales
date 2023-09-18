@@ -1,13 +1,13 @@
 <?php
 
-namespace IntimateTales\Core\Controllers\App;
+namespace IntimateTales\Controllers\App;
 
 /**
  * Fired during plugin activation
  */
 
 defined('ABSPATH') || exit;
-class IntimateTalesActivator
+class Activator
 {
 
 	/**

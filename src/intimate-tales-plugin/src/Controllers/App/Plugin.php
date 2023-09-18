@@ -1,11 +1,11 @@
 <?php
 
-namespace IntimateTales\Core\Controllers\App;
+namespace IntimateTales\Controllers\App;
 
-use IntimateTales\Core\Controllers\App\IntimateTalesLoader; // All actions and filters
-use IntimateTales\Core\Controllers\App\IntimateTalesI18n; // language
-use IntimateTales\Core\Views\IntimateTalesAdmin; // admin settings
-use IntimateTales\Core\Views\IntimateTalesPublic; // views output
+use IntimateTales\Controllers\App\Loader; // All actions and filters
+use IntimateTales\Controllers\App\I18n; // language
+use IntimateTales\Views\Admin; // admin settings
+use IntimateTales\Views\Public; // views output
 
 /**
  * The core plugin class.
@@ -18,9 +18,9 @@ use IntimateTales\Core\Views\IntimateTalesPublic; // views output
  *
  * @since      1.0.0
  * @package    IntimateTales
- * @author     oacsTudio <oacsTudio>
+ * @author     DARO <DARO>
  */
-class IntimateTalesCore
+class Plugin
 {
 
 	/**
@@ -29,7 +29,7 @@ class IntimateTalesCore
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      IntimateTalesLoader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -62,8 +62,8 @@ class IntimateTalesCore
 	 */
 	public function __construct()
 	{
-		if (defined('SIMPLE_POST_LIKES_VERSION')) {
-			$this->version = SIMPLE_POST_LIKES_VERSION;
+		if (defined('INTIMATE_TALES_VERSION')) {
+			$this->version = INTIMATE_TALES_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
@@ -81,10 +81,10 @@ class IntimateTalesCore
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Simple_Post_Likes_Loader. Orchestrates the hooks of the plugin.
-	 * - Simple_Post_Likes_i18n. Defines internationalization functionality.
-	 * - Simple_Post_Likes_Admin. Defines all hooks for the admin area.
-	 * - Simple_Post_Likes_Public. Defines all hooks for the public side of the site.
+	 * - Intimate_Tales_Loader. Orchestrates the hooks of the plugin.
+	 * - Intimate_Tales_i18n. Defines internationalization functionality.
+	 * - Intimate_Tales_Admin. Defines all hooks for the admin area.
+	 * - Intimate_Tales_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -95,14 +95,14 @@ class IntimateTalesCore
 	private function load_dependencies()
 	{
 
-		$this->loader = new IntimateTalesLoader(); // get Loader instance to make hooks work.
+		$this->loader = new Loader(); // get Loader instance to make hooks work.
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the IntimateTalesI18n class in order to set the domain and to register the hook
+	 * Uses the I18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -111,7 +111,7 @@ class IntimateTalesCore
 	private function set_locale()
 	{
 
-		$plugin_i18n = new IntimateTalesI18n();
+		$plugin_i18n = new I18n();
 
 		$this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
 	}
@@ -126,7 +126,7 @@ class IntimateTalesCore
 	private function define_admin_hooks()
 	{
 
-		$plugin_admin = new IntimateTalesAdmin($this->get_plugin_name(), $this->get_version());
+		$plugin_admin = new Admin($this->get_plugin_name(), $this->get_version());
 
 		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
 		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
@@ -143,7 +143,7 @@ class IntimateTalesCore
 	{
 
 
-		$plugin_public = new IntimateTalesPublic($this->get_plugin_name(), $this->get_version());
+		$plugin_public = new Public($this->get_plugin_name(), $this->get_version());
 
 		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
 		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
@@ -175,7 +175,7 @@ class IntimateTalesCore
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    IntimateTalesLoader    Orchestrates the hooks of the plugin.
+	 * @return    Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader()
 	{

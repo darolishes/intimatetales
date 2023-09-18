@@ -1,12 +1,12 @@
 <?php
 
-namespace IntimateTales\Core\Controllers\App;
+namespace IntimateTales\Controllers\App;
 
 /**
  * Fired during plugin deactivation
  */
 
-class IntimateTalesDeactivator
+class Deactivator
 {
 
 	/**

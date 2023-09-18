@@ -1,6 +1,6 @@
 <?php
 
-namespace IntimateTales\Core\Controllers\App;
+namespace IntimateTales\Controllers\App;
 
 /**
  * Define the internationalization functionality.
@@ -8,7 +8,7 @@ namespace IntimateTales\Core\Controllers\App;
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  */
-class IntimateTalesI18n
+class I18n
 {
 
 
