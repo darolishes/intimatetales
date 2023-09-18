@@ -1,0 +1,22 @@
+{
+    "name": "intimatetales/plugin",
+    "type": "wordpress-plugin",
+    "description": "Beschreibung für das Intimate Tales Plugin",
+    "authors": [
+        {
+            "name": "Dawid Rogaczewski",
+            "email": "d.rogaczewski@gmail.com"
+        }
+    ],
+    "extra": {
+        "installer-name": "intimate-tales"
+    },
+    "autoload": {
+        "psr-4": {
+            "IntimateTales\\": "./src",
+        }
+    },
+    "dev-require": {
+        "phpunit/phpunit": "^8.5"
+    }
+}
