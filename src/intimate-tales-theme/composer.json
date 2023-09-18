@@ -1,5 +1,5 @@
 {
-    "name": "daro/intimate-tales-theme",
+    "name": "intimatetales/theme",
     "type": "wordpress-theme",
     "description": "Beschreibung für das Intimate Tales Theme",
     "authors": [
@@ -8,9 +8,6 @@
             "email": "d.rogaczewski@gmail.com"
         }
     ],
-    "require": {
-        "composer/installers": "v1.0.6"
-    },
     "extra": {
         "installer-name": "intimate-tales"
     }

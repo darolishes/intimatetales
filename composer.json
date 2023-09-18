@@ -31,11 +31,21 @@
     },
     {
       "type": "path",
-      "url": "./src/intimate-tales-theme"
+      "url": "./src/intimate-tales-theme",
+      "options": {
+        "symlink": true
+      }
     },
     {
       "type": "path",
-      "url": "./src/intimate-tales-plugin"
+      "url": "./src/intimate-tales-plugin",
+      "options": {
+        "symlink": true
+      }
+    },
+    {
+      "type":"composer",
+      "url":"https://connect.advancedcustomfields.com"
     }
   ],
   "require": {
@@ -47,7 +57,10 @@
     "roots/bedrock-disallow-indexing": "^2.0",
     "roots/wordpress": "6.3.1",
     "roots/wp-config": "1.0.0",
-    "roots/wp-password-bcrypt": "1.1.0"
+    "roots/wp-password-bcrypt": "1.1.0",
+    "intimatetales/plugin": "dev-master",
+    "wpengine/advanced-custom-fields-pro": "6.2.1.1",
+    "intimatetales/theme": "dev-master"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",
