@@ -5,26 +5,17 @@ namespace IntimateTales\Views;
 /**
  * Asset management et al. for the front end.
  */
-class Public 
+class PublicViews
 {
 
 	/**
-	 * The ID of this plugin.
+	 * The Vars of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
+	 * @var      string    $plugin_vars
 	 */
-	private $plugin_name;
-
-	/**
-	 * The version of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
-	 */
-	private $version;
+	private $plugin_vars;
 
 	/**
 	 * Initialize the class and set its properties.
@@ -33,11 +24,9 @@ class Public
 	 * @param      string    $plugin_name       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct($plugin_name, $version)
+	public function __construct($plugin_vars)
 	{
-
-		$this->plugin_name = $plugin_name;
-		$this->version = $version;
+		$this->plugin_vars = $plugin_vars;
 	}
 
 	/**

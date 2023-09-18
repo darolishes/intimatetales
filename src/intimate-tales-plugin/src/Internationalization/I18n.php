@@ -2,6 +2,7 @@
 
 namespace IntimateTales\Controllers;
 
+
 /**
  * Define the internationalization functionality.
  *
@@ -10,7 +11,6 @@ namespace IntimateTales\Controllers;
  */
 class I18n
 {
-
 
 	/**
 	 * Load the plugin text domain for translation.

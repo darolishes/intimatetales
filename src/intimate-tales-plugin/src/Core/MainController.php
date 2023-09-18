@@ -2,10 +2,11 @@
 
 namespace IntimateTales\Core;
 
+use IntimateTales\Config;
 use IntimateTales\Controllers\Loader; // All actions and filters
 use IntimateTales\Internalization\I18n; // language
 use IntimateTales\Views\Admin; // admin settings
-use IntimateTales\Views\Public; // views output
+use IntimateTales\Views\PublicViews; // views output
 
 /**
  * The core plugin class.
@@ -34,24 +35,6 @@ class MainController
 	protected $loader;
 
 	/**
-	 * The unique identifier of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
-	 */
-	protected $plugin_name;
-
-	/**
-	 * The current version of the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      string    $version    The current version of the plugin.
-	 */
-	protected $version;
-
-	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
@@ -62,53 +45,21 @@ class MainController
 	 */
 	public function __construct()
 	{
-		if (defined('INTIMATE_TALES_VERSION')) {
-			$this->version = INTIMATE_TALES_VERSION;
-		} else {
-			$this->version = '1.0.0';
-		}
-		$this->plugin_name = 'intimate-tales';
 
-		$this->load_dependencies();
-		$this->set_locale();
+		$this->loader = new Loader();
+		$this->loader->add_action('plugins_loaded', $this, 'load_textdomain');
+
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
+		$this->define_acf_hooks();
 	}
 
-	/**
-	 * Load the required dependencies for this plugin.
-	 *
-	 * Include the following files that make up the plugin:
-	 *
-	 * - Intimate_Tales_Loader. Orchestrates the hooks of the plugin.
-	 * - Intimate_Tales_i18n. Defines internationalization functionality.
-	 * - Intimate_Tales_Admin. Defines all hooks for the admin area.
-	 * - Intimate_Tales_Public. Defines all hooks for the public side of the site.
-	 *
-	 * Create an instance of the loader which will be used to register the hooks
-	 * with WordPress.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function load_dependencies()
+	private function load_textdomain()
 	{
-		$this->loader = new Loader();
-	}
+		$text_domain = Config::TEXTDOMAIN;
+		$plugin_path = Config::get_plugin_path();
 
-	/**
-	 * Define the locale for this plugin for internationalization.
-	 *
-	 * Uses the I18n class in order to set the domain and to register the hook
-	 * with WordPress.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function set_locale()
-	{
-		$plugin_i18n = new I18n();
-		$this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
+		load_plugin_textdomain($text_domain, false, $plugin_path . '/languages');
 	}
 
 	/**
@@ -121,7 +72,7 @@ class MainController
 	private function define_admin_hooks()
 	{
 
-		$plugin_admin = new Admin($this->get_plugin_name(), $this->get_version());
+		$plugin_admin = new Admin();
 
 		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
 		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
@@ -136,10 +87,24 @@ class MainController
 	 */
 	private function define_public_hooks()
 	{
-		$plugin_public = new Public($this->get_plugin_name(), $this->get_version());
+		$plugin_public = new PublicViews();
 
 		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
 		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
+	}
+
+	/**
+	 * Register all of the hooks related to the public-facing functionality
+	 * of the plugin.
+	 *
+	 * @since    1.0.0
+	 */
+	private function define_acf_hooks()
+	{
+		$plugin_acf = new ACF();
+
+		$this->loader->add_action('acf/include_fields', $plugin_acf, 'include_fields');
+		$this->loader->add_action('acf/include_fields', $plugin_acf, 'include_fields_admin');
 	}
 
 	/**
@@ -153,18 +118,6 @@ class MainController
 	}
 
 	/**
-	 * The name of the plugin used to uniquely identify it within the context of
-	 * WordPress and to define internationalization functionality.
-	 *
-	 * @since     1.0.0
-	 * @return    string    The name of the plugin.
-	 */
-	public function get_plugin_name()
-	{
-		return $this->plugin_name;
-	}
-
-	/**
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
@@ -173,16 +126,5 @@ class MainController
 	public function get_loader()
 	{
 		return $this->loader;
-	}
-
-	/**
-	 * Retrieve the version number of the plugin.
-	 *
-	 * @since     1.0.0
-	 * @return    string    The version number of the plugin.
-	 */
-	public function get_version()
-	{
-		return $this->version;
 	}
 }
