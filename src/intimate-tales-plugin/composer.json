@@ -1,4 +1,13 @@
 {
+  "name": "intimatetales/plugin",
+  "type": "wordpress-plugin",
+  "description": "Beschreibung für das Intimate Tales Plugin",
+  "authors": [
+      {
+          "name": "Dawid Rogaczewski",
+          "email": "d.rogaczewski@gmail.com"
+      }
+  ],
   "require": {
     "php": "^8.1",
     "roots/acorn": "^3.2",
@@ -32,7 +41,9 @@
     "test:lint": "./vendor/bin/pint src --test",
     "test:types": "APP_RUNNING_IN_CONSOLE=false ./vendor/bin/phpstan analyse --memory-limit 1G"
   },
+  "minimum-stability": "dev",
   "config": {
+    "prefer-stable": true,
     "sort-packages": true
   }
 }
