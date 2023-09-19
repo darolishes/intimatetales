@@ -22,7 +22,7 @@ class Post extends Composer
      *
      * @return array
      */
-    public function override()
+    public function with()
     {
         return [
             'title' => $this->title(),

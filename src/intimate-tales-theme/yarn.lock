@@ -3243,9 +3243,9 @@
     tslib "2.5.0"
     webpack "5.76.3"
 
-"@roots/sage@6.12.2":
+"@roots/intimate-tales@6.12.2":
   version "6.12.2"
-  resolved "https://registry.yarnpkg.com/@roots/sage/-/sage-6.12.2.tgz#51bbc117f911315a01ec3f2c57a869c41704794b"
+  resolved "https://registry.yarnpkg.com/@roots/intimate-tales/-/intimate-tales-6.12.2.tgz#51bbc117f911315a01ec3f2c57a869c41704794b"
   integrity sha512-8oMODIKMb+URhSaCysctArpGrhoAU8X0sxscL+cwmlwxkCShGSj5E5bFM45L0zvAbR4/LOcwnFMSB7M7UKOUkg==
   dependencies:
     "@roots/blade-loader" "6.12.2"
@@ -6061,7 +6061,7 @@ merge-error-cause@^3.5.0:
     normalize-exception "^2.11.0"
     set-error-class "^1.5.0"
     set-error-props "^4.0.0"
-    wrap-error-message "^1.0.0"
+    wrap-error-mesintimate-tales "^1.0.0"
 
 merge-stream@^2.0.0:
   version "2.0.0"
@@ -6375,7 +6375,7 @@ modern-errors@5.5.4:
     is-plain-obj "^4.1.0"
     merge-error-cause "^3.5.0"
     normalize-exception "^2.11.0"
-    set-error-message "^1.6.0"
+    set-error-mesintimate-tales "^1.6.0"
     set-error-props "^4.0.0"
     set-error-stack "^1.0.0"
 
@@ -7910,9 +7910,9 @@ set-error-class@^1.5.0:
   dependencies:
     normalize-exception "^2.11.0"
 
-set-error-message@^1.6.0:
+set-error-mesintimate-tales@^1.6.0:
   version "1.6.0"
-  resolved "https://registry.npmjs.org/set-error-message/-/set-error-message-1.6.0.tgz#747c1505f843a8913f5a3f1535f40e72ab65e734"
+  resolved "https://registry.npmjs.org/set-error-mesintimate-tales/-/set-error-mesintimate-tales-1.6.0.tgz#747c1505f843a8913f5a3f1535f40e72ab65e734"
   integrity sha512-shoEDvQlZ4SudotBoKCfHBghsSfig8qCRyeQ3GmbCV/VG5oxn+269uTMJDM/RmAmKlFryPJxY0UNr4fwxIiieA==
   dependencies:
     normalize-exception "^2.11.0"
@@ -8569,9 +8569,9 @@ vary@~1.1.2:
   resolved "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-vfile-message@^3.0.0:
+vfile-mesintimate-tales@^3.0.0:
   version "3.0.2"
-  resolved "https://registry.npmjs.org/vfile-message/-/vfile-message-3.0.2.tgz"
+  resolved "https://registry.npmjs.org/vfile-mesintimate-tales/-/vfile-mesintimate-tales-3.0.2.tgz"
   integrity sha512-UUjZYIOg9lDRwwiBAuezLIsu9KlXntdxwG+nXnjuQAHvBpcX3x0eN8h+I7TkY5nkCXj+cWVp4ZqebtGBvok8ww==
   dependencies:
     "@types/unist" "^2.0.0"
@@ -8594,14 +8594,14 @@ vfile-sort@^3.0.0:
   resolved "https://registry.yarnpkg.com/vfile-sort/-/vfile-sort-3.0.0.tgz#ee13d3eaac0446200a2047a3b45d78fad6b106e6"
   integrity sha512-fJNctnuMi3l4ikTVcKpxTbzHeCgvDhnI44amA3NVDvA6rTC6oKCFpCVyT5n2fFMr3ebfr+WVQZedOCd73rzSxg==
   dependencies:
-    vfile-message "^3.0.0"
+    vfile-mesintimate-tales "^3.0.0"
 
 vfile-statistics@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/vfile-statistics/-/vfile-statistics-2.0.0.tgz#f04ee3e3c666809a3c10c06021becd41ea9c8037"
   integrity sha512-foOWtcnJhKN9M2+20AOTlWi2dxNfAoeNIoxD5GXcO182UJyId4QrXa41fWrgcfV3FWTjdEDy3I4cpLVcQscIMA==
   dependencies:
-    vfile-message "^3.0.0"
+    vfile-mesintimate-tales "^3.0.0"
 
 vfile@^5.0.0:
   version "5.2.0"
@@ -8611,7 +8611,7 @@ vfile@^5.0.0:
     "@types/unist" "^2.0.0"
     is-buffer "^2.0.0"
     unist-util-stringify-position "^3.0.0"
-    vfile-message "^3.0.0"
+    vfile-mesintimate-tales "^3.0.0"
 
 watchpack@^2.4.0:
   version "2.4.0"
@@ -8711,13 +8711,13 @@ wrap-ansi@^8.1.0:
     string-width "^5.0.1"
     strip-ansi "^7.0.1"
 
-wrap-error-message@^1.0.0:
+wrap-error-mesintimate-tales@^1.0.0:
   version "1.0.0"
-  resolved "https://registry.npmjs.org/wrap-error-message/-/wrap-error-message-1.0.0.tgz#9d039361b0e0f62f6dafed62a1e3b58f0ed9fe7f"
+  resolved "https://registry.npmjs.org/wrap-error-mesintimate-tales/-/wrap-error-mesintimate-tales-1.0.0.tgz#9d039361b0e0f62f6dafed62a1e3b58f0ed9fe7f"
   integrity sha512-axCHQQYrkUaKPCj+BP0emCB++Lzq8Fa1Vba3qPeDbdKyfvypjX6i10KaAoLcRt6Mq0M9peONc6GEzM/XqXNniw==
   dependencies:
     normalize-exception "^2.11.0"
-    set-error-message "^1.6.0"
+    set-error-mesintimate-tales "^1.6.0"
 
 wrappy@1:
   version "1.0.2"

@@ -15,6 +15,7 @@ export default async (app) => {
    */
   app
     .entry('app', ['@scripts/app', '@styles/app'])
+    .entry('editor', ['@scripts/editor', '@styles/editor'])
     .assets(['images']);
 
   /**
@@ -22,7 +23,7 @@ export default async (app) => {
    *
    * @see {@link https://bud.js.org/docs/bud.setPublicPath}
    */
-  app.setPublicPath('/app/themes/intimate-tales/public/');
+  app.setPublicPath('/app/themes/sage/public/');
 
   /**
    * Development server settings
@@ -33,7 +34,7 @@ export default async (app) => {
    */
   app
     .setUrl('http://localhost:3000')
-    .setProxyUrl('http://intimate-tales.test')
+    .setProxyUrl('http://example.test')
     .watch(['resources/views', 'app']);
 
   /**

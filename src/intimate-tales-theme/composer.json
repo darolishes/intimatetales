@@ -1,9 +1,9 @@
 {
-  "name": "intimatetales/theme",
+  "name": "roots/sage",
   "type": "wordpress-theme",
   "license": "MIT",
   "description": "WordPress starter theme with a modern development workflow",
-  "homepage": "https://roots.io/sage/",
+  "homepage": "https://roots.io/intimate-tales/",
   "authors": [
     {
       "name": "Ben Word",
@@ -30,7 +30,7 @@
     "wordpress"
   ],
   "support": {
-    "issues": "https://github.com/roots/sage/issues",
+    "issues": "https://github.com/roots/intimate-tales/issues",
     "forum": "https://discourse.roots.io/"
   },
   "autoload": {
@@ -45,8 +45,8 @@
     "squizlabs/php_codesniffer": "3.7.1"
   },
   "suggest": {
-    "log1x/sage-directives": "A collection of useful Blade directives for WordPress and Sage (^1.0).",
-    "log1x/sage-svg": "A useful SVG directive for inlining SVG's within Blade views (^1.0)."
+    "log1x/intimate-tales-directives": "A collection of useful Blade directives for WordPress and Sage (^1.0).",
+    "log1x/intimate-tales-svg": "A useful SVG directive for inlining SVG's within Blade views (^1.0)."
   },
   "config": {
     "optimize-autoloader": true,

@@ -16,18 +16,23 @@ if (!defined('WPINC')) {
     die;
 }
 
-define('INTIMATE_TALES_VERSION', '1.0.0');
-define('INTIMATE_TALES_DIR', plugin_dir_path(__FILE__));
-define('INTIMATE_TALES_URL', plugin_dir_url(__FILE__));
-define('INTIMATE_TALES_BASENAME', plugin_basename(__FILE__));
+use Roots\Acorn\Bootloader;
+use Roots\WPConfig\Config;
 
 require_once dirname(__DIR__, 2) . '/vendor/autoload.php';
 
-remove_action('template_redirect', 'redirect_canonical');
+/**
+ * Set up configuration
+ */
+Config::define('ACORN_BASEPATH', rtrim(plugin_dir_path(__FILE__) . 'src', '/'));
 
-use \IntimateTales\Config\PluginConfig;
-use \IntimateTales\Controllers\Loader;
-use \IntimateTales\Controllers\AppController;
+Config::define('INTIMATE_TALES_FILE', __FILE__);
+Config::define('INTIMATE_TALES_DIR', plugin_dir_path(__FILE__));
+Config::define('INTIMATE_TALES_BASENAME', plugin_basename(__FILE__));
+Config::define('INTIMATE_TALES_URL', plugin_dir_url(__FILE__));
+Config::define('INTIMATE_TALES_VERSION', '1.0.0');
+Config::define('INTIMATE_TALES_NAME', 'Intimate Tales');
+Config::apply();
 
-$intimateTalesPlugin = new AppController(new PluginConfig(), new Loader());
-$intimateTalesPlugin->run();
+$instance = Bootloader::getInstance();
+$instance->boot();

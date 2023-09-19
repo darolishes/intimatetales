@@ -6,7 +6,7 @@ export const hook = 'blocks.registerBlockType';
 /**
  * Filter handle
  */
-export const name = 'sage/button';
+export const name = 'intimate-tales/button';
 
 /**
  * Filter callback
