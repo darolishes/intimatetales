@@ -1,0 +1,27 @@
+{
+    "name": "intimate-tales/intimate-tales-plugin",
+    "description": "Haupt-Applikation für IntimateTales basierend auf Roots/Acorn.",
+    "type": "wordpress-plugin",
+    "require": {
+        "roots/acorn": "^3.2"
+    },
+    "authors": [
+        {
+            "name": "Dawid Rogaczewski",
+            "email": "d.rogaczewski@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "extra": {
+        "installer-name": "intimate-tales",
+        "installer-paths": {
+            "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+            "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
+            "web/app/themes/{$name}/": ["type:wordpress-theme"]
+        }
+    }
+}

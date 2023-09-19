@@ -31,14 +31,14 @@
     },
     {
       "type": "path",
-      "url": "./src/intimate-tales-plugin",
+      "url": "./src/plugins/intimate-tales-plugin",
       "options": {
         "symlink": true
       }
     },
     {
       "type": "path",
-      "url": "./src/intimate-tales-theme",
+      "url": "./src/themes/intimate-tales",
       "options": {
         "symlink": true
       }
@@ -58,11 +58,11 @@
     "roots/wordpress": "6.3.1",
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.1.0",
-    "intimatetales/plugin": "dev-master",
-    "wpengine/advanced-custom-fields-pro": "6.2.1.1",
-    "intimatetales/theme": "dev-master",
-    "dawidurbanski/sage-directives": "^1.0",
-    "roots/soil": "^4.1"
+    "wpackagist-theme/twentytwentythree": "^1.0",
+    "roots/soil": "^4.1",
+    "intimate-tales/intimate-tales-theme": "dev-master",
+    "wildwolf/wp-jwt-auth": "dev-master",
+    "intimate-tales/intimate-tales-plugin": "dev-master"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",
