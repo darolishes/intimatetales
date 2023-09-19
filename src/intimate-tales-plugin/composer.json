@@ -22,14 +22,14 @@
   },
   "autoload": {
     "psr-4": {
-      "IntimateTales\\App\\": "src/app",
-      "IntimateTales\\Database\\Factories\\": "src/database/factories/",
-      "IntimateTales\\Database\\Seeders\\": "src/database/seeders/"
+      "App\\": "src/app",
+      "Database\\Factories\\": "src/database/factories/",
+      "Database\\Seeders\\": "src/database/seeders/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "IntimateTales\\Tests\\": "src/tests/"
+      "Tests\\": "src/tests/"
     }
   },
   "post-autoload-dump": [
@@ -47,6 +47,6 @@
     "sort-packages": true
   },
   "extra": {
-      "installer-name": "intimate-tales"
+    "installer-name": "intimate-tales"
   }
 }

@@ -1,23 +1,22 @@
 {
-	"key": "page_design_settings",
-	"title": "Design Settings",
-	"parent_slug": "options-general.php",
-	"capability": "manage_options",
-	"position": 11,
-	"fields": [
-		{
-			"key": "field_theme_color",
-			"label": "Theme Color",
-			"name": "theme_color",
-			"type": "color_picker",
-			"instructions": "Choose the main theme color for the app",
-			"required": 1,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			}
-		}
-	]
+    "key": "ui_options_page_design",
+    "title": "Design Settings",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Design Settings",
+    "menu_slug": "it-design-settings",
+    "parent_slug": "it-settings",
+    "advanced_configuration": 1,
+    "icon_url": "",
+    "menu_title": "",
+    "position": "",
+    "redirect": 0,
+    "description": "",
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1694750644
 }

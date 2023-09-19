@@ -1,8 +1,6 @@
 includes:
     - vendor/szepeviktor/phpstan-wordpress/extension.neon
 parameters:
-    bootstrapFiles:
-        - bootstrap.php
     paths:
         - intimate-tales.php
         - src/app/

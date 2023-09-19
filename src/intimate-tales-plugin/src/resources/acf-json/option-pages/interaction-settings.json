@@ -1,23 +1,22 @@
 {
-	"key": "page_interaction_settings",
-	"title": "Interaction Settings",
-	"parent_slug": "options-general.php",
-	"capability": "manage_options",
-	"position": 13,
-	"fields": [
-		{
-			"key": "field_max_interactions",
-			"label": "Max Interactions Per Day",
-			"name": "max_interactions",
-			"type": "number",
-			"instructions": "Enter the maximum number of interactions a user can have per day",
-			"required": 1,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			}
-		}
-	]
+    "key": "ui_options_page_interaction",
+    "title": "Interaction Settings",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Interaction Settings",
+    "menu_slug": "it-interaction-settings",
+    "parent_slug": "it-settings",
+    "advanced_configuration": 1,
+    "icon_url": "",
+    "menu_title": "",
+    "position": "",
+    "redirect": 0,
+    "description": "",
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1694750644
 }

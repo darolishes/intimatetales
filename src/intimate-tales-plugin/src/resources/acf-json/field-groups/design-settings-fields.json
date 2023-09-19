@@ -1,6 +1,6 @@
 {
-	"key": "group_app_settings_fields",
-	"title": "App Settings Fields",
+	"key": "group_design_settings_fields",
+	"title": "Design Settings Fields",
 	"fields": [
 		{
 			"key": "field_app_name",
@@ -22,7 +22,7 @@
 			{
 				"param": "options_page",
 				"operator": "==",
-				"value": "page_app_settings"
+				"value": "it-design-settings"
 			}
 		]
 	]

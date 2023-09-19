@@ -60,8 +60,7 @@
     "roots/wp-password-bcrypt": "1.1.0",
     "intimatetales/plugin": "dev-master",
     "wpengine/advanced-custom-fields-pro": "6.2.1.1",
-    "intimatetales/theme": "dev-master",
-    "log1x/acf-composer": "^2.1"
+    "intimatetales/theme": "dev-master"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",

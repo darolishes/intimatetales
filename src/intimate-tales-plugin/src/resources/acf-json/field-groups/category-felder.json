@@ -1,13 +1,13 @@
 {
-    "key": "group_app_settings_fields",
-    "title": "App Settings Fields",
+    "key": "group_6509101e1bd51",
+    "title": "Category Felder",
     "fields": [
         {
-            "key": "field_64d65994bd601",
-            "label": "Enable 2FA",
-            "name": "enable_2fa",
+            "key": "field_6509101ec499e",
+            "label": "Image",
+            "name": "image",
             "aria-label": "",
-            "type": "true_false",
+            "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,19 +16,24 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Enable Two-Factor Authentication for users.",
-            "default_value": 0,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
         }
     ],
     "location": [
         [
             {
-                "param": "options_page",
+                "param": "taxonomy",
                 "operator": "==",
-                "value": "it-app-settings"
+                "value": "story-category"
             }
         ]
     ],
@@ -41,5 +46,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1694750805
+    "modified": 1695092791
 }

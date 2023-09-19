@@ -1,6 +1,6 @@
 <?php
 
-namespace IntimateTales\App\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Symfony\Component\HttpFoundation\Response;

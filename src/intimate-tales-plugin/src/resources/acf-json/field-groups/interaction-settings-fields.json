@@ -24,7 +24,7 @@
 			{
 				"param": "options_page",
 				"operator": "==",
-				"value": "page_interaction_settings"
+				"value": "it-interaction-settings"
 			}
 		]
 	]

@@ -9,7 +9,6 @@ return [
     'env' => defined('WP_ENV') ? WP_ENV : env('WP_ENV', 'production'),
     'debug' => WP_DEBUG && WP_DEBUG_DISPLAY,
     'url' => env('APP_URL', home_url()),
-    'acf_path' => plugin_dir_path(dirname(__FILE__, 2)) . 'resources/acf-json/',
     'timezone' => get_option('timezone_string', 'UTC'),
     'locale' => get_locale(),
     'fallback_locale' => 'de',
@@ -21,6 +20,15 @@ return [
         'driver' => 'file',
         // 'store'  => 'redis',
     ],
+
+    'custom' => [
+        'hook_prefix'           => 'it-hook_',
+        'settings_page'         => 'it-settings',
+        'story_post_type'       => 'story',
+        'pairing_request_nonce' => 'it_pairing_request_nonce',
+        'acf_path'              => resource_path('acf-json/'),
+    ],
+
     'providers' => [
 
         /*
@@ -60,8 +68,8 @@ return [
         /*
          * Application Service Providers...
          */
-        IntimateTales\App\Providers\PluginServiceProvider::class,
-        IntimateTales\App\Providers\ACFServiceProvider::class
+        App\Providers\PluginServiceProvider::class,
+        App\Providers\ACFServiceProvider::class
     ],
 
     'aliases' => Facade::defaultAliases()->merge([

@@ -24,7 +24,7 @@
 			{
 				"param": "options_page",
 				"operator": "==",
-				"value": "page_smtp_settings"
+				"value": "it-app-settings"
 			}
 		]
 	]

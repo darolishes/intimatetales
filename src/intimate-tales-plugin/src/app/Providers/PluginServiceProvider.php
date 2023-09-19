@@ -1,6 +1,6 @@
 <?php
 
-namespace IntimateTales\App\Providers;
+namespace App\Providers;
 
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
@@ -16,12 +16,11 @@ class PluginServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->registerShortcode();
-        $this->registerHooks();
-        $this->buildAdminControlPanel();
+        $this->register_shortcode();
+        $this->register_hooks();
     }
 
-    public function registerShortcode(): void
+    public function register_shortcode(): void
     {
         add_shortcode('intimate-tales_shortcode', function () {
             bundle('app')->enqueueCss();
@@ -30,17 +29,16 @@ class PluginServiceProvider extends ServiceProvider
         });
     }
 
-    public function registerHooks(): void
+    public function register_hooks(): void
     {
         register_activation_hook(Config::get('INTIMATE_TALES_FILE'), [$this, 'activationRoutine']);
         register_uninstall_hook(Config::get('INTIMATE_TALES_FILE'), [PluginServiceProvider::class, 'uninstallRoutine']);
 
-        add_action('init', [$this, 'pluginInitiated']);
+        add_action('init', [$this, 'plugin_initiated']);
     }
 
-    public function pluginInitiated(): void
+    public function plugin_initiated(): void
     {
-        //
     }
 
     public function activationRoutine(): void
