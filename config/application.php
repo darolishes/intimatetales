@@ -25,6 +25,8 @@ $root_dir = dirname(__DIR__);
  */
 $webroot_dir = $root_dir . '/web';
 
+
+
 /**
  * Use Dotenv to set required environment variables and load .env file in root
  * .env.local will override .env if it exists
@@ -69,6 +71,9 @@ Config::define('WP_SITEURL', env('WP_SITEURL'));
 Config::define('CONTENT_DIR', '/app');
 Config::define('WP_CONTENT_DIR', $webroot_dir . Config::get('CONTENT_DIR'));
 Config::define('WP_CONTENT_URL', Config::get('WP_HOME') . Config::get('CONTENT_DIR'));
+Config::define('VENDOR_PATH', $root_dir . '/vendor/' );
+Config::define('WEBROOT_DIR', $webroot_dir );
+Config::define('ROOT_DIR', $root_dir );
 
 /**
  * DB settings

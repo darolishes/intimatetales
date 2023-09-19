@@ -1,0 +1,14 @@
+{
+    "name": "intimate-tales/intimate-tales-theme",
+    "type": "wordpress-theme",
+    "description": "Beschreibung für das Intimate Tales Theme",
+    "authors": [
+        {
+            "name": "Dawid Rogaczewski",
+            "email": "d.rogaczewski@gmail.com"
+        }
+    ],
+    "extra": {
+        "installer-name": "intimate-tales"
+    }
+}
