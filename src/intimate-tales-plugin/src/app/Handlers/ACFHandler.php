@@ -2,13 +2,11 @@
 
 namespace IntimateTales\App\Handlers;
 
-use Roots\WPConfig\Config;
-
 class ACFHandler
 {
-    private $acf_path;
+    protected $acf_path;
 
-    public function __construct($acf_path)
+    public function __construct($app, $acf_path)
     {
         $this->acf_path = $acf_path;
     }
@@ -32,7 +30,29 @@ class ACFHandler
 
     public function save_paths($paths, $post)
     {
-        // ... (rest of the method remains unchanged)
+        $acf_path = $this->acf_path;
+
+        if (isset($post->data_storage) && $post->data_storage === 'options') {
+            $paths = [$acf_path . '/option-pages'];
+        }
+
+        if (!isset($post->key)) {
+            return $paths;
+        }
+
+        if (strpos($post->key, 'group_') === 0) {
+            $paths = [$acf_path . '/field-groups'];
+        }
+
+        if (strpos($post->key, 'post_type_') === 0) {
+            $paths = [$acf_path . '/post-types'];
+        }
+
+        if (strpos($post->key, 'taxonomy_') === 0) {
+            $paths = [$acf_path . '/taxonomies'];
+        }
+
+        return $paths;
     }
 
     public function save_file_name($filename, $post, $load_path)
@@ -44,5 +64,14 @@ class ACFHandler
         return $filename;
     }
 
-    // ... (rest of the class remains unchanged)
+    public function fetch_dynamic_options($field_key)
+    {
+        $field = get_field_object($field_key);
+
+        if ($field) {
+            return $field['choices'];
+        }
+
+        return array();
+    }
 }

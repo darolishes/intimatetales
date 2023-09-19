@@ -9,7 +9,7 @@ return [
     'env' => defined('WP_ENV') ? WP_ENV : env('WP_ENV', 'production'),
     'debug' => WP_DEBUG && WP_DEBUG_DISPLAY,
     'url' => env('APP_URL', home_url()),
-    'acf_json_path' => plugin_dir_path(dirname(__FILE__, 2)) . 'resources/acf-json/',
+    'acf_path' => plugin_dir_path(dirname(__FILE__, 2)) . 'resources/acf-json/',
     'timezone' => get_option('timezone_string', 'UTC'),
     'locale' => get_locale(),
     'fallback_locale' => 'de',

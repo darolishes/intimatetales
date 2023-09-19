@@ -9,30 +9,22 @@
  * Requires PHP: 8.1
  */
 
-use Dotenv\Dotenv;
 use Roots\Acorn\Bootloader;
 use Roots\WPConfig\Config;
 
 /**
  * Require dependencies
  */
-require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
-
-/**
- * Load env vars
- */
-$dotenv = Dotenv::createUnsafeImmutable(__DIR__ . '/src', '.env', false);
-if (file_exists(__DIR__ . '/src/.env')) {
-    $dotenv->load();
-}
+require_once dirname(__DIR__, 2) . '/vendor/autoload.php';
 
 /**
  * Set up configuration
  */
 Config::define('ACORN_BASEPATH', rtrim(plugin_dir_path(__FILE__) . 'src', '/'));
-Config::define('WP_ENV', env('APP_ENV', 'development'));
 Config::define('INTIMATE_TALES_FILE', __FILE__);
 Config::define('INTIMATE_TALES_URL', plugin_dir_url(__FILE__));
+Config::define('INTIMATE_TALES_VERSION', '1.0.0');
+Config::define('INTIMATE_TALES_NAME', 'Intimate Tales');
 Config::apply();
 
 /**
