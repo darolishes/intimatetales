@@ -18,30 +18,24 @@ add_action('wp_enqueue_scripts', function () {
 }, 100);
 
 /**
- * Register the theme assets with the block editor.
- *
- * @return void
- */
-add_action('enqueue_block_editor_assets', function () {
-    bundle('editor')->enqueue();
-}, 100);
-
-/**
  * Register the initial theme setup.
  *
  * @return void
  */
 add_action('after_setup_theme', function () {
     /**
-     * Enable features from the Soil plugin if activated.
-     *
+     * Enable features from Soil when plugin is activated
      * @link https://roots.io/plugins/soil/
      */
     add_theme_support('soil', [
         'clean-up',
+        'disable-rest-api',
+        'disable-asset-versioning',
+        'disable-trackbacks',
+        'js-to-footer',
         'nav-walker',
         'nice-search',
-        'relative-urls',
+        'relative-urls'
     ]);
 
     /**
@@ -57,7 +51,7 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage'),
+        'primary_navigation' => __('Primary Navigation', 'intimate-tales'),
     ]);
 
     /**
@@ -125,12 +119,12 @@ add_action('widgets_init', function () {
     ];
 
     register_sidebar([
-        'name' => __('Primary', 'sage'),
+        'name' => __('Primary', 'intimate-tales'),
         'id' => 'sidebar-primary',
     ] + $config);
 
     register_sidebar([
-        'name' => __('Footer', 'sage'),
+        'name' => __('Footer', 'intimate-tales'),
         'id' => 'sidebar-footer',
     ] + $config);
 });

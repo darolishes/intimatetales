@@ -1,40 +1,33 @@
 <?php
-
-/**
- * Plugin Name: Intimate Tales
- * Author: Intimate Tales
- * Author URI: https://www.intimate-tales.com
- * Description: This is a description of your plugin.
- * Version: 1.0.0
- * Requires PHP: 8.1
+/*
+ * Plugin Name:       Intimate Tales
+ * Plugin URI:        https://intimate-tales.com/
+ * Description:       ...
+ * Version:           1.0.0
+ * Author:            Intimate Tales Team
+ * Author URI:        https://intimate-tales.com/
+ * License:           
+ * License URI:       
+ * Text Domain:       intimate-tales
+ * Domain Path:       /languages
  */
 
-use Roots\Acorn\Bootloader;
-use Roots\WPConfig\Config;
+if (!defined('WPINC')) {
+    die;
+}
 
-/**
- * Require dependencies
- */
+define('INTIMATE_TALES_VERSION', '1.0.0');
+define('INTIMATE_TALES_DIR', plugin_dir_path(__FILE__));
+define('INTIMATE_TALES_URL', plugin_dir_url(__FILE__));
+define('INTIMATE_TALES_BASENAME', plugin_basename(__FILE__));
+
 require_once dirname(__DIR__, 2) . '/vendor/autoload.php';
 
-/**
- * Set up configuration
- */
-Config::define('ACORN_BASEPATH', rtrim(plugin_dir_path(__FILE__) . 'src', '/'));
-Config::define('INTIMATE_TALES_FILE', __FILE__);
-Config::define('INTIMATE_TALES_URL', plugin_dir_url(__FILE__));
-Config::define('INTIMATE_TALES_VERSION', '1.0.0');
-Config::define('INTIMATE_TALES_NAME', 'Intimate Tales');
-Config::apply();
+remove_action('template_redirect', 'redirect_canonical');
 
-/**
- * Acorn config
- */
-//putenv('APP_RUNNING_IN_CONSOLE=false'); // Uncomment to disable console mode in production. When console mode is enabled, the WP-Cron will not work.
-putenv('ACORN_ENABLE_EXPIRIMENTAL_ROUTER=true');
+use \IntimateTales\Config\PluginConfig;
+use \IntimateTales\Controllers\Loader;
+use \IntimateTales\Controllers\AppController;
 
-/**
- * Boot Acorns
- */
-$instance = Bootloader::getInstance();
-$instance->boot();
+$intimateTalesPlugin = new AppController(new PluginConfig(), new Loader());
+$intimateTalesPlugin->run();

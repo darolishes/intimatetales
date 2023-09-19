@@ -1,0 +1,77 @@
+@use '../base' as *;
+@use '_1_masonry.scss' as *;
+
+/* -------------------------------- 
+
+File#: _2_testimonial-gallery
+Title: Testimonial Gallery
+Descr: A gallery of client quotations
+Usage: codyhouse.co/license
+
+-------------------------------- */
+.test-gallery {
+  --masonry-grid-gap: var(--space-md);
+  --masonry-col-auto-size: 350px; // col min-width value -> used in JS to auto-update the masonry cols width
+
+  position: relative;
+  z-index: 1;
+}
+
+.test-gallery__inner {
+  position: relative;
+
+  &::after {
+    /* overlay gradient */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to top, alpha(var(--color-bg-dark), 1) 25%, alpha(var(--color-bg-dark), 0));
+    pointer-events: none;
+  }
+}
+
+.test-gallery__card {
+  padding: var(--space-sm);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-light);
+  box-shadow: var(--inner-glow), var(--shadow-xs);
+}
+
+.test-gallery__quote {
+  line-height: var(--body-line-height);
+}
+
+.test-gallery__profile-img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: var(--space-xs);
+}
+
+.test-gallery__card-img {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-md);
+  margin-top: var(--space-sm);
+}
+
+.test-gallery__twitter-icon-wrapper {
+  color: #1DA1F2;
+  display: block;
+  flex-shrink: 0;
+  margin-left: auto;
+  transition: transform 0.3s var(--ease-out-back);
+
+  .icon {
+    --size: 20px;
+  }
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}

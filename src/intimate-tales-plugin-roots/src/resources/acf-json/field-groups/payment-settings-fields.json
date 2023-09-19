@@ -1,0 +1,41 @@
+{
+	"key": "group_payment_settings_fields",
+	"title": "Payment Settings Fields",
+	"fields": [
+		{
+			"key": "field_payment_gateway",
+			"label": "Payment Gateway",
+			"name": "payment_gateway",
+			"type": "select",
+			"choices": {
+				"paypal": "PayPal",
+				"stripe": "Stripe",
+				"braintree": "Braintree"
+			},
+			"instructions": "Select the default payment gateway.",
+			"required": 1
+		},
+		{
+			"key": "field_currency",
+			"label": "Currency",
+			"name": "currency",
+			"type": "select",
+			"choices": {
+				"usd": "USD",
+				"eur": "EUR",
+				"gbp": "GBP"
+			},
+			"instructions": "Select the default currency.",
+			"required": 1
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "options_page",
+				"operator": "==",
+				"value": "it-payment-settings"
+			}
+		]
+	]
+}

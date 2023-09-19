@@ -61,7 +61,8 @@
     "intimatetales/plugin": "dev-master",
     "wpengine/advanced-custom-fields-pro": "6.2.1.1",
     "intimatetales/theme": "dev-master",
-    "dawidurbanski/sage-directives": "^1.0"
+    "dawidurbanski/sage-directives": "^1.0",
+    "roots/soil": "^4.1"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",
