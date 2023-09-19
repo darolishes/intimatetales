@@ -1,15 +1,20 @@
-<?php get_header(); ?>
+<!doctype html>
+<html <?php language_attributes(); ?>>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php wp_head(); ?>
+  </head>
 
-<main id="main" class="site-main">
-    <?php
-    if ( have_posts() ) :
-        while ( have_posts() ) : the_post();
-            the_content();
-        endwhile;
-    else :
-        echo '<p>No content found.</p>';
-    endif;
-    ?>
-</main>
+  <body <?php body_class(); ?>>
+    <?php wp_body_open(); ?>
+    <?php do_action('get_header'); ?>
 
-<?php get_footer(); ?>
+    <div id="app">
+      <?php echo view(app('sage.view'), app('sage.data'))->render(); ?>
+    </div>
+
+    <?php do_action('get_footer'); ?>
+    <?php wp_footer(); ?>
+  </body>
+</html>

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "867663cc0fe160022e1e14e44291d929",
+    "content-hash": "ce553dbf81498a455c2e30204d3b5d53",
     "packages": [
         {
             "name": "brick/math",
@@ -205,6 +205,58 @@
                 }
             ],
             "time": "2022-08-20T06:45:11+00:00"
+        },
+        {
+            "name": "dawidurbanski/sage-directives",
+            "version": "v1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dawidurbanski/sage-directives.git",
+                "reference": "64b05264c2883280e3a5ff4de5d79819ddcbbeb4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dawidurbanski/sage-directives/zipball/64b05264c2883280e3a5ff4de5d79819ddcbbeb4",
+                "reference": "64b05264c2883280e3a5ff4de5d79819ddcbbeb4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "type": "package",
+            "autoload": {
+                "files": [
+                    "src/Directives.php",
+                    "src/Utilities.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brandon Nifong",
+                    "email": "brandon@tendency.me"
+                },
+                {
+                    "name": "Dawid Urbański",
+                    "email": "hi@dawidurbanski.com"
+                }
+            ],
+            "description": "A set of Blade directives for use with Roots Sage.",
+            "homepage": "https://github.com/dawidurbanski/sage-directives",
+            "keywords": [
+                "blade",
+                "roots",
+                "sage",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/dawidurbanski/sage-directives/issues",
+                "source": "https://github.com/dawidurbanski/sage-directives/tree/master"
+            },
+            "time": "2019-02-27T12:59:12+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -1581,7 +1633,7 @@
             "dist": {
                 "type": "path",
                 "url": "./src/intimate-tales-plugin",
-                "reference": "491bf70d367bfc467634e11a0d986cdaf43063fb"
+                "reference": "d6dd84d36ac9538962e35b7d5cc6c5428adef056"
             },
             "require": {
                 "php": "^8.1",
@@ -1597,13 +1649,7 @@
             },
             "type": "wordpress-plugin",
             "extra": {
-                "installer-name": "intimate-tales",
-                "acorn": {
-                    "providers": [
-                        "App\\Providers\\PluginServiceProvider",
-                        "App\\Providers\\AcfComposerServiceProvider"
-                    ]
-                }
+                "installer-name": "intimate-tales"
             },
             "autoload": {
                 "psr-4": {
@@ -1649,19 +1695,71 @@
             "dist": {
                 "type": "path",
                 "url": "./src/intimate-tales-theme",
-                "reference": "97eca93f5d1a3c6ab925d5b7b7fd72609a3aed2c"
+                "reference": "1d757910c53cbffa308aab2c6a0c9f24eb4f869d"
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "3.7.1"
+            },
+            "suggest": {
+                "log1x/sage-directives": "A collection of useful Blade directives for WordPress and Sage (^1.0).",
+                "log1x/sage-svg": "A useful SVG directive for inlining SVG's within Blade views (^1.0)."
             },
             "type": "wordpress-theme",
             "extra": {
+                "acorn": {
+                    "providers": [
+                        "App\\Providers\\ThemeServiceProvider"
+                    ]
+                },
                 "installer-name": "intimate-tales"
             },
+            "autoload": {
+                "psr-4": {
+                    "App\\": "app/"
+                }
+            },
+            "scripts": {
+                "lint": [
+                    "phpcs --extensions=php --standard=PSR12 app"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
             "authors": [
                 {
-                    "name": "Dawid Rogaczewski",
-                    "email": "d.rogaczewski@gmail.com"
+                    "name": "Ben Word",
+                    "email": "ben@benword.com",
+                    "homepage": "https://github.com/retlehs"
+                },
+                {
+                    "name": "Scott Walkinshaw",
+                    "email": "scott.walkinshaw@gmail.com",
+                    "homepage": "https://github.com/swalkinshaw"
+                },
+                {
+                    "name": "QWp6t",
+                    "email": "hi@qwp6t.me",
+                    "homepage": "https://github.com/qwp6t"
+                },
+                {
+                    "name": "Brandon Nifong",
+                    "email": "brandon@tendency.me",
+                    "homepage": "https://github.com/log1x"
                 }
             ],
-            "description": "Beschreibung für das Intimate Tales Theme",
+            "description": "WordPress starter theme with a modern development workflow",
+            "homepage": "https://roots.io/sage/",
+            "keywords": [
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/roots/sage/issues",
+                "forum": "https://discourse.roots.io/"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
