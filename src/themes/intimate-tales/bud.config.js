@@ -34,7 +34,7 @@ export default async (app) => {
    */
   app
     .setUrl('http://localhost:3000')
-    .setProxyUrl('http://example.test')
+    .setProxyUrl('http://intimate-tales.test')
     .watch(['resources/views', 'app']);
 
   /**
