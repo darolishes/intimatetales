@@ -1633,7 +1633,7 @@
             "dist": {
                 "type": "path",
                 "url": "./src/intimate-tales-plugin",
-                "reference": "c0677fa52148277a238f65ab98ee95df10d03c91"
+                "reference": "2ccfbdac3b34ab637f1e98467125326c9cf5736e"
             },
             "require": {
                 "roots/acorn": "^3.2",
@@ -1641,11 +1641,16 @@
             },
             "type": "wordpress-plugin",
             "extra": {
-                "installer-name": "intimate-tales"
+                "installer-name": "intimate-tales",
+                "laravel": {
+                    "providers": [
+                        "IntimateTales\\Providers\\IntimateTalesProvider"
+                    ]
+                }
             },
             "autoload": {
                 "psr-4": {
-                    "App\\": "src/app"
+                    "IntimateTales\\": "./src/app"
                 }
             },
             "authors": [

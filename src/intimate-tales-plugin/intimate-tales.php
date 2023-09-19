@@ -12,32 +12,26 @@
  * Domain Path:       /languages
  */
 
-namespace App\Plugin;
-
 if (!defined('WPINC')) {
     die;
 }
 
+require dirname(__DIR__, 2) . '/vendor/autoload.php';
+
 use Roots\Acorn\Bootloader;
-use Roots\WPConfig\Config;
 
-require_once dirname(__DIR__, 2) . '/vendor/autoload.php';
+$basePath = realpath(__DIR__) . DIRECTORY_SEPARATOR . 'src';
+$intimateTales = new \Roots\Acorn\Application($basePath);
+$intimateTales->usePaths([
+    'app' => $basePath . '/app',
+    'config' => $basePath . '/config',
+    'database' => $basePath . '/database',
+    'lang' => $basePath . '/lang',
+    'public' => $basePath . '/public',
+    'resources' => $basePath . '/resources',
+    'storage' => $basePath . '/storage',
+    'bootstrap' => $basePath . '/bootstrap',
+]);
 
-/**
- * Set up configuration
- */
-Config::define('INTIMATE_TALES_FILE', __FILE__);
-Config::define('INTIMATE_TALES_DIR', plugin_dir_path(__FILE__));
-Config::define('INTIMATE_TALES_BASENAME', plugin_basename(__FILE__));
-Config::define('INTIMATE_TALES_URL', plugin_dir_url(__FILE__));
-Config::define('INTIMATE_TALES_VERSION', '1.0.0');
-Config::define('INTIMATE_TALES_NAME', 'Intimate Tales');
-#Config::define('ACORN_BASEPATH', rtrim(plugin_dir_path(__FILE__) . 'src', '/'));
 
-Config::apply();
-
-/**
- * Set up bootloader
- */
-$bootloader = new Bootloader();
-$bootloader->boot();
+$intimateTales->boot();
