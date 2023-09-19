@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace App\Plugin\Providers;
 
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;

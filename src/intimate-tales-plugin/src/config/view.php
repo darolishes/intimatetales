@@ -14,7 +14,7 @@ return [
          | Given the below example, in your views use something like:
          |     @include('MyPlugin::some.view.or.partial.here')
          */
-        // 'MyPlugin' => WP_PLUGIN_DIR . '/my-plugin/resources/views',
+        #'IntimateTales' => WP_PLUGIN_DIR . '/intimate-tales/resources/views',
     ],
     'directives' => [
         // 'foo'  => App\View\FooDirective::class,

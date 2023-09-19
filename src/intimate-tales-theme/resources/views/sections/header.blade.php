@@ -23,7 +23,6 @@
           </nav>
         @endif
       </ul>
-      @include('partials.page-header')
       <ul class="f-header__list margin-left-auto@md">
         <li class="f-header__item"><a href="/login" class="f-header__link">Login</a></li>
         <li class="f-header__item"><a href="/pricing" class="f-header__btn btn btn--primary">Try for free</a></li>

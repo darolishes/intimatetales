@@ -1,4 +1,4 @@
-import domReady from '@roots/intimate-tales/client/dom-ready';
+import domReady from '@roots/sage/client/dom-ready';
 
 /**
  * Application entrypoint

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace App\Plugin\Providers;
 
 use Roots\WPConfig\Config;
 use Illuminate\Support\ServiceProvider;
