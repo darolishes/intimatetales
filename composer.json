@@ -38,13 +38,6 @@
     },
     {
       "type": "path",
-      "url": "./src/plugins/blockX/public",
-      "options": {
-        "symlink": true
-      }
-    },
-    {
-      "type": "path",
       "url": "./src/themes/intimate-tales-theme",
       "options": {
         "symlink": true
@@ -67,7 +60,6 @@
     "roots/wp-password-bcrypt": "^1.1",
     "wildwolf/wp-jwt-auth": "dev-master",
     "wpengine/advanced-custom-fields-pro": "^6.2",
-    "palasthotel/blockx": "dev-master",
     "intimate-tales/intimate-tales-theme": "dev-master",
     "intimate-tales/intimate-tales-plugin": "dev-master"
   },

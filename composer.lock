@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6a155c502cea00dcf7a88b4eb48c1d1",
+    "content-hash": "ce1daea75c7121a72be655d8dcbe0124",
     "packages": [
         {
             "name": "composer/installers",
@@ -399,26 +399,6 @@
                 "source": "https://github.com/oscarotero/env/tree/v2.1.0"
             },
             "time": "2020-06-11T10:59:27+00:00"
-        },
-        {
-            "name": "palasthotel/blockx",
-            "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "./src/plugins/blockX/public",
-                "reference": "12657004b169a1726b20215c3f3b98a32e4123d7"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Palasthotel\\WordPress\\BlockX\\": "classes"
-                }
-            },
-            "description": "Gutenberg block building helper plugin",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
         },
         {
             "name": "phpoption/phpoption",
@@ -2189,7 +2169,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "wildwolf/wp-jwt-auth": 20,
-        "palasthotel/blockx": 20,
         "intimate-tales/intimate-tales-theme": 20,
         "intimate-tales/intimate-tales-plugin": 20,
         "roave/security-advisories": 20

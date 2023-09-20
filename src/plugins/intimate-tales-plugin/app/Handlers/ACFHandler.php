@@ -6,7 +6,6 @@ class ACFHandler
 {
     private $acf_path;
 
-
     public function __construct($acf_path)
     {
         $this->acf_path = $acf_path;
