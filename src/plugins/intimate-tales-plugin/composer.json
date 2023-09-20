@@ -10,7 +10,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "IntimateTales\\": "app/"
+      "IntimateTales\\": "src/classes/"
     }
   },
   "autoload-dev": {
@@ -18,12 +18,7 @@
       "Tests\\": "src/tests/"
     }
   },
-  "post-autoload-dump": [
-    "Roots\\Acorn\\ComposerScripts::postAutoloadDump"
-  ],
-  "minimum-stability": "dev",
   "config": {
-    "prefer-stable": true,
     "sort-packages": true
   },
   "extra": {

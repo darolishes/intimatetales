@@ -21,9 +21,11 @@ web/.htaccess
 !.env.example
 
 # Composer
-/vendor
+web/vendor
 
 # WP-CLI
 wp-cli.local.yml
 
 roots_try
+
+src/plugins/blockX
