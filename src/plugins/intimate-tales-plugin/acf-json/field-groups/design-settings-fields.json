@@ -1,0 +1,29 @@
+{
+	"key": "group_design_settings_fields",
+	"title": "Design Settings Fields",
+	"fields": [
+		{
+			"key": "field_app_name",
+			"label": "App Name",
+			"name": "app_name",
+			"type": "text",
+			"instructions": "Enter the name of your app",
+			"required": 1,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "options_page",
+				"operator": "==",
+				"value": "it-design-settings"
+			}
+		]
+	]
+}

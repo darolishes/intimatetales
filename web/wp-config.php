@@ -2,6 +2,8 @@
 $_ENV = 'development';
 $_ROOT_DIR = __DIR__ . DIRECTORY_SEPARATOR;
 $_WEB_DIR = $_ROOT_DIR . 'wp';
+$_CONTENT_DIR = 'app';
+$WP_HOME = 'http://www.intimate-tales.test';
 
 /**
  * Database
@@ -9,7 +11,7 @@ $_WEB_DIR = $_ROOT_DIR . 'wp';
 define( 'DB_NAME', 'wp_intimatetalestest_db' );
 define( 'DB_USER', 'wp_intimatetalestest_user' );
 define( 'DB_PASSWORD', 'wp_intimatetalestest_pw' );
-define( 'DB_HOST', 'localhost:/Applications/MAMP/tmp/mysql/mysql.sock' );
+define( 'DB_HOST', '127.0.0.1' );
 
 define( 'DB_CHARSET', 'utf8' );
 define( 'DB_COLLATE', '' );
@@ -44,7 +46,7 @@ if (in_array(WP_ENV, ['production', 'staging', 'development', 'local'])) {
 /**
  * URLs
  */
-define('WP_HOME', 'http://www.intimate-tales.test');
+define('WP_HOME', $WP_HOME);
 define('WP_SITEURL', "{$WP_HOME}/wp");
 
 /**
@@ -67,9 +69,22 @@ define('DISALLOW_FILE_MODS', false);
 /**
  * Custom Content Directory
  */
-define('CONTENT_DIR', '/app');
-define('WP_CONTENT_DIR', "{$_WEB_DIR}/{$CONTENT_DIR}");
-define('WP_CONTENT_URL', "{$WP_HOME}/{$CONTENT_DIR}");
+define('CONTENT_DIR', $_CONTENT_DIR);
+define('WP_CONTENT_DIR', "{$_ROOT_DIR}{$_CONTENT_DIR}");
+define('WP_CONTENT_URL', "{$WP_HOME}/{$_CONTENT_DIR}");
+
+/**
+ * Custom Media Directory
+ */
+
+define('MEDIA_DIR', $_CONTENT_DIR. '/media');
+define('WP_MEDIA_DIR', "{$_ROOT_DIR}{$_CONTENT_DIR}/media");
+define('WP_MEDIA_URL', "{$WP_HOME}/{$_CONTENT_DIR}/media");
+
+/**
+ * Absolute path to the Vendor directory.
+ */
+define('VENDOR_DIR', $_ROOT_DIR. '/vendor');
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {

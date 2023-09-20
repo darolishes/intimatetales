@@ -1,0 +1,31 @@
+{
+	"key": "group_smtp_settings_fields",
+	"title": "SMTP Settings Fields",
+	"fields": [
+		{
+			"key": "field_smtp_host",
+			"label": "SMTP Host",
+			"name": "smtp_host",
+			"type": "text",
+			"instructions": "Enter the SMTP host.",
+			"required": 1
+		},
+		{
+			"key": "field_smtp_port",
+			"label": "SMTP Port",
+			"name": "smtp_port",
+			"type": "number",
+			"instructions": "Enter the SMTP port.",
+			"required": 1
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "options_page",
+				"operator": "==",
+				"value": "it-app-settings"
+			}
+		]
+	]
+}

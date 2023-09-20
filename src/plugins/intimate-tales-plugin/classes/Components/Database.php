@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Palasthotel\WordPress\BlockX\Components;
+namespace IntimateTales\Components;
 
 use wpdb;
 

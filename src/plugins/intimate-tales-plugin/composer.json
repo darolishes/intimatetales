@@ -10,12 +10,12 @@
   ],
   "autoload": {
     "psr-4": {
-      "IntimateTales\\": "src/classes/"
+      "IntimateTales\\": "classes/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Tests\\": "src/tests/"
+      "Tests\\": "tests/"
     }
   },
   "config": {

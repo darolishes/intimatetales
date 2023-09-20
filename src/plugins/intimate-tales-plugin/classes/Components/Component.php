@@ -1,15 +1,14 @@
 <?php
 
+namespace IntimateTales\Components;
 
-namespace Palasthotel\WordPress\BlockX\Components;
-
-use Palasthotel\WordPress\BlockX\Plugin;
+use IntimateTales\Plugin;
 
 /**
  * Class Component
  *
- * @package Palasthotel\WordPress
- * @version 0.1.1
+ * @package IntimateTales
+ * @version 1.0.0
  */
 abstract class Component {
 

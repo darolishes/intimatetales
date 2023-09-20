@@ -43,6 +43,7 @@
         "johnpbloch/wordpress": ">=4.9",
         "rarst/fragment-cache": "^1.3",
         "rarst/update-blocker": "^1.1",
+        "wpengine/advanced-custom-fields-pro": "^6.2",
         "intimate-tales/intimate-tales-plugin": "dev-master",
         "intimate-tales/intimate-tales-theme": "dev-master"
     },

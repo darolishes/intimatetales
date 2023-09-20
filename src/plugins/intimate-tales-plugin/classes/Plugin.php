@@ -2,7 +2,8 @@
 
 namespace IntimateTales;
 
-use IntimateTales\Handlers\ACFHandler;
+use IntimateTales\Handlers\ACF_Handler;
+use IntimateTales\Meta\Meta_Factory;
 
 class Plugin extends Components\Plugin 
 {
@@ -32,33 +33,19 @@ class Plugin extends Components\Plugin
 	// ----------------------------------------------------
 	// initialize plugin features
 	// ----------------------------------------------------
-	public ACFHandler $acfHandler;
+	public ACF_Handler $acf_handler;
+	public Meta_Factory $meta_factory;
+
 
 	// ----------------------------------------------------
 
     public function onCreate() 
     {
         $this->loadTextdomain( self::DOMAIN, 'languages' );
-        $this->acfHandler = new ACFHandler($this);
-		
+		$this->acf_handler	= new ACF_Handler( $this );
     }
 }
 
 Plugin::instance();
 
 require_once dirname( __FILE__ ) . '/public-functions.php';
-
-$res = get_declared_classes();
-$autoloaderClassName = '';
-foreach ( $res as $className) {
-	if (strpos($className, 'ComposerAutoloaderInit') === 0) {
-		$autoloaderClassName = $className; // ComposerAutoloaderInit323a579f2019d15e328dd7fec58d8284 for me
-		break;
-	}
-}
-
-$classLoader = $autoloaderClassName::getLoader();
-print_r($classLoader->getClassMap());
-foreach ($classLoader->getClassMap() as $path) {
-	#echo $path;
-}

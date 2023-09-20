@@ -1,0 +1,22 @@
+{
+    "key": "ui_options_page_payment",
+    "title": "Payment Settings",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Payment Settings",
+    "menu_slug": "it-payment-settings",
+    "parent_slug": "it-settings",
+    "advanced_configuration": 1,
+    "icon_url": "",
+    "menu_title": "",
+    "position": "",
+    "redirect": 0,
+    "description": "",
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1694750644
+}

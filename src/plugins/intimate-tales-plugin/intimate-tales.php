@@ -11,9 +11,9 @@
  */
 
 if ( defined( 'ABSPATH' ) ) {
-	if ( defined( 'VENDOR_PATH' ) ) {
+	if ( defined( 'VENDOR_DIR' ) ) {
 		/** @psalm-suppress UnresolvableInclude, MixedOperand */
-		require constant( 'VENDOR_PATH' ) . '/autoload.php';
+		require constant( 'VENDOR_DIR' ) . '/autoload.php';
 	} elseif ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 		require __DIR__ . '/vendor/autoload.php';
 	} elseif ( file_exists( ABSPATH . 'vendor/autoload.php' ) ) {

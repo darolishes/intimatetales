@@ -1,11 +1,10 @@
 <?php
 
-
-namespace Palasthotel\WordPress\BlockX\Components;
+namespace IntimateTales\Components;
 
 /**
  * Class Assets
- * @version 0.1.2
+ * @version 1.0.0
  */
 class Assets {
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a88048e8663f2b7b2bf93efa8109a98f",
+    "content-hash": "7d6178503e59d3f82de178d0a4298ba5",
     "packages": [
         {
             "name": "composer/installers",
@@ -163,7 +163,7 @@
             "dist": {
                 "type": "path",
                 "url": "./src/plugins/intimate-tales-plugin",
-                "reference": "7edaf360b1493eda7ee3639b40ff65f1eed89f62"
+                "reference": "fab22b54b2bb085c26e74206aa01443793797abb"
             },
             "type": "wordpress-plugin",
             "extra": {
@@ -171,12 +171,12 @@
             },
             "autoload": {
                 "psr-4": {
-                    "IntimateTales\\": "src/classes/"
+                    "IntimateTales\\": "classes/"
                 }
             },
             "autoload-dev": {
                 "psr-4": {
-                    "Tests\\": "src/tests/"
+                    "Tests\\": "tests/"
                 }
             },
             "scripts": {
@@ -618,6 +618,21 @@
                 "source": "https://github.com/Rarst/update-blocker/tree/1.1"
             },
             "time": "2016-09-03T18:23:52+00:00"
+        },
+        {
+            "name": "wpengine/advanced-custom-fields-pro",
+            "version": "6.2.1.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?p=pro&t=6.2.1.1"
+            },
+            "require": {
+                "composer/installers": "~1.0 || ~2.0"
+            },
+            "replace": {
+                "wpackagist-plugin/advanced-custom-fields": "self.version"
+            },
+            "type": "wordpress-plugin"
         }
     ],
     "packages-dev": [
