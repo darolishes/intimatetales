@@ -1,0 +1,942 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "a88048e8663f2b7b2bf93efa8109a98f",
+    "packages": [
+        {
+            "name": "composer/installers",
+            "version": "v1.12.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/d20a64ed3c94748397ff5973488761b22f6d3f19",
+                "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 || ^2.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.6.* || ^2.0",
+                "composer/semver": "^1 || ^3",
+                "phpstan/phpstan": "^0.12.55",
+                "phpstan/phpstan-phpunit": "^0.12.16",
+                "symfony/phpunit-bridge": "^4.2 || ^5",
+                "symfony/process": "^2.3"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Composer\\Installers\\Plugin",
+                "branch-alias": {
+                    "dev-main": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "https://composer.github.io/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Eliasis",
+                "Hurad",
+                "ImageCMS",
+                "Kanboard",
+                "Lan Management System",
+                "MODX Evo",
+                "MantisBT",
+                "Mautic",
+                "Maya",
+                "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
+                "SMF",
+                "Starbug",
+                "Thelia",
+                "Whmcs",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "attogram",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "cockpit",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "eZ Platform",
+                "elgg",
+                "expressionengine",
+                "fuelphp",
+                "grav",
+                "installer",
+                "itop",
+                "joomla",
+                "known",
+                "kohana",
+                "laravel",
+                "lavalite",
+                "lithium",
+                "magento",
+                "majima",
+                "mako",
+                "mediawiki",
+                "miaoxing",
+                "modulework",
+                "modx",
+                "moodle",
+                "osclass",
+                "pantheon",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "processwire",
+                "puppet",
+                "pxcms",
+                "reindex",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "sydes",
+                "sylius",
+                "symfony",
+                "tastyigniter",
+                "typo3",
+                "wordpress",
+                "yawik",
+                "zend",
+                "zikula"
+            ],
+            "support": {
+                "issues": "https://github.com/composer/installers/issues",
+                "source": "https://github.com/composer/installers/tree/v1.12.0"
+            },
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-09-13T08:19:44+00:00"
+        },
+        {
+            "name": "intimate-tales/intimate-tales-plugin",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./src/plugins/intimate-tales-plugin",
+                "reference": "7edaf360b1493eda7ee3639b40ff65f1eed89f62"
+            },
+            "type": "wordpress-plugin",
+            "extra": {
+                "installer-name": "intimate-tales"
+            },
+            "autoload": {
+                "psr-4": {
+                    "IntimateTales\\": "src/classes/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "src/tests/"
+                }
+            },
+            "scripts": {
+                "prefix": [
+                    "php -d memory_limit=-1 ./tools/php-scoper add-prefix"
+                ],
+                "test:lint": [
+                    "./vendor/bin/pint src --test"
+                ],
+                "test:types": [
+                    "APP_RUNNING_IN_CONSOLE=false ./vendor/bin/phpstan analyse --memory-limit 1G"
+                ]
+            },
+            "authors": [
+                {
+                    "name": "Dawid Rogaczewski",
+                    "email": "d.rogaczewski@gmail.com"
+                }
+            ],
+            "description": "Beschreibung für das Intimate Tales Plugin",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "intimate-tales/intimate-tales-theme",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./src/themes/intimate-tales-theme",
+                "reference": "710fa18d3fbebd3cb9595a9db63d2bb44061030b"
+            },
+            "type": "wordpress-theme",
+            "extra": {
+                "installer-name": "intimate-tales"
+            },
+            "authors": [
+                {
+                    "name": "Dawid Rogaczewski",
+                    "email": "d.rogaczewski@gmail.com"
+                }
+            ],
+            "description": "Beschreibung für das Intimate Tales Theme",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "johnpbloch/wordpress",
+            "version": "6.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/johnpbloch/wordpress.git",
+                "reference": "45e299b8eae626d7b1db1eb53a69e63b9cc75bf6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/45e299b8eae626d7b1db1eb53a69e63b9cc75bf6",
+                "reference": "45e299b8eae626d7b1db1eb53a69e63b9cc75bf6",
+                "shasum": ""
+            },
+            "require": {
+                "johnpbloch/wordpress-core": "6.3.1",
+                "johnpbloch/wordpress-core-installer": "^1.0 || ^2.0",
+                "php": ">=7.0.0"
+            },
+            "type": "package",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "WordPress Community",
+                    "homepage": "https://wordpress.org/about/"
+                }
+            ],
+            "description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
+            "homepage": "https://wordpress.org/",
+            "keywords": [
+                "blog",
+                "cms",
+                "wordpress"
+            ],
+            "support": {
+                "docs": "https://developer.wordpress.org/",
+                "forum": "https://wordpress.org/support/",
+                "irc": "irc://irc.freenode.net/wordpress",
+                "issues": "https://core.trac.wordpress.org/",
+                "source": "https://core.trac.wordpress.org/browser"
+            },
+            "time": "2023-08-29T14:28:17+00:00"
+        },
+        {
+            "name": "johnpbloch/wordpress-core",
+            "version": "6.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/johnpbloch/wordpress-core.git",
+                "reference": "fc432f78ae5256b7fa28e810cfdf0b968d003699"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/fc432f78ae5256b7fa28e810cfdf0b968d003699",
+                "reference": "fc432f78ae5256b7fa28e810cfdf0b968d003699",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.0.0"
+            },
+            "provide": {
+                "wordpress/core-implementation": "6.3.1"
+            },
+            "type": "wordpress-core",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "WordPress Community",
+                    "homepage": "https://wordpress.org/about/"
+                }
+            ],
+            "description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
+            "homepage": "https://wordpress.org/",
+            "keywords": [
+                "blog",
+                "cms",
+                "wordpress"
+            ],
+            "support": {
+                "forum": "https://wordpress.org/support/",
+                "irc": "irc://irc.freenode.net/wordpress",
+                "issues": "https://core.trac.wordpress.org/",
+                "source": "https://core.trac.wordpress.org/browser",
+                "wiki": "https://codex.wordpress.org/"
+            },
+            "time": "2023-08-29T14:28:14+00:00"
+        },
+        {
+            "name": "johnpbloch/wordpress-core-installer",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/johnpbloch/wordpress-core-installer.git",
+                "reference": "237faae9a60a4a2e1d45dce1a5836ffa616de63e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core-installer/zipball/237faae9a60a4a2e1d45dce1a5836ffa616de63e",
+                "reference": "237faae9a60a4a2e1d45dce1a5836ffa616de63e",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 || ^2.0",
+                "php": ">=5.6.0"
+            },
+            "conflict": {
+                "composer/installers": "<1.0.6"
+            },
+            "require-dev": {
+                "composer/composer": "^1.0 || ^2.0",
+                "phpunit/phpunit": ">=5.7.27"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "johnpbloch\\Composer\\WordPressCorePlugin"
+            },
+            "autoload": {
+                "psr-0": {
+                    "johnpbloch\\Composer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "John P. Bloch",
+                    "email": "me@johnpbloch.com"
+                }
+            ],
+            "description": "A custom installer to handle deploying WordPress with composer",
+            "keywords": [
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/johnpbloch/wordpress-core-installer/issues",
+                "source": "https://github.com/johnpbloch/wordpress-core-installer/tree/master"
+            },
+            "time": "2020-04-16T21:44:57+00:00"
+        },
+        {
+            "name": "markjaquith/wp-tlc-transients",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/markjaquith/WP-TLC-Transients.git",
+                "reference": "bdbe0691db6adaf08af0dee6c70ebebe881633d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/markjaquith/WP-TLC-Transients/zipball/bdbe0691db6adaf08af0dee6c70ebebe881633d8",
+                "reference": "bdbe0691db6adaf08af0dee6c70ebebe881633d8",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "functions.php"
+                ],
+                "classmap": [
+                    "class-tlc-transient.php",
+                    "class-tlc-transient-update-server.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Jaquith",
+                    "homepage": "http://markjaquith.com/"
+                }
+            ],
+            "description": "A WP transients interface with support for soft-expiration, background updating of the transients.",
+            "homepage": "https://github.com/markjaquith/WP-TLC-Transients",
+            "keywords": [
+                "cache",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/markjaquith/WP-TLC-Transients/issues",
+                "source": "https://github.com/markjaquith/WP-TLC-Transients"
+            },
+            "time": "2013-05-07T18:12:10+00:00"
+        },
+        {
+            "name": "pimple/pimple",
+            "version": "v3.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silexphp/Pimple.git",
+                "reference": "a94b3a4db7fb774b3d78dad2315ddc07629e1bed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/a94b3a4db7fb774b3d78dad2315ddc07629e1bed",
+                "reference": "a94b3a4db7fb774b3d78dad2315ddc07629e1bed",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "psr/container": "^1.1 || ^2.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^5.4@dev"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Pimple": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Pimple, a simple Dependency Injection Container",
+            "homepage": "https://pimple.symfony.com",
+            "keywords": [
+                "container",
+                "dependency injection"
+            ],
+            "support": {
+                "source": "https://github.com/silexphp/Pimple/tree/v3.5.0"
+            },
+            "time": "2021-10-28T11:13:42+00:00"
+        },
+        {
+            "name": "psr/container",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/container.git",
+                "reference": "c71ecc56dfe541dbd90c5360474fbc405f8d5963"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/c71ecc56dfe541dbd90c5360474fbc405f8d5963",
+                "reference": "c71ecc56dfe541dbd90c5360474fbc405f8d5963",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https://github.com/php-fig/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/container/issues",
+                "source": "https://github.com/php-fig/container/tree/2.0.2"
+            },
+            "time": "2021-11-05T16:47:00+00:00"
+        },
+        {
+            "name": "rarst/fragment-cache",
+            "version": "1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Rarst/fragment-cache.git",
+                "reference": "c9c4fec119342caf4fca6d3adb2d55dc5c70c29c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Rarst/fragment-cache/zipball/c9c4fec119342caf4fca6d3adb2d55dc5c70c29c",
+                "reference": "c9c4fec119342caf4fca6d3adb2d55dc5c70c29c",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "markjaquith/wp-tlc-transients": "~1.0",
+                "php": ">=5.3",
+                "pimple/pimple": "~3.0"
+            },
+            "suggest": {
+                "rarst/update-blocker": "Prevents invalid updates from official repositories"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "classmap": [
+                    "php/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Savchenko",
+                    "email": "contact@rarst.net",
+                    "homepage": "http://www.Rarst.net/"
+                }
+            ],
+            "description": "WordPress plugin for partial and async caching of heavy front-end elements.",
+            "homepage": "https://github.com/Rarst/fragment-cache",
+            "keywords": [
+                "cache",
+                "performance",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/Rarst/fragment-cache/issues",
+                "source": "https://github.com/Rarst/fragment-cache/tree/1.3.1"
+            },
+            "time": "2016-12-11T19:27:14+00:00"
+        },
+        {
+            "name": "rarst/update-blocker",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Rarst/update-blocker.git",
+                "reference": "7a215f8a7b2aa87a9411dbb40b9539936430c176"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Rarst/update-blocker/zipball/7a215f8a7b2aa87a9411dbb40b9539936430c176",
+                "reference": "7a215f8a7b2aa87a9411dbb40b9539936430c176",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Savchenko",
+                    "email": "contact@rarst.net",
+                    "homepage": "http://www.Rarst.net/"
+                }
+            ],
+            "description": "Lightweight generic blocker of updates from official WordPress repositories",
+            "homepage": "https://github.com/Rarst/update-blocker",
+            "keywords": [
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/Rarst/update-blocker/issues",
+                "source": "https://github.com/Rarst/update-blocker/tree/1.1"
+            },
+            "time": "2016-09-03T18:23:52+00:00"
+        }
+    ],
+    "packages-dev": [
+        {
+            "name": "mustache/mustache",
+            "version": "v2.14.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bobthecow/mustache.php.git",
+                "reference": "e62b7c3849d22ec55f3ec425507bf7968193a6cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bobthecow/mustache.php/zipball/e62b7c3849d22ec55f3ec425507bf7968193a6cb",
+                "reference": "e62b7c3849d22ec55f3ec425507bf7968193a6cb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "~1.11",
+                "phpunit/phpunit": "~3.7|~4.0|~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mustache": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Justin Hileman",
+                    "email": "justin@justinhileman.info",
+                    "homepage": "http://justinhileman.com"
+                }
+            ],
+            "description": "A Mustache implementation in PHP.",
+            "homepage": "https://github.com/bobthecow/mustache.php",
+            "keywords": [
+                "mustache",
+                "templating"
+            ],
+            "support": {
+                "issues": "https://github.com/bobthecow/mustache.php/issues",
+                "source": "https://github.com/bobthecow/mustache.php/tree/v2.14.2"
+            },
+            "time": "2022-08-23T13:07:01+00:00"
+        },
+        {
+            "name": "rarst/laps",
+            "version": "1.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Rarst/laps.git",
+                "reference": "03ff2b61ff01f4ecf757095c6aa165db9997351b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Rarst/laps/zipball/03ff2b61ff01f4ecf757095c6aa165db9997351b",
+                "reference": "03ff2b61ff01f4ecf757095c6aa165db9997351b",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "mustache/mustache": "~2.4",
+                "symfony/stopwatch": "~2.4"
+            },
+            "require-dev": {
+                "twbs/bootstrap": "~3.2"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Savchenko",
+                    "email": "contact@rarst.net",
+                    "homepage": "http://www.Rarst.net/"
+                }
+            ],
+            "description": "Light WordPress profiler.",
+            "homepage": "https://github.com/Rarst/laps",
+            "keywords": [
+                "performance",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/Rarst/laps/issues",
+                "source": "https://github.com/Rarst/laps/tree/1.4.4"
+            },
+            "time": "2017-07-05T18:45:39+00:00"
+        },
+        {
+            "name": "rarst/toolbar-theme-switcher",
+            "version": "1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Rarst/toolbar-theme-switcher.git",
+                "reference": "a39b910fd092be540dbc694dfca5b62cf1175778"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Rarst/toolbar-theme-switcher/zipball/a39b910fd092be540dbc694dfca5b62cf1175778",
+                "reference": "a39b910fd092be540dbc694dfca5b62cf1175778",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "classmap": [
+                    "php/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Savchenko",
+                    "email": "contact@rarst.net",
+                    "homepage": "http://www.Rarst.net/"
+                }
+            ],
+            "description": "Adds WordPress toolbar menu that allows users to switch theme for themselves",
+            "homepage": "https://github.com/Rarst/toolbar-theme-switcher",
+            "keywords": [
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/Rarst/toolbar-theme-switcher/issues",
+                "source": "https://github.com/Rarst/toolbar-theme-switcher/tree/1.5"
+            },
+            "time": "2016-11-27T22:02:09+00:00"
+        },
+        {
+            "name": "symfony/stopwatch",
+            "version": "v2.8.52",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/stopwatch.git",
+                "reference": "752586c80af8a85aeb74d1ae8202411c68836663"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/752586c80af8a85aeb74d1ae8202411c68836663",
+                "reference": "752586c80af8a85aeb74d1ae8202411c68836663",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Stopwatch\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Stopwatch Component",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/stopwatch/tree/v2.8.52"
+            },
+            "time": "2018-11-11T11:18:13+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/a-fresher-cache",
+            "version": "0.2.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/a-fresher-cache/",
+                "reference": "tags/0.2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/a-fresher-cache.0.2.0.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/a-fresher-cache/"
+        },
+        {
+            "name": "wpackagist-plugin/core-control",
+            "version": "1.2.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/core-control/",
+                "reference": "tags/1.2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/core-control.1.2.1.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/core-control/"
+        },
+        {
+            "name": "wpackagist-plugin/monster-widget",
+            "version": "0.3",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/monster-widget/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/monster-widget.zip?timestamp=1510328829"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/monster-widget/"
+        },
+        {
+            "name": "wpackagist-plugin/theme-check",
+            "version": "20230417",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/theme-check/",
+                "reference": "tags/20230417"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/theme-check.20230417.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/theme-check/"
+        },
+        {
+            "name": "wpackagist-plugin/user-switching",
+            "version": "1.7.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/user-switching/",
+                "reference": "tags/1.7.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/user-switching.1.7.0.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/user-switching/"
+        },
+        {
+            "name": "wpackagist-plugin/wcm-user-language-switcher",
+            "version": "1.8.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wcm-user-language-switcher/",
+                "reference": "tags/1.8.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wcm-user-language-switcher.1.8.1.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wcm-user-language-switcher/"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "intimate-tales/intimate-tales-plugin": 20,
+        "intimate-tales/intimate-tales-theme": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}

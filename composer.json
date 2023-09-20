@@ -43,8 +43,8 @@
         "johnpbloch/wordpress": ">=4.9",
         "rarst/fragment-cache": "^1.3",
         "rarst/update-blocker": "^1.1",
-        "intimate-tales/intimate-tales-plugin": "^1.0",
-        "intimate-tales/intimate-tales-theme": "^1.0"
+        "intimate-tales/intimate-tales-plugin": "dev-master",
+        "intimate-tales/intimate-tales-theme": "dev-master"
     },
     "require-dev": {
         "rarst/laps": "^1.4.4",
