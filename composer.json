@@ -45,7 +45,9 @@
         "rarst/update-blocker": "^1.1",
         "wpengine/advanced-custom-fields-pro": "^6.2",
         "intimate-tales/intimate-tales-plugin": "dev-master",
-        "intimate-tales/intimate-tales-theme": "dev-master"
+        "intimate-tales/intimate-tales-theme": "dev-master",
+        "log1x/navi": "^2.0",
+        "roots/soil": "^4.1"
     },
     "require-dev": {
         "rarst/laps": "^1.4.4",

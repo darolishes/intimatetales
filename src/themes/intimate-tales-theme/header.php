@@ -13,7 +13,7 @@
     <header class="f-header hide-nav hide-nav--fixed js-hide-nav js-hide-nav--main js-f-header">
         <div class="f-header__mobile-content container max-width-lg">
             <a href="<?php echo esc_url(home_url('/')); ?>" class="f-header__logo">
-                <!-- SVG logo code here -->
+                <?php get_template_part('template-parts/logo');?>
             </a>
 
             <button class="reset anim-menu-btn js-anim-menu-btn js-tab-focus f-header__nav-control" aria-label="Toggle menu">
@@ -25,16 +25,11 @@
             <div class="f-header__nav-grid container max-width-lg">
                 <div class="f-header__nav-logo-wrapper margin-right-lg@md">
                     <a href="<?php echo esc_url(home_url('/')); ?>" class="f-header__logo">
-                        <!-- SVG logo code here -->
+                        <?php get_template_part('template-parts/logo');?>
                     </a>
                 </div>
-                <ul class="f-header__list js-f-header__list">
-                    <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'header-menu',
-                        'container' => false,
-                        'items_wrap' => '%3$s',
-                        'walker' => new IT_Walker_Nav_Menu()
-                    ));
-                    ?>
-                </ul>
+                <?php get_template_part('template-parts/site-nav');?>
+
+                <?php get_template_part('template-parts/login-nav');?>
+            </div>
+        </div>
