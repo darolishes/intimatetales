@@ -1,0 +1,23 @@
+<div id="story-container">
+    <h2>{{ current_story.post_title }}</h2>
+    <p>{{ current_story.post_content }}</p>
+    
+    <!-- Entscheidungsoptionen -->
+    <div id="decision-options">
+        {% for option in branching_options %}
+            <button class="decision-button" data-decision="{{ option.decision_value }}">
+                {{ option.decision_text }}
+            </button>
+        {% endfor %}
+    </div>
+    
+    <!-- Charakteranpassung (optional) -->
+    <div id="character-customization">
+        {# Hier können Sie den Code für die Charakteranpassung einfügen, wenn Sie diese Funktion jetzt implementieren möchten. #}
+    </div>
+    
+    <!-- Echtzeit-Chat (optional) -->
+    <div id="realtime-chat">
+        {# Hier können Sie den Code für den Echtzeit-Chat einfügen, wenn Sie diese Funktion jetzt implementieren möchten. #}
+    </div>
+</div>

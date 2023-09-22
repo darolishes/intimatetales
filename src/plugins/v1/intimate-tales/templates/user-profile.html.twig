@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * 
+ */
+$user_id = get_current_user_id();
+
+if (get_field('description', 'user_' . $user_id)) {
+	echo '<p>' . get_field('description', 'user_' . $user_id) . '</p>';
+}

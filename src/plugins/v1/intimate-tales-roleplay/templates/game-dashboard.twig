@@ -1,0 +1,17 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<h2>Willkommen, {{ user.name }}</h2>
+
+<section class="available-stories">
+    <h3>Verfügbare Geschichten</h3>
+    {% for story in available_stories %}
+    <a href="/story/{{ story.id }}">{{ story.title }}</a>
+    {% endfor %}
+</section>
+
+<section class="user-progress">
+    <h3>Ihr Fortschritt</h3>
+    <!-- Zeigen Sie den Fortschritt des Benutzers in verschiedenen Geschichten an -->
+</section>
+{% endblock %}

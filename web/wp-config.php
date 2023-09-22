@@ -1,20 +1,16 @@
 <?php
-$_ENV = 'development';
-$_ROOT_DIR = __DIR__ . DIRECTORY_SEPARATOR;
-$_WEB_DIR = $_ROOT_DIR . 'wp';
-$_CONTENT_DIR = 'app';
-$WP_HOME = 'http://www.intimate-tales.test';
+require_once dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . 'config.php';
 
 /**
  * Database
  */
-define( 'DB_NAME', 'wp_intimatetalestest_db' );
-define( 'DB_USER', 'wp_intimatetalestest_user' );
-define( 'DB_PASSWORD', 'wp_intimatetalestest_pw' );
-define( 'DB_HOST', '127.0.0.1' );
+define('DB_NAME', $_DB_NAME);
+define('DB_USER', $_DB_USER);
+define('DB_PASSWORD', $_DB_PASSWORD);
+define('DB_HOST', $_DB_HOST);
 
-define( 'DB_CHARSET', 'utf8' );
-define( 'DB_COLLATE', '' );
+define('DB_CHARSET', 'utf8');
+define('DB_COLLATE', '');
 
 /**
  * Authentication Unique Keys and Salts.
@@ -28,7 +24,7 @@ define('SECURE_AUTH_SALT', '+>N)qg(x-]XAKU2Vdi_BfjK[X:M|5k>!7+>} #{/ih>c1]y X}P5
 define('LOGGED_IN_SALT',   'y+CC}r:`UrTW$#$6~r|_rqk3.db(*P[ck=c[[%j)+,7s(meaPI#!We>D Z;.t2)o');
 define('NONCE_SALT',       'y-f3-NJxCkJ:|qL&4B+Q[KrI)s7^,AL !D/:f?KF5gYp9R5OPEOIJM/m1kY1AHVW');
 
-$table_prefix = 'wp_';
+$table_prefix = $_TABLE_PREFIX;
 
 /**
  * Set up our global environment constant and load its config first
@@ -46,49 +42,50 @@ if (in_array(WP_ENV, ['production', 'staging', 'development', 'local'])) {
 /**
  * URLs
  */
-define('WP_HOME', $WP_HOME);
-define('WP_SITEURL', "{$WP_HOME}/wp");
+define('WP_HOME', $_WP_HOME);
+define('WP_SITEURL', $_WP_SITEURL);
 
 /**
  * Debug
  */
-define('SAVEQUERIES', true);
-define('WP_DEBUG', true);
-define('WP_DEBUG_DISPLAY', true);
-define('WP_DEBUG_LOG', true);
-define('WP_DISABLE_FATAL_ERROR_HANDLER', true);
-define('SCRIPT_DEBUG', true);
-define('DISALLOW_INDEXING', true);
+if (defined('DEBUG')) {
+    define('SAVEQUERIES', true);
+    define('WP_DEBUG', true);
+    define('WP_DEBUG_DISPLAY', true);
+    define('WP_DEBUG_LOG', true);
+    define('WP_DISABLE_FATAL_ERROR_HANDLER', true);
+    define('SCRIPT_DEBUG', true);
+    define('DISALLOW_INDEXING', true);
 
-ini_set('display_errors', '1');
+    ini_set('display_errors', '1');
+}
 
 // Enable plugin and theme updates and installation from the admin
 define('DISALLOW_FILE_MODS', false);
 
-
 /**
  * Custom Content Directory
  */
-define('CONTENT_DIR', $_CONTENT_DIR);
-define('WP_CONTENT_DIR', "{$_ROOT_DIR}{$_CONTENT_DIR}");
-define('WP_CONTENT_URL', "{$WP_HOME}/{$_CONTENT_DIR}");
+define('CONTENT_PATH', $_CONTENT_PATH);
+define('WP_CONTENT_DIR', CONTENT_PATH);
+define('WP_CONTENT_URL', $_WP_CONTENT_URL);
 
 /**
  * Custom Media Directory
  */
 
-define('MEDIA_DIR', $_CONTENT_DIR. '/media');
-define('WP_MEDIA_DIR', "{$_ROOT_DIR}{$_CONTENT_DIR}/media");
-define('WP_MEDIA_URL', "{$WP_HOME}/{$_CONTENT_DIR}/media");
+define('MEDIA_PATH', $_MEDIA_PATH);
+define('WP_MEDIA_DIR', MEDIA_PATH);
+define('WP_MEDIA_URL', $_WP_MEDIA_URL);
 
 /**
  * Absolute path to the Vendor directory.
  */
-define('VENDOR_DIR', $_ROOT_DIR. '/vendor');
+define('VENDOR_PATH', $_VENDOR_PATH);
 
 /** Absolute path to the WordPress directory. */
-if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', $_WEB_DIR );
+if (!defined('ABSPATH')) {
+    define('ABSPATH', $_WEB_DIR);
 }
 
 /** Sets up WordPress vars and included files. */

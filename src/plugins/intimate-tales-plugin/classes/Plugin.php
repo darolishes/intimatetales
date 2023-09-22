@@ -2,15 +2,19 @@
 
 namespace IntimateTales;
 
+if (!defined('ABSPATH')) {
+	exit; // Exit if accessed directly
+}
+
 use IntimateTales\Handlers\ACF_Handler;
 use IntimateTales\Meta\Meta_Factory;
 
-class Plugin extends Components\Plugin 
+class IT_Plugin extends Components\Plugin
 {
-    const DOMAIN                        = 'intimatetales';
-    const VERSION                       = '1.0.0';
-    const ENQUEUE_PREFIX                = 'it_enqueue_';
-    const STORY_POST_TYPE               = 'story';
+	const DOMAIN                        = 'intimatetales';
+	const VERSION                       = '1.0.0';
+	const ENQUEUE_PREFIX                = 'it_enqueue_';
+	const STORY_POST_TYPE               = 'story';
 	const HOOK_PREFIX                   = 'it_hook_';
 
 	// ----------------------------------------------------
@@ -39,13 +43,13 @@ class Plugin extends Components\Plugin
 
 	// ----------------------------------------------------
 
-    public function onCreate() 
-    {
-        $this->loadTextdomain( self::DOMAIN, 'languages' );
-		$this->acf_handler	= new ACF_Handler( $this );
-    }
+	public function on_create()
+	{
+		$this->load_textdomain(self::DOMAIN, 'languages');
+		$this->acf_handler	= new ACF_Handler($this);
+	}
 }
 
 Plugin::instance();
 
-require_once dirname( __FILE__ ) . '/public-functions.php';
+require_once dirname(__FILE__) . '/public-functions.php';

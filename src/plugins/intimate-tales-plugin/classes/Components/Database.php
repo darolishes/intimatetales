@@ -1,6 +1,5 @@
 <?php
 
-
 namespace IntimateTales\Components;
 
 use wpdb;
@@ -8,11 +7,13 @@ use wpdb;
 /**
  * @version 0.1.1
  */
-abstract class Database {
+abstract class Database
+{
 
 	public wpdb $wpdb;
 
-	public function __construct() {
+	public function __construct()
+	{
 		global $wpdb;
 		$this->wpdb = $wpdb;
 		$this->init();
@@ -23,7 +24,8 @@ abstract class Database {
 	 */
 	abstract function init();
 
-	public function createTables(){
-		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+	public function create_tables()
+	{
+		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 	}
 }
