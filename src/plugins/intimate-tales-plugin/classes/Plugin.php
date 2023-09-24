@@ -1,15 +1,20 @@
 <?php
-
 namespace IntimateTales;
 
 if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly
 }
 
-use IntimateTales\Handlers\ACF_Handler;
 use IntimateTales\Meta\Meta_Factory;
+use IntimateTales\Services\ACFService;
+use IntimateTales\Services\ServiceContainer;
 
-class IT_Plugin extends Components\Plugin
+/**
+ * Class Plugin
+ *
+ * @package IntimateTales
+ */
+class Plugin extends Components\Plugin
 {
 	const DOMAIN                        = 'intimatetales';
 	const VERSION                       = '1.0.0';
@@ -34,20 +39,31 @@ class IT_Plugin extends Components\Plugin
 	const ENDPOINT_USER_STORY           = 'user-story';
 	const ENDPOINT_STORY_ACTION         = 'story-action';
 
-	// ----------------------------------------------------
-	// initialize plugin features
-	// ----------------------------------------------------
-	public ACF_Handler $acf_handler;
-	public Meta_Factory $meta_factory;
-
-
-	// ----------------------------------------------------
+	/**
+     * @var ServiceContainer
+     */
+    private ServiceContainer $service_container;
 
 	public function on_create()
 	{
+		$this->service_container = new ServiceContainer();
 		$this->load_textdomain(self::DOMAIN, 'languages');
-		$this->acf_handler	= new ACF_Handler($this);
+		
+		// Initialize services
+        $this->service_container->add_service('acf_service', new ACFService($this));
+        $this->service_container->add_service('meta_factory', new Meta_Factory());
 	}
+
+    /**
+     * Get a service from the container.
+     *
+     * @param string $service_name
+     * @return mixed|null
+     */
+    public function get_service(string $service_name)
+    {
+        return $this->service_container->get($service_name);
+    }
 }
 
 Plugin::instance();

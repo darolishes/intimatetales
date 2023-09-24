@@ -1,5 +1,4 @@
 <?php
-
 namespace IntimateTales\Components;
 
 use IntimateTales\Plugin;
@@ -8,7 +7,8 @@ use IntimateTales\Plugin;
  * Class Component
  *
  * @package IntimateTales
- * @version 1.0.0
+ * @subpackage Components
+ * @since 1.0.0
  */
 abstract class Component
 {
@@ -17,6 +17,9 @@ abstract class Component
 
 	/**
 	 * _Component constructor.
+	 * 
+	 * @param Plugin $plugin
+	 * @return void
 	 */
 	public function __construct(Plugin $plugin)
 	{
@@ -26,8 +29,10 @@ abstract class Component
 
 	/**
 	 * overwrite this method in component implementations
+	 * 
+	 * @return void
 	 */
-	public function on_create()
+	public function on_create(): void
 	{
 	}
 }
