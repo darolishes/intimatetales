@@ -1,5 +1,5 @@
 <?php
-namespace IntimateTales\Authentication\EmailManager;
+namespace IntimateTales\Authentication;
 
 /**
  * Class EmailManager
@@ -18,7 +18,7 @@ class EmailManager
      */
 	public function send_verification_email(int $user_id): bool
 	{
-		$user = get_userdata($user_id);
+        $user = get_user_by('id', $user_id);
 		$verification_link = home_url() . "/verify?user_id={$user_id}&token=" . wp_generate_password(20, false);
 
 		$subject = __('Verify your email address', 'intimate-tales');
@@ -81,5 +81,15 @@ class EmailManager
         $headers = array('Content-Type: text/html; charset=UTF-8');
 
         wp_mail($email, $subject, $message, $headers);
+    }
+
+    /**
+     * Generate a secure token for email verification or password reset.
+     * 
+     * @return string
+     */
+    private function generate_token(): string
+    {
+        return wp_generate_password(20, false);
     }
 }

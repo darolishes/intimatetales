@@ -1,14 +1,33 @@
-<?php
 
+<?php
 namespace IntimateTales\Authentication\Controllers;
 
 use IntimateTales\Authentication\Auth;
 
+/**
+ * Class LogoutController
+ * 
+ * Manages the user logout process.
+ */
 class LogoutController
 {
-    public function logout()
+    protected $auth;
+
+    /**
+     * LogoutController constructor.
+     * 
+     * @param Auth $auth
+     */
+    public function __construct(Auth $auth)
     {
-        $auth = new Auth();
-        $auth->logout();
+        $this->auth = $auth;
+    }
+
+    /**
+     * Handles user logout.
+     */
+    public function logout(): void
+    {
+        $this->auth->logout();
     }
 }

@@ -4,28 +4,39 @@ namespace IntimateTales\Models;
 use WP_User;
 use Exception;
 
-class UserModel extends Model
+abstract class UserModel extends Model
 {
     protected WP_User $user;
+    protected array $meta;
 
     public function __construct(WP_User $user)
     {
         parent::__construct(['user' => $user]);
-        $this->load_meta();
+        $this->loadMeta();
     }
 
-    protected function load_meta(): void
+    protected function loadMeta(): void
     {
         $this->meta = get_user_meta($this->user->ID);
     }
 
-    public static function find(int $id): static
+    public static function find(int $id): ?self
     {
         $user = get_user_by('id', $id);
         if (!$user) {
-            throw new Exception('User not found');
+            return null;
         }
-        return new static($user);
+        return new self($user);
+    }
+
+    public function getId(): int
+    {
+        return $this->user->ID;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->user->user_email;
     }
 
     public static function all(): array

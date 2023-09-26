@@ -1,114 +1,77 @@
 <?php
-
-
 namespace IntimateTales\Components;
 
+if (!defined('ABSPATH')) {
+	exit; // Exit if accessed directly
+}
 
 /**
- * @since 1.0.1
+ * Class Templates
+ *
+ * @package IntimateTales\Components
  */
-class Templates {
+class Templates
+{
+	protected $views;
+	protected $cache = [];
 
+	public function on_create()
+	{
+		$this->views = $this->plugin->path . 'views/';
+	}
+	
 	/**
-	 * @var null|string
+	 * @return Templates
 	 */
-	private $theme_dir = null;
-
-	/**
-	 * @var null|string
-	 */
-	private $template_paths_filter = null;
-
-	/**
-	 * @var null|string[]
-	 */
-	private $sub_dirs = null;
-	private Plugin $plugin;
-
-	public function __construct(Plugin $plugin) {
-		$this->plugin = $plugin;
+	public static function view($slug, $args = [])
+	{
+		$slug = str_replace('.', '/', $slug);
+		self::instance()->part($slug, null, $args);
 	}
 
-	public function useThemeDirectory(string $dir){
-		$this->theme_dir = $dir;
-		return $this;
-	}
-
-	public function useAddTemplatePathsFilter(string $filter){
-		$this->template_paths_filter = $filter;
-		return $this;
-	}
-
-	/**
-	 * Look for existing template path
-	 * @return string|false
-	 */
-	function get_template_path( $template ) {
-
-		// theme or child theme
-		if ( $overridden_template = locate_template( $this->get_template_dirs($template) ) ) {
-			return $overridden_template;
+	public function part($slug, $name = null, $args = [], $subdir = '')
+	{
+		if ($args && is_array($args)) {
+			extract($args, EXTR_SKIP);
 		}
 
-		// parent theme
-		foreach ($this->get_template_dirs($template) as $path){
-			if( is_file( get_template_directory()."/$path")){
-				return get_template_directory()."/$path";
+		$template = $this->find($name ? "{$slug}-{$name}.php" : "{$slug}.php", $subdir);
+
+		if ($template) {
+			include($template);
+		}
+	}
+
+
+	public function fetch($name, $args = [], $subdir = '')
+	{
+		ob_start();
+
+		$this->part(str_replace('.php', '', $name), null, $args, $subdir);
+
+		return ob_get_clean();
+	}
+
+
+	public function find($name, $subdir = '')
+	{
+		// If the template is already in the cache, return the cache
+		if (isset($this->cache[$name])) {
+			return $this->cache[$name];
+		}
+
+		$path = $subdir ? $this->views . trim($subdir, '/') . '/' : $this->views;
+		$dirs = [get_stylesheet_directory(), get_template_directory(), plugin_dir_path(__FILE__)];
+
+		foreach ($dirs as $dir) {
+			if (file_exists($dir . '/' . $path . $name)) {
+				$this->cache[$name] = $dir . '/' . $path . $name;
+				break;
 			}
 		}
 
-		// other plugins
-		$paths = [];
-		if(is_string($this->template_paths_filter)){
-			$paths = apply_filters($this->template_paths_filter, $paths);
-		}
+		$this->cache[$name] = $this->cache[$name] ?? false;
 
-		// add default templates at last position
-		$paths[] = $this->plugin->path . 'templates';
-		// find templates
-		foreach ($paths as $path){
-			if(is_file("$path/$template")){
-				return "$path/$template";
-			}
-		}
-
-		// if nothing found...
-		return false;
+		return $this->cache[$name];
 	}
-
-	/**
-	 * get array of possible template files in theme
-	 * @param $template
-	 *
-	 * @return array
-	 */
-	function get_template_dirs($template){
-		$dirs = [];
-		if(is_string($this->theme_dir)){
-			$dirs[] = $this->theme_dir."/".$template;
-		}
-		foreach ($this->get_sub_dirs() as $sub){
-			$dirs[] = $sub.'/'.$template;
-		}
-		return $dirs;
-	}
-
-	/**
-	 * paths for locate_template
-	 * @return array
-	 */
-	function get_sub_dirs(){
-		if($this->sub_dirs == null){
-			$this->sub_dirs = array();
-			$dirs = [];
-			if(is_string($this->theme_dir)){
-				$dirs = array_filter(glob(get_template_directory().'/'.$this->theme_dir.'/*'), 'is_dir');
-			}
-			foreach($dirs as $dir){
-				$this->sub_dirs[] = str_replace(get_template_directory().'/', '', $dir);
-			}
-		}
-		return $this->sub_dirs;
-	}
-
 }

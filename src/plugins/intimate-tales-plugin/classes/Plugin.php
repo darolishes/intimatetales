@@ -6,8 +6,11 @@ if (!defined('ABSPATH')) {
 }
 
 use IntimateTales\Meta\Meta_Factory;
+use IntimateTales\Components\Templates;
 use IntimateTales\Services\ACFService;
 use IntimateTales\Services\ServiceContainer;
+use IntimateTales\Authentication\UserManager;
+use IntimateTales\Authentication\EmailManager;
 
 /**
  * Class Plugin
@@ -39,20 +42,26 @@ class Plugin extends Components\Plugin
 	const ENDPOINT_USER_STORY           = 'user-story';
 	const ENDPOINT_STORY_ACTION         = 'story-action';
 
-	/**
-     * @var ServiceContainer
-     */
     private ServiceContainer $service_container;
-
+	
 	public function on_create()
 	{
 		$this->service_container = new ServiceContainer();
 		$this->load_textdomain(self::DOMAIN, 'languages');
+
+		// Initialize templates
+		$this->service_container->add_service('templates', new Templates($this));
 		
 		// Initialize services
         $this->service_container->add_service('acf_service', new ACFService($this));
         $this->service_container->add_service('meta_factory', new Meta_Factory());
-	}
+
+		// Initialize UserManager with EmailManager
+		$email_manager = new EmailManager();
+		$user_manager = new UserManager($email_manager);
+		$this->service_container->add_service('user_manager', $user_manager);
+
+}
 
     /**
      * Get a service from the container.
