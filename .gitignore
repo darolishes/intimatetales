@@ -28,3 +28,7 @@ wp-cli.local.yml
 src/plugins/blockX
 
 config.php
+
+node_modules
+uploads
+wp-config.php

@@ -1,0 +1,12 @@
+{
+    "core": "WordPress/WordPress",
+    "port": 80,
+    "mappings": {
+        "wp-content": "./wp/wp-content"
+    },
+    "env": {
+        "tests": {
+            "port": 8080
+        }
+    }
+}
