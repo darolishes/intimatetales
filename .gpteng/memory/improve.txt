@@ -1,3 +1,17 @@
-Bitte beachten Sie, dass diese Informationen sich auf das Projekt "IntimateTales" beziehen und möglicherweise nicht direkt auf Ihr Projekt anwendbar sind. Wenn Sie eine eigene Version dieses Projekts erstellen möchten, sollten Sie die Anweisungen unter "Anleitung" für die Schritt-für-Schritt-Anleitung zum Erstellen eines LiteLLM-basierten Chatbots mit React verwenden.
-
-Wenn Sie jedoch weitergehende Informationen oder Unterstützung benötigen, bitten wir Ihnen, uns gerne in der [Chat](https://www.chatgpt.com/) zu schreiben!
+frontend/
+├── public/               # Öffentliche Assets wie Bilder, Icons, etc.
+├── src/                  # Quellcode für das Frontend
+│   ├── components/       # React-Komponenten
+│   │   ├── App.js            # Haupt-React-Komponente
+│   │   ├── index.js          # Einstiegspunkt für React
+│   │   └── [weitere Frontend-Dateien]
+│   ├── package.json          # NPM-Paketkonfiguration
+│   └── package-lock.json     # NPM-Lockfile
+├── backend/                  # Backend-Verzeichnis
+│   ├── main.py               # Hauptskript für das Backend
+│   ├── requirements.txt      # Python-Abhängigkeiten für das Backend
+│   └── [weitere Backend-Dateien]
+├── .env                      # Umgebungsvariablen für das Projekt
+├── start_script.sh           # Startskript für das gesamte Projekt
+└── [weitere Wurzelverzeichnis-Dateien]
+```

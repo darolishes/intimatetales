@@ -1,15 +1,7 @@
-Für das Projekt, wird sowohl ein Frontend als auch ein Backend benötigt und LiteLLM integriert, hier eine übersichtliche Aufstellung der notwendigen Dateien und der gesamten Projektstruktur:
-
-Projektstruktur
-
+Hier ist ein Beispiel für eine Struktur, wie das Frontend und Backend aufgeteilt sein können:
+```bash
 IntimateTales/
-│
-├── backend/                  # Backend-Verzeichnis
-│   ├── main.py               # Hauptskript für das Backend
-│   ├── requirements.txt      # Python-Abhängigkeiten für das Backend
-│   └── [weitere Backend-Dateien]
-│
-├── frontend/                 # Frontend-Verzeichnis
+├── frontend/
 │   ├── public/               # Öffentliche Assets wie Bilder, Icons, etc.
 │   ├── src/                  # Quellcode für das Frontend
 │   │   ├── components/       # React-Komponenten
@@ -18,21 +10,25 @@ IntimateTales/
 │   │   └── [weitere Frontend-Dateien]
 │   ├── package.json          # NPM-Paketkonfiguration
 │   └── package-lock.json     # NPM-Lockfile
-│
+├── backend/                  # Backend-Verzeichnis
+│   ├── main.py               # Hauptskript für das Backend
+│   ├── requirements.txt      # Python-Abhängigkeiten für das Backend
+│   └── [weitere Backend-Dateien]
 ├── .env                      # Umgebungsvariablen für das Projekt
 ├── start_script.sh           # Startskript für das gesamte Projekt
 └── [weitere Wurzelverzeichnis-Dateien]
-Wichtige Dateien
-Backend-Dateien: main.py, requirements.txt und eventuell andere Skripte oder Konfigurationsdateien spezifisch für Ihr Backend.
-Frontend-Dateien: public/ Verzeichnis für statische Dateien, src/ Verzeichnis für React-Komponenten, App.js, index.js, package.json und package-lock.json für die NPM-Verwaltung.
-.env-Datei: Für Umgebungsvariablen wie API-Schlüssel.
-Startskript: start_script.sh zum Starten der Backend- und Frontend-Komponenten sowie des LiteLLM-Servers.
-Bitte beachten Sie, dass dies eine grundlegende Struktur ist. Je nach spezifischen Anforderungen Ihres Projekts können weitere Dateien oder Verzeichnisse notwendig sein.
+```
+In diesem Beispiel befindet sich der Frontend-Code im Verzeichnis `frontend/src/`. Dies kann leicht geändert werden, indem du die entsprechenden Dateien und Verzeichnisse in deinem Projekt anpasstest.
 
-LITELLM_MODEL und SD_MODEL sowie alle anderen benötigten Schlüssel wie OPENAI_API_KEY und COHERE_API_KEY sind als „Umgebungsvariablen“ in .env speziell definiert.
+Stell dir vor, du hast ein Spielprojekt namens "IntimateTales" mit zwei Spielercharakteren: Alice und Bob. Alice ist ein bisschen wesentlicher, während Bob ein bisschen zickig ist. In diesem Beispiel könnte die `npcList` im Frontend eine Liste von Objekten sein, die Informationen über Alice und Bob enthalten, wie zum Beispiel ihr Aussehen oder ihre Persönlichkeit.
 
-Die Projektstruktur ist in diesem Beispiel nicht vollständig, sondern ist nur eine Vorlage. Sie knnen jedoch beliebig viele weitere Dateien und Verzeichnisse hinzufgen oder entfernen.
+Die `generateImage` Methode würde dann dazu verwendet werden, ein Bild zu erzeugen, das Alice und Bob in einer Szene zeigt. Diese Methode würde die Beschreibung des Szenarios und die Schlüsselwörter extrahieren und diese an den Backend-Server senden. Der Backend-Server würde dann das Bild generieren und es an den Frontend-Client zurücksenden, der es anschließend in den Chatfenster eingefügt würde.
 
-## 📖 Dokumentationen
+Stell dir vor, du hast eine Liste von NPCs im Frontend, die von den Spielern erstellt wurden oder importiert wurden. Die `generateImage` Methode kann aufgerufen werden, um ein Bild zu generieren, das diesen NPCs in einer Szene zeigt.
 
-- [LiteLLM](https://docs.litellm.ai/docs/)
+Dazu musst du die folgenden Schritte ausführen:
+1. Erstellen Sie im Frontend-Code eine Liste von Objekten mit Informationen über jeden NPC. Dies kann in einer Variablen im Frontend gespeichert werden, wie beispielsweise `npcList`.
+2. Definieren Sie die `generateImage` Methode im Frontend-Code. Diese Methode sollte einen Befehl senden, der das Bild erzeugt und an den Frontend-Client zurücksendet.
+3. Aktualisieren Sie den Backend-Server so, dass er auf einen Anforderungstyp für die Erstellung eines Bilds ausgelegt ist. Dies könnte bedeuten, dass du eine neue API-Endpunkt-URL hinzufügen musst, über die der Frontend-Client Bilder anfordern kann.
+4. Aktualisieren Sie den Backend-Server so, dass er auf den Anforderungstyp für die Erstellung eines Bilds reagiert und das Bild generiert und zurückgegeben wird. Dies könnte bedeuten, dass du die `generate_image` Funktion im Backend auffragen musst.
+5. Testen Sie Ihre Änderungen im Frontend und Backend. Stellen Sie sicher, dass der Frontend-Client Bilder korrekt von dem Backend-Server abrufen kann.
