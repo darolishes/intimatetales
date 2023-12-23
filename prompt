@@ -1,0 +1,38 @@
+Für das Projekt, wird sowohl ein Frontend als auch ein Backend benötigt und LiteLLM integriert, hier eine übersichtliche Aufstellung der notwendigen Dateien und der gesamten Projektstruktur:
+
+Projektstruktur
+
+IntimateTales/
+│
+├── backend/                  # Backend-Verzeichnis
+│   ├── main.py               # Hauptskript für das Backend
+│   ├── requirements.txt      # Python-Abhängigkeiten für das Backend
+│   └── [weitere Backend-Dateien]
+│
+├── frontend/                 # Frontend-Verzeichnis
+│   ├── public/               # Öffentliche Assets wie Bilder, Icons, etc.
+│   ├── src/                  # Quellcode für das Frontend
+│   │   ├── components/       # React-Komponenten
+│   │   ├── App.js            # Haupt-React-Komponente
+│   │   ├── index.js          # Einstiegspunkt für React
+│   │   └── [weitere Frontend-Dateien]
+│   ├── package.json          # NPM-Paketkonfiguration
+│   └── package-lock.json     # NPM-Lockfile
+│
+├── .env                      # Umgebungsvariablen für das Projekt
+├── start_script.sh           # Startskript für das gesamte Projekt
+└── [weitere Wurzelverzeichnis-Dateien]
+Wichtige Dateien
+Backend-Dateien: main.py, requirements.txt und eventuell andere Skripte oder Konfigurationsdateien spezifisch für Ihr Backend.
+Frontend-Dateien: public/ Verzeichnis für statische Dateien, src/ Verzeichnis für React-Komponenten, App.js, index.js, package.json und package-lock.json für die NPM-Verwaltung.
+.env-Datei: Für Umgebungsvariablen wie API-Schlüssel.
+Startskript: start_script.sh zum Starten der Backend- und Frontend-Komponenten sowie des LiteLLM-Servers.
+Bitte beachten Sie, dass dies eine grundlegende Struktur ist. Je nach spezifischen Anforderungen Ihres Projekts können weitere Dateien oder Verzeichnisse notwendig sein.
+
+LITELLM_MODEL und SD_MODEL sowie alle anderen benötigten Schlüssel wie OPENAI_API_KEY und COHERE_API_KEY sind als „Umgebungsvariablen“ in .env speziell definiert.
+
+Die Projektstruktur ist in diesem Beispiel nicht vollständig, sondern ist nur eine Vorlage. Sie knnen jedoch beliebig viele weitere Dateien und Verzeichnisse hinzufgen oder entfernen.
+
+## 📖 Dokumentationen
+
+- [LiteLLM](https://docs.litellm.ai/docs/)

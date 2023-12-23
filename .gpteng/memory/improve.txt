@@ -1,0 +1,3 @@
+Bitte beachten Sie, dass diese Informationen sich auf das Projekt "IntimateTales" beziehen und möglicherweise nicht direkt auf Ihr Projekt anwendbar sind. Wenn Sie eine eigene Version dieses Projekts erstellen möchten, sollten Sie die Anweisungen unter "Anleitung" für die Schritt-für-Schritt-Anleitung zum Erstellen eines LiteLLM-basierten Chatbots mit React verwenden.
+
+Wenn Sie jedoch weitergehende Informationen oder Unterstützung benötigen, bitten wir Ihnen, uns gerne in der [Chat](https://www.chatgpt.com/) zu schreiben!
