@@ -1,5 +1,7 @@
 frontend/package.json
 frontend/src/App.js
 frontend/src/components/Chat.js
+frontend/src/components/NPCManager.js
 frontend/src/index.js
 frontend/src/setupTests.js
+frontend/src/utils/api.js

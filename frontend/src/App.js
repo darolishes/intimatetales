@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { IoClose, IoReceipt, IoImage, IoReader, IoPersonAdd, IoTrashBin } from "react-icons/io5";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+import NPCManager from './components/NPCManager';
+import SettingsMenu from './components/SettingsMenu';
 import Chat from './components/Chat';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 function App() {
+
   const npcExemple = "IntimateTales is a little AI. He is kawaii and love help everyone."
   const [clickCount, setClickCount] = useState(0);
   const [imageUrl, setImageUrl] = useState('impai.png');
@@ -152,133 +154,44 @@ ${JSON.stringify(npcList[index])} [/INST]`;
 
   return (
     <div>
-      <ToastContainer limit={3} />
-      <img src={imageUrl} alt="IntimateTales" className="logo" onClick={handleClick} />
-      <div className={`menu-settings ${isSettingsMenuOpen ? 'open' : ''}`}>
-        <a onClick={toggleSettingsMenu}>
-          {isSettingsMenuOpen ? <IoClose className="icon-settings" /> : <img src="worker_impai.png" alt="S" className="icon-impai-head" />}
-        </a>
-        <div>
-          <p><IoReader className="icon" /> Root Prompt:</p>
-          <textarea
-              type="text"
-              value={firstUserPrompt}
-              onChange={e => {
-                setFirstUserPrompt(e.target.value);
-                localStorage.setItem('firstPrompt', e.target.value);
-              }}
-              placeholder={defaultFirstPrompt}
-          />
-          <br/>
-          <p><IoReceipt className="icon" /> Prompt:</p>
-          <textarea
-              type="text"
-              value={userPrompt}
-              onChange={e => {
-                setUserPrompt(e.target.value);
-                localStorage.setItem('prompt', e.target.value);
-              }}
-              placeholder={defaultPrompt}
-          />
-          <br/>
-          <p><IoImage className="icon" /> Images Settings:</p>
-          <div className="align-items">
-            <p>Width:</p>
-            <input 
-              type="number" 
-              value={width} 
-              onChange={e => {
-                setWidth(Number(e.target.value));
-                localStorage.setItem('width', Number(e.target.value));
-              }}
-            />
-            <br/>
-            <p>Height:</p>
-            <input 
-              type="number" 
-              value={height} 
-              onChange={e => {
-                setHeight(Number(e.target.value));
-                localStorage.setItem('height', Number(e.target.value));
-              }}
-            />
-          </div>
-          <br/>
-          <div className="align-items">
-            <p>Steps:</p>
-            <input
-              type="number" 
-              value={steps} 
-              onChange={e => {
-                setSteps(Number(e.target.value));
-                localStorage.setItem('steps', Number(e.target.value));
-              }}
-            />
-          </div>
-        </div>
-      </div>
-      <div className={`menu-npc ${isNPCMenuOpen ? 'open' : ''}`}>
-        <a onClick={toggleNPCMenu}>
-          {isNPCMenuOpen ? <IoClose className="icon-npc" /> : <img src="astro_impai.png" alt="C" className="icon-impai-head" />}
-        </a>
-        <div>
-          <div onClick={addNpc} className="create-npc">
-            <div className="align-items">
-              <IoPersonAdd className="icon-user" />
-              Create Character
-              <beta>BETA</beta>
-            </div>
-          </div>
-          <br />
-          {npcList.map((npc, index) => (
-            <div style={{padding: "10px"}} key={index}>
-              <div className="align-items">
-                <img src={npcAvatarList[index] ? npcAvatarList[index] : "soldier_impai.png"} alt="IntimateTales" className="avatar" onClick={handleClick} />
-                <textarea
-                  type="text"
-                  value={npc}
-                  onChange={(e) => editNpc(index, e.target.value)}
-                  placeholder={npcExemple}
-                />
-              </div>
-              <div className="align-items" style={{paddingLeft: "20px"}}>
-                <div className="tooltip" data-tooltip="Generate Image">
-                  <button 
-                    className="icon-user"
-                    onClick={() => generateImageNpc(index)}
-                  >
-                    <IoImage />
-                  </button>
-                </div>
-                <div className="tooltip" data-tooltip="Delete Character">
-                  <button 
-                    className="icon-user"
-                    onClick={() => deleteNpc(index)}
-                  >
-                    <IoTrashBin />
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <Chat
-        {...{
-          firstPrompt,
-          prompt,
-          message,
-          setMessage,
-          chatHistory,
-          setChatHistory,
-          width,
-          height,
-          steps,
-          npcList,
-        }}
-      />
+        <ToastContainer limit={3} />
+        <SettingsMenu
+            isSettingsMenuOpen={isSettingsMenuOpen}
+            toggleSettingsMenu={toggleSettingsMenu}
+            width={width}
+            setWidth={setWidth}
+            height={height}
+            setHeight={setHeight}
+            steps={steps}
+            setSteps={setSteps}
+            firstUserPrompt={firstUserPrompt}
+            setFirstUserPrompt={setFirstUserPrompt}
+            userPrompt={userPrompt}
+            setUserPrompt={setUserPrompt}
+            defaultFirstPrompt={defaultFirstPrompt}
+            defaultPrompt={defaultPrompt}
+        />
+        <NPCManager
+            npcList={npcList}
+            setNpcList={setNpcList}
+            generateImageNpc={generateImageNpc}
+            isNPCMenuOpen={isNPCMenuOpen}
+            toggleNPCMenu={toggleNPCMenu}
+        />
+        <Chat
+            firstPrompt={firstPrompt}
+            prompt={prompt}
+            message={message}
+            setMessage={setMessage}
+            chatHistory={chatHistory}
+            setChatHistory={setChatHistory}
+            width={width}
+            height={height}
+            steps={steps}
+            npcList={npcList}
+        />
     </div>
-  );
+);
 }
 
 export default App;

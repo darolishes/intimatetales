@@ -1,19 +1,8 @@
-To complete the setup, you need to perform a few additional steps.
+Now you can run your React application by running `npm start` or by visiting <http://localhost:3000/> in your browser.
 
-1. Start the backend server in a separate terminal using:
-```css
-cd backend
-python app.py
-```
-This will start the API for generating text and images using OpenAI's GPT-3.5-turbo and the stable diffusion model.
+You also have a working Dockerfile, so you can build and run the container using the following commands:
 
-2. Start the frontend development server in another terminal using:
-```java
-cd frontend
-npm start
-```
-This will start the React application, which will connect to the backend API to generate text and images. You can now access the application at http://localhost:3000.
+1. Run `docker build -t llama-chat .`. This will create a new Docker image named "llama-chat" from the contents of the current directory.
+2. Once the build is successful, you can run the container using `docker run --name=llama-chat-container -p 7543:7543 -p 7542:7542 llama-chat`. This will start two containers listening on ports 7543 and 7542, exposing the API server and the LLM server, respectively.
 
-Once you have completed these steps, you should see a functional IntimateTales chatbot with customizable settings and npc avatars.
-
-Remember that this is just an example setup, and you may need to adapt it to your specific use case or environment.
+You can now visit <http://localhost:7543> to access the LLM chat interface. Note that this only works if your host machine has an active internet connection and is running a compatible version of Docker.
