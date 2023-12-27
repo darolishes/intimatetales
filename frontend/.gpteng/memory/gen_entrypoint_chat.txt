@@ -1,0 +1,10 @@
+a) Install dependencies:
+```bash
+npm install react react-dom nodemailer
+```
+b) Run the codebase (in parallel if necessary):
+```bash
+npx parallel --halt --jobs 4 node_modules/react-scripts/bin/react-scripts.js build
+npx parallel --halt --jobs 4 node_modules/react-scripts/bin/react-scripts.js start
+```
+Note: The above commands assume that the codebase is located in the current folder. If it's not, you'll need to provide the correct path.
