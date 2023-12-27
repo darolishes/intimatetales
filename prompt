@@ -1,15 +1,41 @@
-Backend Integration for Signup:
+"IntimateTales" Plattform: Eine interaktive Rollenspiel-Geschichtenplattform für Einzelpersonen und Paare.
 
-Connect the signup form to your backend. Implement an API call in the signup component to register new users.
-Handle responses and errors appropriately.
-Form Validation:
+Benutzer können:
 
-Add client-side validation to the signup form to ensure data integrity (e.g., email format, password strength).
-Authentication and Security:
+Profile erstellen.
+Einen Partner einladen. Nachdem dieser sich angemeldet hat, werden beide als Paar markiert.
+Geschichten in zwei Modi aufrufen: Solo-Modus und Paar-Modus.
+Charaktere für die Geschichte auswählen.
+Handlungsentscheidungen über Auswahlbuttons treffen (kein Freitext).
+Im Paar-Modus sehen sie einen Ladebalken, wenn auf die Entscheidung des anderen Partners gewartet wird.
+Ein Fortschrittsbalken zeigt den Verlauf der Geschichte an.
+Nach der Registrierung und E-Mail-Bestätigung erhalten neue Benutzer ein Onboarding mit einem Multistep-Formular, in dem sie nach Präferenzen, Likes, Dislikes usw. gefragt werden.
+Auf ein Dashboard in ihrem Profil zugreifen, das ihre Geschichten, Fortschritte und andere relevante Daten anzeigt.
+Admin kann:
 
-Implement secure authentication mechanisms like JWT (JSON Web Tokens).
-Ensure passwords are hashed before storing them in the database.
-User Feedback and UX:
+Im Backend neue Geschichtenkategorien und Tags anlegen.
+Mit Hilfe von AI adaptive Geschichten generieren, die sich basierend auf den Entscheidungen der Benutzer ändern.
+Benutzerinteraktionen und Engagement mit den Geschichten überwachen.
+Die Plattform beinhaltet folgende Seiten:
 
-Provide user feedback for successful registration or errors (e.g., user already exists, invalid data).
-Enhance the user experience with loading indicators during the API call.
+Home Page:
+
+Zeigt alle verfügbaren Geschichten an.
+Hat Optionen zum Starten einer Geschichte im Solo- oder Paar-Modus.
+Enthält einen "Profil" Button, der zum Benutzer-Dashboard führt.
+Geschichten-Spiel-Seite:
+
+Zeigt die ausgewählte Geschichte, Charakterauswahl und Handlungsentscheidungen über Auswahlbuttons.
+Im Paar-Modus wird ein Ladebalken angezeigt, wenn auf eine Entscheidung des Partners gewartet wird.
+Ein Fortschrittsbalken zeigt den Verlauf der Geschichte an.
+Onboarding-Seite:
+
+Ein Multistep-Formular fragt neue Benutzer nach Präferenzen, Likes, Dislikes usw.
+Benutzer-Dashboard:
+
+Zeigt die Fortschritte des Benutzers, gespielte Geschichten, Einladungsstatus des Partners und andere relevante Daten.
+Admin Backend:
+
+Ermöglicht das Anlegen von Geschichtenkategorien und Tags.
+Tools zur Generierung von adaptiven Geschichten mit Hilfe von AI.
+Überwachungstools für Benutzerinteraktionen und Geschichtenengagement.

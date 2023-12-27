@@ -1,9 +1,7 @@
-npm install react react-dom websocket
+npm install
 
-npm install redux redux-saga
+node app.js
 
-npm install react-redux redux-saga --peer
+npm install -g nodemon
 
-npx parcel run --parallel
-
-npx parcel run login
+nodemon app.js

@@ -25,8 +25,8 @@ function Login() {
       <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
       <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
       <button type="submit">Login</button>
-      <Link to="/forgot-password">Forgot Password?</Link>
-      <Link to="/signup">Don't have an account? Sign up</Link>
+      <button to="/forgot-password">Forgot Password?</button>
+      <button to="/signup">Don't have an account? Sign up</button>
 
     </form>
   );
