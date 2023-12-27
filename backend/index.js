@@ -20,6 +20,15 @@ app.get('/', (req, res) => {
   res.send('Welcome to IntimateTales!');
 });
 
+// Add loading indicator for API call
+app.use((req, res, next) => {
+  const loading = `Loading...`;
+  res.status(200).send(loading);
+  setTimeout(() => {
+    res.status(200).send('');
+  }, 1000);
+});
+
 // Remove app.listen and use server.listen only
 const port = process.env.PORT || 3000;
 server.listen(port, () => {

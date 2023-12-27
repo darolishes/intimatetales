@@ -5,11 +5,13 @@ import StoryCreator from './pages/StoryCreator';
 import Login from './pages/Login';
 import ForgotPassword from './ForgotPassword';
 import ResetPassword from './ResetPassword';
+import Signup from './Signup';
 
 function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/signup" component={Signup} />
         <Route path="/" exact component={Dashboard} />
         <Route path="/create-story" component={StoryCreator} />
         <Route path="/login" component={Login} />

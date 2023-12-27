@@ -26,6 +26,7 @@ function Login() {
       <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
       <button type="submit">Login</button>
       <Link to="/forgot-password">Forgot Password?</Link>
+      <Link to="/signup">Don't have an account? Sign up</Link>
 
     </form>
   );

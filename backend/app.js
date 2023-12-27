@@ -25,6 +25,14 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).send(err.message || 'Internal Server Error');
 });
 
+// Add API call for signup registration
+app.post('/api/signup', (req, res) => {
+  const { email, password } = req.body;
+  // Implement database authentication and validation here
+  // ...
+  res.json({ message: 'User registered successfully' });
+});
+
 // LittleLM Integration (Basic Setup)
 app.post('/api/generate-story', (req, res) => {
   const { userPreferences } = req.body;
