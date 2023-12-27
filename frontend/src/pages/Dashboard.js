@@ -1,26 +1,25 @@
 // Example in src/pages/Dashboard.js
 import React, { useEffect, useState } from 'react';
-import { fetchStories } from '../services/apiService';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchRecentActivities, fetchStoryRecommendations } from '../services/apiService';
 
 function Dashboard() {
-  const [stories, setStories] = useState([]);
+  const [recentActivities, setRecentActivities] = useState([]);
+  const [storyRecommendations, setStoryRecommendations] = useState([]);
+  const userPreferences = useSelector(state => state.user.preferences);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchStories().then(data => setStories(data));
-  }, []);
-
-  const handleStorySelect = (storyId) => {
-    // Logic to navigate or start the story
-  };
+    fetchRecentActivities().then(data => setRecentActivities(data));
+    fetchStoryRecommendations(userPreferences).then(data => setStoryRecommendations(data));
+  }, [userPreferences, dispatch]);
 
   return (
     <div>
       <h1>Dashboard</h1>
-      {stories.map(story => (
-        <div key={story.id} onClick={() => handleStorySelect(story.id)}>
-          {story.title}
-        </div>
-      ))}
+      {/* Display recent activities */}
+      {/* Display story recommendations */}
+      {/* Options to influence upcoming storylines */}
     </div>
   );
 }

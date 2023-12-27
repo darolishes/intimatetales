@@ -8,4 +8,10 @@ export const createStory = async (storyData) => {
   // Implement story creation logic
 };
 
-// Add other service functions as needed
+export const fetchRecentActivities = async () => {
+  // Implement API call to get recent activities
+};
+
+export const fetchStoryRecommendations = async (preferences) => {
+  // Implement API call to get story recommendations based on user preferences
+};
