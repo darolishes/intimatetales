@@ -15,11 +15,11 @@ function Dashboard() {
   }, [userPreferences, dispatch]);
 
   return (
-    <div>
-      <h1>Dashboard</h1>
-      {/* Display recent activities */}
-      {/* Display story recommendations */}
-      {/* Options to influence upcoming storylines */}
+    <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
+      <div>
+        <h1 className="text-xl font-medium text-black">Dashboard</h1>
+        {/* Rest of your component */}
+      </div>
     </div>
   );
 }

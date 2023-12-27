@@ -1,5 +1,6 @@
-Story Creator Component: Interface for users to create and customize storylines, incorporating user preferences.
+On the Login page, add a "Forgot Password" link.
+This link should navigate to a new form where users can enter their email address for password recovery.
+Password Reset Form:
 
-integrate tailwind CSS.
-
-create storylines
+Create a new component for the password reset form.
+Implement a form where users can submit their email address.
