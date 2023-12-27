@@ -1,1 +1,4 @@
 node_modules
+.gpteng/file_list.txt
+.gpteng/memory/gen_entrypoint_chat.txt
+.gpteng/memory/improve.txt

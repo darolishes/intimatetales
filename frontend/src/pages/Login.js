@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../services/apiService';
+import { setUser } from '../redux/actions/userActions'; // assuming you have userActions
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic
+    loginUser(username, password)
+      .then(user => {
+        dispatch(setUser(user));
+        // Redirect to dashboard or another page
+      })
+      .catch(error => {
+        // Handle login error
+      });
   };
 
   return (
